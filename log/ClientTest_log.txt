@@ -1,0 +1,1140 @@
+2024-11-18 11:59:04,087 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 11:59:04,087 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 11:59:04,087 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 11:59:04,087 - __main__ - INFO - 端口数目：16
+2024-11-18 11:59:04,087 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 11:59:04,089 - __main__ - INFO - offset_duration_in_hours= 0.09
+2024-11-18 11:59:04,090 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 11:59:06,652 - __main__ - INFO - refresh_ports
+2024-11-18 11:59:06,653 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 11:59:06,655 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:06,665 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 11:59:06,665 - __main__ - INFO - check_ports:0
+2024-11-18 11:59:06,667 - __main__ - INFO - check_ports:1
+2024-11-18 11:59:07,669 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:08,679 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:09,681 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:10,683 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:11,686 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:12,675 - __main__ - INFO - check_ports:2
+2024-11-18 11:59:12,687 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:12,689 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 11:59:13,690 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 11:59:30,754 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 11:59:30,755 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 11:59:30,755 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 11:59:30,755 - __main__ - INFO - 端口数目：16
+2024-11-18 11:59:30,755 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 11:59:30,755 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 11:59:30,756 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 11:59:33,674 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 11:59:33,674 - __main__ - INFO - aging 选项为：0.5
+2024-11-18 11:59:34,639 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 11:59:34,640 - __main__ - INFO - aging 选项为：0.01
+2024-11-18 11:59:35,152 - __main__ - INFO - refresh_ports
+2024-11-18 11:59:35,152 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 11:59:35,154 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:35,160 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 11:59:35,161 - __main__ - INFO - check_ports:0
+2024-11-18 11:59:35,162 - __main__ - INFO - check_ports:1
+2024-11-18 11:59:36,168 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:37,171 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:38,172 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:39,173 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:40,174 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:41,173 - __main__ - INFO - check_ports:2
+2024-11-18 11:59:41,176 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 11:59:41,188 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 11:59:42,184 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 11:59:44,568 - __main__ - INFO - load_script
+2024-11-18 11:59:47,239 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 11:59:48,093 - __main__ - INFO - start_test
+2024-11-18 14:19:36,137 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:19:36,138 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:19:36,138 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:19:36,139 - __main__ - INFO - 端口数目：16
+2024-11-18 14:19:36,139 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:19:36,139 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:19:36,144 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:19:37,727 - __main__ - INFO - stop_test
+2024-11-18 14:20:29,579 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:20:29,579 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:20:29,579 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:20:29,579 - __main__ - INFO - 端口数目：16
+2024-11-18 14:20:29,580 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:20:29,580 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:20:29,581 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:20:31,631 - __main__ - INFO - stop_test
+2024-11-18 14:26:44,636 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:26:44,636 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:26:44,636 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:26:44,637 - __main__ - INFO - 端口数目：16
+2024-11-18 14:26:44,637 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:26:44,637 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:26:44,638 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:26:47,231 - __main__ - INFO - refresh_ports
+2024-11-18 14:26:47,231 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:26:47,234 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:26:48,243 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:27:06,049 - __main__ - INFO - refresh_ports
+2024-11-18 14:27:06,050 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:27:06,051 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:06,065 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:27:06,065 - __main__ - INFO - check_ports:0
+2024-11-18 14:27:06,067 - __main__ - INFO - check_ports:1
+2024-11-18 14:27:07,056 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:08,061 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:09,064 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:10,074 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:11,077 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:12,084 - __main__ - INFO - check_ports:2
+2024-11-18 14:27:12,087 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:27:12,095 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:27:13,088 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:27:18,484 - __main__ - INFO - load_script
+2024-11-18 14:27:19,836 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:27:21,040 - __main__ - INFO - start_test
+2024-11-18 14:27:24,584 - __main__ - INFO - stop_test
+2024-11-18 14:27:28,034 - __main__ - INFO - stop_test
+2024-11-18 14:27:28,425 - __main__ - INFO - stop_test
+2024-11-18 14:27:28,589 - __main__ - INFO - stop_test
+2024-11-18 14:27:28,751 - __main__ - INFO - stop_test
+2024-11-18 14:27:28,906 - __main__ - INFO - stop_test
+2024-11-18 14:28:36,795 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:28:36,796 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:28:36,796 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:28:36,797 - __main__ - INFO - 端口数目：16
+2024-11-18 14:28:36,797 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:28:36,797 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:28:36,799 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:28:38,895 - __main__ - INFO - refresh_ports
+2024-11-18 14:28:38,895 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:28:38,901 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:38,910 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:28:38,910 - __main__ - INFO - check_ports:0
+2024-11-18 14:28:38,913 - __main__ - INFO - check_ports:1
+2024-11-18 14:28:39,909 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:40,912 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:41,916 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:42,917 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:43,919 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:44,922 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:28:44,926 - __main__ - INFO - check_ports:2
+2024-11-18 14:28:44,940 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:28:45,926 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:28:48,575 - __main__ - INFO - load_script
+2024-11-18 14:28:50,161 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:28:51,079 - __main__ - INFO - start_test
+2024-11-18 14:29:18,333 - __main__ - INFO - stop_test
+2024-11-18 14:31:27,507 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:31:27,507 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:31:27,508 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:31:27,508 - __main__ - INFO - 端口数目：16
+2024-11-18 14:31:27,508 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:31:27,509 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:31:27,511 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:31:30,388 - __main__ - INFO - refresh_ports
+2024-11-18 14:31:30,389 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:31:30,391 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:30,398 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:31:30,398 - __main__ - INFO - check_ports:0
+2024-11-18 14:31:30,400 - __main__ - INFO - check_ports:1
+2024-11-18 14:31:31,402 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:32,406 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:33,408 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:34,410 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:35,412 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:36,415 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:31:36,421 - __main__ - INFO - check_ports:2
+2024-11-18 14:31:36,434 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:31:37,417 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:31:39,810 - __main__ - INFO - load_script
+2024-11-18 14:31:41,190 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:31:44,177 - __main__ - INFO - start_test
+2024-11-18 14:31:49,682 - __main__ - INFO - stop_test
+2024-11-18 14:31:55,048 - __main__ - INFO - stop_test
+2024-11-18 14:31:55,280 - __main__ - INFO - stop_test
+2024-11-18 14:31:55,464 - __main__ - INFO - stop_test
+2024-11-18 14:31:55,718 - __main__ - INFO - stop_test
+2024-11-18 14:31:55,929 - __main__ - INFO - stop_test
+2024-11-18 14:31:56,113 - __main__ - INFO - stop_test
+2024-11-18 14:31:56,307 - __main__ - INFO - stop_test
+2024-11-18 14:31:56,533 - __main__ - INFO - stop_test
+2024-11-18 14:31:56,798 - __main__ - INFO - stop_test
+2024-11-18 14:31:56,970 - __main__ - INFO - stop_test
+2024-11-18 14:33:35,083 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:33:35,083 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:33:35,084 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:33:35,084 - __main__ - INFO - 端口数目：16
+2024-11-18 14:33:35,085 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:33:35,085 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:33:35,087 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:33:36,876 - __main__ - INFO - refresh_ports
+2024-11-18 14:33:36,877 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:33:36,879 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:36,887 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:33:36,887 - __main__ - INFO - check_ports:0
+2024-11-18 14:33:36,888 - __main__ - INFO - check_ports:1
+2024-11-18 14:33:37,886 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:38,890 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:39,891 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:40,893 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:41,898 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:42,894 - __main__ - INFO - check_ports:2
+2024-11-18 14:33:42,900 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:33:42,907 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:33:43,901 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:33:46,325 - __main__ - INFO - load_script
+2024-11-18 14:33:47,423 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:33:48,192 - __main__ - INFO - start_test
+2024-11-18 14:33:54,088 - __main__ - INFO - stop_test
+2024-11-18 14:33:57,450 - __main__ - INFO - stop_test
+2024-11-18 14:33:57,639 - __main__ - INFO - stop_test
+2024-11-18 14:33:57,877 - __main__ - INFO - stop_test
+2024-11-18 14:33:58,084 - __main__ - INFO - stop_test
+2024-11-18 14:33:58,275 - __main__ - INFO - stop_test
+2024-11-18 14:34:01,336 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:34:01,336 - __main__ - INFO - Port: COM4
+2024-11-18 14:34:01,337 - __main__ - INFO -  timestamp:2024-11-18 14:33:49 content: [0.0, 18.0, 8.0, 3.7, 14.3, 6.3], Result: 通过
+2024-11-18 14:34:01,337 - __main__ - INFO -  timestamp:2024-11-18 14:33:52 content: [0.0, 41.7, 8.3, 6.0, 2.0, 0.0], Result: 通过
+2024-11-18 14:34:01,338 - __main__ - INFO -  timestamp:2024-11-18 14:33:55 content: [0.0, 51.7, 9.3, 9.3, 8.0, 2.7], Result: 通过
+2024-11-18 14:34:01,339 - __main__ - INFO -  timestamp:2024-11-18 14:33:58 content: [0.0, 32.7, 4.0, 12.0, 11.0, 4.3], Result: 通过
+2024-11-18 14:34:01,339 - __main__ - ERROR - Error in script execution: wrapped C/C++ object of type QCheckBox has been deleted
+2024-11-18 14:34:17,240 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:34:17,241 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:34:17,241 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:34:17,241 - __main__ - INFO - 端口数目：16
+2024-11-18 14:34:17,241 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:34:17,241 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:34:17,243 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:34:18,613 - __main__ - INFO - refresh_ports
+2024-11-18 14:34:18,614 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:34:18,615 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:18,622 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:34:18,622 - __main__ - INFO - check_ports:0
+2024-11-18 14:34:18,625 - __main__ - INFO - check_ports:1
+2024-11-18 14:34:19,625 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:20,629 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:21,630 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:22,631 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:23,634 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:24,637 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:34:24,641 - __main__ - INFO - check_ports:2
+2024-11-18 14:34:24,654 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:34:25,638 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:34:28,403 - __main__ - INFO - load_script
+2024-11-18 14:34:29,339 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:34:30,124 - __main__ - INFO - start_test
+2024-11-18 14:34:39,041 - __main__ - INFO - stop_test
+2024-11-18 14:34:54,558 - __main__ - INFO - stop_test
+2024-11-18 14:34:54,744 - __main__ - INFO - stop_test
+2024-11-18 14:34:54,923 - __main__ - INFO - stop_test
+2024-11-18 14:34:55,072 - __main__ - INFO - stop_test
+2024-11-18 14:34:55,227 - __main__ - INFO - stop_test
+2024-11-18 14:34:58,839 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:34:58,841 - __main__ - INFO - Port: COM4
+2024-11-18 14:34:58,841 - __main__ - INFO -  timestamp:2024-11-18 14:34:31 content: [0.0, 27.7, 11.7, 0.7, 8.7, 0.0], Result: 通过
+2024-11-18 14:34:58,841 - __main__ - INFO -  timestamp:2024-11-18 14:34:34 content: [0.0, 55.0, 8.7, 6.3, 12.0, 2.0], Result: 通过
+2024-11-18 14:34:58,842 - __main__ - INFO -  timestamp:2024-11-18 14:34:37 content: [5.0, 13.3, 2.7, 13.3, 5.0, 0.0], Result: 通过
+2024-11-18 14:34:58,842 - __main__ - INFO -  timestamp:2024-11-18 14:34:40 content: [8.3, 28.0, 5.3, 6.7, 9.7, 0.7], Result: 通过
+2024-11-18 14:34:58,842 - __main__ - INFO -  timestamp:2024-11-18 14:34:43 content: [0.0, 48.0, 10.3, 4.0, 8.0, 2.7], Result: 通过
+2024-11-18 14:34:58,843 - __main__ - INFO -  timestamp:2024-11-18 14:34:46 content: [0.0, 7.7, 17.7, 7.3, 12.3, 0.0], Result: 通过
+2024-11-18 14:34:58,843 - __main__ - INFO -  timestamp:2024-11-18 14:34:49 content: [5.0, 32.7, 6.0, 13.0, 6.3, 0.0], Result: 通过
+2024-11-18 14:37:34,906 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:37:34,906 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:37:34,907 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:37:34,907 - __main__ - INFO - 端口数目：16
+2024-11-18 14:37:34,907 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:37:34,907 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:37:34,909 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:37:36,628 - __main__ - INFO - refresh_ports
+2024-11-18 14:37:36,629 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:37:36,631 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:36,638 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:37:36,638 - __main__ - INFO - check_ports:0
+2024-11-18 14:37:36,639 - __main__ - INFO - check_ports:1
+2024-11-18 14:37:37,644 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:38,648 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:39,653 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:40,655 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:41,657 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:42,653 - __main__ - INFO - check_ports:2
+2024-11-18 14:37:42,659 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:37:42,667 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:37:43,669 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:37:46,691 - __main__ - INFO - load_script
+2024-11-18 14:37:48,074 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:37:49,087 - __main__ - INFO - start_test
+2024-11-18 14:37:52,367 - __main__ - INFO - stop_test
+2024-11-18 14:38:59,036 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:38:59,036 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:38:59,036 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:38:59,036 - __main__ - INFO - 端口数目：16
+2024-11-18 14:38:59,036 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:38:59,036 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:38:59,038 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:39:00,640 - __main__ - INFO - refresh_ports
+2024-11-18 14:39:00,641 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:39:00,643 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:00,651 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:39:00,652 - __main__ - INFO - check_ports:0
+2024-11-18 14:39:00,653 - __main__ - INFO - check_ports:1
+2024-11-18 14:39:01,656 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:02,670 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:03,673 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:04,675 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:05,678 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:06,668 - __main__ - INFO - check_ports:2
+2024-11-18 14:39:06,687 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:39:06,688 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:07,691 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:39:09,806 - __main__ - INFO - load_script
+2024-11-18 14:39:11,279 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:39:12,083 - __main__ - INFO - start_test
+2024-11-18 14:39:46,086 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:39:46,087 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:39:46,087 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:39:46,087 - __main__ - INFO - 端口数目：16
+2024-11-18 14:39:46,087 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:39:46,087 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:39:46,089 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:39:47,711 - __main__ - INFO - refresh_ports
+2024-11-18 14:39:47,712 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:39:47,714 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:47,722 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:39:47,723 - __main__ - INFO - check_ports:0
+2024-11-18 14:39:47,724 - __main__ - INFO - check_ports:1
+2024-11-18 14:39:48,728 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:49,730 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:50,733 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:51,741 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:52,742 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:53,731 - __main__ - INFO - check_ports:2
+2024-11-18 14:39:53,743 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:53,744 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:39:54,745 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:39:58,656 - __main__ - INFO - refresh_ports
+2024-11-18 14:39:58,656 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:39:58,659 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:39:58,665 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:39:58,665 - __main__ - INFO - check_ports:0
+2024-11-18 14:39:58,666 - __main__ - INFO - check_ports:1
+2024-11-18 14:39:59,662 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:00,668 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:01,673 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:02,679 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:03,685 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:04,684 - __main__ - INFO - check_ports:2
+2024-11-18 14:40:04,687 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:04,695 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:40:05,688 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:40:08,071 - __main__ - INFO - load_script
+2024-11-18 14:40:09,466 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:40:10,360 - __main__ - INFO - start_test
+2024-11-18 14:40:11,357 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:40:43,298 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:40:43,298 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:40:43,299 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:40:43,299 - __main__ - INFO - 端口数目：16
+2024-11-18 14:40:43,299 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:40:43,299 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:40:43,301 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:40:44,981 - __main__ - INFO - refresh_ports
+2024-11-18 14:40:44,981 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:40:44,984 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:44,991 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:40:44,991 - __main__ - INFO - check_ports:0
+2024-11-18 14:40:44,993 - __main__ - INFO - check_ports:1
+2024-11-18 14:40:46,191 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:47,192 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:48,194 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:49,195 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:50,205 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:40:51,012 - __main__ - INFO - check_ports:2
+2024-11-18 14:40:51,026 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:40:51,207 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:40:53,502 - __main__ - INFO - load_script
+2024-11-18 14:40:54,569 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:40:55,407 - __main__ - INFO - start_test
+2024-11-18 14:41:01,751 - __main__ - INFO - stop_test
+2024-11-18 14:41:02,347 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:41:02,349 - __main__ - INFO - Port: COM4
+2024-11-18 14:41:02,350 - __main__ - INFO -  timestamp:2024-11-18 14:40:56 content: [0.7, 17.3, 4.0, 15.0, 10.3, 0.0], Result: 通过
+2024-11-18 14:41:02,350 - __main__ - INFO -  timestamp:2024-11-18 14:40:59 content: [0.3, 48.7, 6.0, 5.3, 4.0, 4.7], Result: 通过
+2024-11-18 14:45:13,856 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:45:13,857 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:45:13,857 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:45:13,857 - __main__ - INFO - 端口数目：16
+2024-11-18 14:45:13,857 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:45:13,857 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:45:13,859 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:45:16,431 - __main__ - INFO - refresh_ports
+2024-11-18 14:45:16,431 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:45:16,434 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:16,443 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:45:16,444 - __main__ - INFO - check_ports:0
+2024-11-18 14:45:16,445 - __main__ - INFO - check_ports:1
+2024-11-18 14:45:17,446 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:18,449 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:19,450 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:20,452 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:21,453 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:22,456 - __main__ - INFO - check_ports:2
+2024-11-18 14:45:22,456 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:22,469 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:45:23,458 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:45:26,625 - __main__ - INFO - load_script
+2024-11-18 14:45:27,973 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:45:29,326 - __main__ - INFO - start_test
+2024-11-18 14:45:30,110 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:45:34,649 - __main__ - INFO - stop_test
+2024-11-18 14:45:36,215 - __main__ - INFO - stop_test
+2024-11-18 14:45:48,664 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:45:48,664 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:45:48,664 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:45:48,664 - __main__ - INFO - 端口数目：16
+2024-11-18 14:45:48,664 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:45:48,664 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:45:48,666 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:45:51,599 - __main__ - INFO - refresh_ports
+2024-11-18 14:45:51,599 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:45:51,602 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:51,611 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:45:51,611 - __main__ - INFO - check_ports:0
+2024-11-18 14:45:51,613 - __main__ - INFO - check_ports:1
+2024-11-18 14:45:52,613 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:53,616 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:54,618 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:55,621 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:56,624 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:57,623 - __main__ - INFO - check_ports:2
+2024-11-18 14:45:57,626 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:45:57,639 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:45:58,628 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:46:00,490 - __main__ - INFO - load_script
+2024-11-18 14:46:01,544 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:46:02,372 - __main__ - INFO - start_test
+2024-11-18 14:46:03,218 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:46:08,204 - __main__ - INFO - start_test
+2024-11-18 14:46:09,747 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:46:11,877 - __main__ - INFO - start_test
+2024-11-18 14:46:12,967 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:47:01,669 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:47:01,669 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:47:01,670 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:47:01,670 - __main__ - INFO - 端口数目：16
+2024-11-18 14:47:01,670 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:47:01,671 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:47:01,672 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:47:03,734 - __main__ - INFO - refresh_ports
+2024-11-18 14:47:03,735 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:47:03,737 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:03,745 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:47:03,746 - __main__ - INFO - check_ports:0
+2024-11-18 14:47:03,747 - __main__ - INFO - check_ports:1
+2024-11-18 14:47:04,888 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:05,890 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:06,892 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:07,895 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:08,896 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:47:09,764 - __main__ - INFO - check_ports:2
+2024-11-18 14:47:09,778 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:47:09,897 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:47:12,581 - __main__ - INFO - load_script
+2024-11-18 14:47:14,253 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:47:15,249 - __main__ - INFO - start_test
+2024-11-18 14:47:18,401 - __main__ - INFO - stop_test
+2024-11-18 14:47:19,090 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:47:19,091 - __main__ - INFO - Port: COM4
+2024-11-18 14:47:19,092 - __main__ - INFO -  timestamp:2024-11-18 14:47:16 content: [3.3, 31.3, 5.3, 17.7, 8.0, 0.0], Result: 通过
+2024-11-18 14:47:21,229 - __main__ - INFO - stop_test
+2024-11-18 14:47:24,095 - __main__ - INFO - stop_test
+2024-11-18 14:47:24,306 - __main__ - INFO - stop_test
+2024-11-18 14:47:28,355 - __main__ - INFO - start_test
+2024-11-18 14:47:33,379 - __main__ - INFO - stop_test
+2024-11-18 14:47:35,392 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:47:35,392 - __main__ - INFO - Port: COM4
+2024-11-18 14:47:35,392 - __main__ - INFO -  timestamp:2024-11-18 14:47:29 content: [0.0, 24.7, 6.0, 7.7, 15.3, 0.0], Result: 通过
+2024-11-18 14:47:35,393 - __main__ - INFO -  timestamp:2024-11-18 14:47:32 content: [0.0, 32.0, 10.3, 4.7, 5.3, 0.0], Result: 通过
+2024-11-18 14:47:37,793 - __main__ - INFO - start_test
+2024-11-18 14:47:38,845 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:47:41,279 - __main__ - INFO - start_test
+2024-11-18 14:47:42,430 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:47:43,266 - __main__ - INFO - stop_test
+2024-11-18 14:47:45,062 - __main__ - INFO - start_test
+2024-11-18 14:47:52,765 - __main__ - INFO - stop_test
+2024-11-18 14:47:54,964 - __main__ - INFO - stop_test
+2024-11-18 14:47:56,062 - __main__ - INFO - stop_test
+2024-11-18 14:47:56,336 - __main__ - INFO - stop_test
+2024-11-18 14:47:57,146 - __main__ - INFO - stop_test
+2024-11-18 14:47:57,752 - __main__ - INFO - stop_test
+2024-11-18 14:47:57,940 - __main__ - INFO - stop_test
+2024-11-18 14:47:58,167 - __main__ - INFO - stop_test
+2024-11-18 14:47:58,344 - __main__ - INFO - stop_test
+2024-11-18 14:47:59,458 - __main__ - INFO - start_test
+2024-11-18 14:48:01,354 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:48:01,355 - __main__ - INFO - Port: COM4
+2024-11-18 14:48:01,355 - __main__ - INFO -  timestamp:2024-11-18 14:47:45 content: [6.0, 30.0, 14.3, 11.0, 7.0, 0.0], Result: 通过
+2024-11-18 14:48:01,355 - __main__ - INFO -  timestamp:2024-11-18 14:47:48 content: [4.7, 28.7, 8.7, 14.3, 11.0, 5.3], Result: 通过
+2024-11-18 14:48:01,356 - __main__ - INFO -  timestamp:2024-11-18 14:47:52 content: [0.0, 38.3, 12.3, 2.0, 4.0, 1.3], Result: 通过
+2024-11-18 14:48:01,357 - __main__ - INFO -  timestamp:2024-11-18 14:47:55 content: [0.0, 45.7, 11.0, 8.7, 3.3, 0.7], Result: 通过
+2024-11-18 14:48:01,357 - __main__ - INFO -  timestamp:2024-11-18 14:47:58 content: [6.0, 32.0, 3.7, 17.0, 7.3, 0.0], Result: 通过
+2024-11-18 14:52:49,398 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:52:49,398 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:52:49,398 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:52:49,399 - __main__ - INFO - 端口数目：16
+2024-11-18 14:52:49,399 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:52:49,400 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:52:49,401 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:52:59,914 - __main__ - INFO - refresh_ports
+2024-11-18 14:52:59,915 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:52:59,917 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:52:59,926 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:52:59,926 - __main__ - INFO - check_ports:0
+2024-11-18 14:52:59,928 - __main__ - INFO - check_ports:1
+2024-11-18 14:53:00,930 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:01,934 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:02,937 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:03,940 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:04,941 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:05,942 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:53:05,946 - __main__ - INFO - check_ports:2
+2024-11-18 14:53:05,957 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:53:06,943 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:53:11,667 - __main__ - INFO - load_script
+2024-11-18 14:53:13,183 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:53:14,014 - __main__ - INFO - start_test
+2024-11-18 14:53:20,384 - __main__ - INFO - stop_test
+2024-11-18 14:53:21,112 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:53:21,114 - __main__ - INFO - Port: COM4
+2024-11-18 14:53:21,115 - __main__ - INFO -  timestamp:2024-11-18 14:53:14 content: [0.0, 27.0, 9.7, 10.3, 2.7, 0.0], Result: 通过
+2024-11-18 14:53:21,115 - __main__ - INFO -  timestamp:2024-11-18 14:53:18 content: [6.0, 17.7, 11.3, 9.0, 6.3, 0.0], Result: 通过
+2024-11-18 14:53:27,975 - __main__ - INFO - stop_test
+2024-11-18 14:53:28,784 - __main__ - INFO - stop_test
+2024-11-18 14:53:30,100 - __main__ - INFO - start_test
+2024-11-18 14:53:36,361 - __main__ - INFO - stop_test
+2024-11-18 14:53:37,240 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:53:37,240 - __main__ - INFO - Port: COM4
+2024-11-18 14:53:37,240 - __main__ - INFO -  timestamp:2024-11-18 14:53:31 content: [0.3, 28.3, 8.0, 7.3, 18.3, 0.0], Result: 通过
+2024-11-18 14:53:37,240 - __main__ - INFO -  timestamp:2024-11-18 14:53:34 content: [0.0, 57.3, 9.7, 12.7, 5.3, 0.0], Result: 通过
+2024-11-18 14:55:49,417 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 14:55:49,417 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 14:55:49,417 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 14:55:49,418 - __main__ - INFO - 端口数目：16
+2024-11-18 14:55:49,418 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 14:55:49,418 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 14:55:49,419 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 14:55:51,278 - __main__ - INFO - refresh_ports
+2024-11-18 14:55:51,278 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 14:55:51,281 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:51,289 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 14:55:51,290 - __main__ - INFO - check_ports:0
+2024-11-18 14:55:51,291 - __main__ - INFO - check_ports:1
+2024-11-18 14:55:52,605 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:53,606 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:54,607 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:55,610 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:56,612 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 14:55:57,298 - __main__ - INFO - check_ports:2
+2024-11-18 14:55:57,312 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 14:55:57,614 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 14:56:00,717 - __main__ - INFO - load_script
+2024-11-18 14:56:01,955 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 14:56:03,319 - __main__ - INFO - start_test
+2024-11-18 14:56:09,969 - __main__ - INFO - stop_test
+2024-11-18 14:56:10,341 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:56:10,343 - __main__ - INFO - Port: COM4
+2024-11-18 14:56:10,344 - __main__ - INFO -  timestamp:2024-11-18 14:56:04 content: [0.0, 58.0, 9.7, 5.7, 8.0, 2.7], Result: 通过
+2024-11-18 14:56:10,345 - __main__ - INFO -  timestamp:2024-11-18 14:56:07 content: [2.7, 23.3, 15.3, 8.0, 5.0, 0.3], Result: 通过
+2024-11-18 14:56:16,113 - __main__ - INFO - start_test
+2024-11-18 14:56:22,729 - __main__ - INFO - stop_test
+2024-11-18 14:56:23,101 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 14:56:23,101 - __main__ - INFO - Port: COM4
+2024-11-18 14:56:23,101 - __main__ - INFO -  timestamp:2024-11-18 14:56:16 content: [0.0, 24.0, 7.3, 3.0, 16.0, 3.0], Result: 通过
+2024-11-18 14:56:23,101 - __main__ - INFO -  timestamp:2024-11-18 14:56:20 content: [0.0, 26.0, 11.7, 8.0, 8.7, 0.7], Result: 通过
+2024-11-18 15:04:54,398 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:04:54,398 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:04:54,398 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:04:54,399 - __main__ - INFO - 端口数目：16
+2024-11-18 15:04:54,399 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:04:54,399 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:04:54,400 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:08:01,090 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:08:01,090 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:08:01,090 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:08:01,090 - __main__ - INFO - 端口数目：16
+2024-11-18 15:08:01,090 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:08:01,091 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:08:01,092 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:08:07,819 - __main__ - INFO - refresh_ports
+2024-11-18 15:08:07,819 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:08:07,822 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:07,830 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:08:07,831 - __main__ - INFO - check_ports:0
+2024-11-18 15:08:07,832 - __main__ - INFO - check_ports:1
+2024-11-18 15:08:08,834 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:09,837 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:10,839 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:11,841 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:12,850 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:13,851 - __main__ - INFO - check_ports:2
+2024-11-18 15:08:13,851 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:08:13,866 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:08:14,854 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:08:18,078 - __main__ - INFO - load_script
+2024-11-18 15:08:19,607 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:08:20,528 - __main__ - INFO - start_test
+2024-11-18 15:09:17,477 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:09:17,477 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:09:17,478 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:09:17,478 - __main__ - INFO - 端口数目：16
+2024-11-18 15:09:17,478 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:09:17,478 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:09:17,479 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:09:18,844 - __main__ - INFO - refresh_ports
+2024-11-18 15:09:18,844 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:09:18,847 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:18,854 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:09:18,854 - __main__ - INFO - check_ports:0
+2024-11-18 15:09:18,855 - __main__ - INFO - check_ports:1
+2024-11-18 15:09:19,856 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:20,861 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:21,862 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:22,863 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:23,865 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:24,867 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:24,876 - __main__ - INFO - check_ports:2
+2024-11-18 15:09:24,887 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:09:25,869 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:09:28,789 - __main__ - INFO - load_script
+2024-11-18 15:09:30,135 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:09:31,132 - __main__ - INFO - start_test
+2024-11-18 15:09:38,130 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 15:09:38,130 - __main__ - INFO - Port: COM4
+2024-11-18 15:09:38,131 - __main__ - INFO -  timestamp:2024-11-18 15:09:31 content: [0.0, 19.0, 0.0, 36.3, 0.0, 5.3], Result: 通过
+2024-11-18 15:09:38,131 - __main__ - INFO -  timestamp:2024-11-18 15:09:35 content: [0.0, 44.7, 11.0, 8.7, 3.3, 3.3], Result: 通过
+2024-11-18 15:09:47,650 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:09:47,650 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:09:47,650 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:09:47,651 - __main__ - INFO - 端口数目：16
+2024-11-18 15:09:47,651 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:09:47,651 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:09:47,653 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:09:49,422 - __main__ - INFO - refresh_ports
+2024-11-18 15:09:49,423 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:09:49,425 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:49,433 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:09:49,433 - __main__ - INFO - check_ports:0
+2024-11-18 15:09:49,435 - __main__ - INFO - check_ports:1
+2024-11-18 15:09:50,818 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:51,819 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:52,821 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:53,823 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:54,826 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:09:55,455 - __main__ - INFO - check_ports:2
+2024-11-18 15:09:55,467 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:09:55,827 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:09:58,497 - __main__ - INFO - load_script
+2024-11-18 15:09:59,612 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:10:00,441 - __main__ - INFO - start_test
+2024-11-18 15:10:04,468 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 15:10:04,469 - __main__ - INFO - Port: COM4
+2024-11-18 15:10:04,470 - __main__ - INFO -  timestamp:2024-11-18 15:10:01 content: [3.3, 27.3, 4.7, 12.0, 7.3, 1.0], Result: 通过
+2024-11-18 15:18:45,134 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:18:45,134 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:18:45,134 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:18:45,134 - __main__ - INFO - 端口数目：16
+2024-11-18 15:18:45,134 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:18:45,134 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:18:45,136 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:18:47,608 - __main__ - INFO - refresh_ports
+2024-11-18 15:18:47,609 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:18:47,611 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:47,619 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:18:47,620 - __main__ - INFO - check_ports:0
+2024-11-18 15:18:47,621 - __main__ - INFO - check_ports:1
+2024-11-18 15:18:48,622 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:49,626 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:50,627 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:51,633 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:52,678 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:18:53,632 - __main__ - INFO - check_ports:2
+2024-11-18 15:18:53,643 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:18:53,679 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:37:26,042 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:37:26,042 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:37:26,042 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:37:26,042 - __main__ - INFO - 端口数目：16
+2024-11-18 15:37:26,042 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:37:26,043 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:37:26,044 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:37:37,219 - __main__ - INFO - refresh_ports
+2024-11-18 15:37:37,220 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:37:37,222 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:37,230 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:37:37,231 - __main__ - INFO - check_ports:0
+2024-11-18 15:37:37,232 - __main__ - INFO - check_ports:1
+2024-11-18 15:37:38,235 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:39,239 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:40,242 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:41,244 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:42,246 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:43,248 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:37:43,252 - __main__ - INFO - check_ports:2
+2024-11-18 15:37:43,263 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:37:44,252 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:37:48,303 - __main__ - INFO - load_script
+2024-11-18 15:37:50,594 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:37:51,535 - __main__ - INFO - start_test
+2024-11-18 15:37:54,244 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:37:54,245 - __main__ - INFO - aging 选项为：0.5
+2024-11-18 15:37:55,313 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:37:55,313 - __main__ - INFO - aging 选项为：0.01
+2024-11-18 15:37:56,088 - __main__ - INFO - start_test
+2024-11-18 15:37:56,962 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:38:13,049 - __main__ - INFO - stop_test
+2024-11-18 15:38:16,708 - __main__ - INFO - start_test
+2024-11-18 15:38:17,826 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:38:23,500 - __main__ - INFO - stop_test
+2024-11-18 15:38:25,207 - __main__ - INFO - refresh_ports
+2024-11-18 15:38:25,207 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:38:25,209 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:25,215 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:38:25,215 - __main__ - INFO - check_ports:0
+2024-11-18 15:38:25,216 - __main__ - INFO - check_ports:1
+2024-11-18 15:38:26,214 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:27,217 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:28,219 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:29,221 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:30,225 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:31,225 - __main__ - INFO - check_ports:2
+2024-11-18 15:38:31,227 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:38:31,240 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:38:32,229 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:38:35,488 - __main__ - INFO - load_script
+2024-11-18 15:38:36,853 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:38:37,947 - __main__ - INFO - start_test
+2024-11-18 15:38:38,818 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:38:54,397 - __main__ - INFO - stop_test
+2024-11-18 15:38:55,745 - __main__ - INFO - start_test
+2024-11-18 15:38:57,043 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:39:02,848 - __main__ - INFO - stop_test
+2024-11-18 15:39:04,562 - __main__ - INFO - start_test
+2024-11-18 15:39:05,447 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:39:13,687 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:39:13,687 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:39:13,687 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:39:13,687 - __main__ - INFO - 端口数目：16
+2024-11-18 15:39:13,687 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:39:13,688 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:39:13,689 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:39:15,342 - __main__ - INFO - refresh_ports
+2024-11-18 15:39:15,342 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:39:15,345 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:15,353 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:39:15,354 - __main__ - INFO - check_ports:0
+2024-11-18 15:39:15,355 - __main__ - INFO - check_ports:1
+2024-11-18 15:39:16,355 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:17,360 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:18,365 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:19,367 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:20,368 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:21,369 - __main__ - INFO - check_ports:2
+2024-11-18 15:39:21,369 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:39:21,383 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:39:22,375 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:39:24,952 - __main__ - INFO - load_script
+2024-11-18 15:39:26,679 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:39:27,694 - __main__ - INFO - start_test
+2024-11-18 15:39:34,545 - __main__ - INFO - stop_test
+2024-11-18 15:39:34,679 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 15:39:34,680 - __main__ - INFO - Port: COM4
+2024-11-18 15:39:34,680 - __main__ - INFO -  timestamp:2024-11-18 15:39:28 content: [0.0, 30.3, 11.0, 7.3, 5.3, 1.3], Result: 通过
+2024-11-18 15:39:34,680 - __main__ - INFO -  timestamp:2024-11-18 15:39:31 content: [1.0, 33.0, 18.7, 4.7, 11.0, 0.0], Result: 通过
+2024-11-18 15:39:37,839 - __main__ - INFO - start_test
+2024-11-18 15:39:44,062 - __main__ - INFO - stop_test
+2024-11-18 15:39:45,030 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 15:39:45,031 - __main__ - INFO - Port: COM4
+2024-11-18 15:39:45,031 - __main__ - INFO -  timestamp:2024-11-18 15:39:38 content: [0.0, 25.3, 3.3, 13.7, 12.7, 0.0], Result: 通过
+2024-11-18 15:39:45,032 - __main__ - INFO -  timestamp:2024-11-18 15:39:41 content: [0.0, 37.3, 4.0, 11.3, 1.0, 0.0], Result: 通过
+2024-11-18 15:39:45,839 - __main__ - INFO - stop_test
+2024-11-18 15:39:46,702 - __main__ - INFO - stop_test
+2024-11-18 15:39:47,208 - __main__ - INFO - stop_test
+2024-11-18 15:39:47,488 - __main__ - INFO - stop_test
+2024-11-18 15:39:50,970 - __main__ - INFO - start_test
+2024-11-18 15:39:52,023 - __main__ - ERROR - 行索引 0 或列索引 6 超出了模型的有效范围。
+2024-11-18 15:39:52,024 - __main__ - ERROR - 行索引 0 或列索引 6 超出了模型的有效范围。
+2024-11-18 15:39:52,024 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:52,025 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:53,023 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:53,025 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:54,024 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:54,025 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:55,024 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:55,025 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:56,025 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:56,027 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:57,026 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:57,027 - __main__ - ERROR - 行索引 0 或列索引 5 超出了模型的有效范围。
+2024-11-18 15:39:57,893 - __main__ - INFO - stop_test
+2024-11-18 15:39:58,026 - __main__ - ERROR - 行索引 0 或列索引 6 超出了模型的有效范围。
+2024-11-18 15:39:58,026 - __main__ - ERROR - 行索引 0 或列索引 6 超出了模型的有效范围。
+2024-11-18 15:39:58,215 - __main__ - INFO - 本次测试结论为：不通过 
+详细测试数据为：
+
+2024-11-18 15:39:58,217 - __main__ - INFO - Port: COM4
+2024-11-18 15:39:58,217 - __main__ - INFO -  timestamp:2024-11-18 15:39:52 content: 当前端口无法获取到设备或无法连接到设备, Result: 不通过
+2024-11-18 15:39:58,217 - __main__ - INFO -  timestamp:2024-11-18 15:39:52 content: [0.7, 18.7, 16.7, 5.0, 13.0, 2.7], Result: 通过
+2024-11-18 15:39:58,218 - __main__ - INFO -  timestamp:2024-11-18 15:39:55 content: 当前端口无法获取到设备或无法连接到设备, Result: 不通过
+2024-11-18 15:39:58,218 - __main__ - INFO -  timestamp:2024-11-18 15:39:55 content: [0.0, 50.3, 8.0, 6.7, 15.3, 6.7], Result: 通过
+2024-11-18 15:54:30,751 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:54:30,751 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:54:30,751 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:54:30,751 - __main__ - INFO - 端口数目：16
+2024-11-18 15:54:30,752 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:54:30,752 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:54:30,753 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:54:33,035 - __main__ - INFO - refresh_ports
+2024-11-18 15:54:33,035 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:54:33,038 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:33,046 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:54:33,046 - __main__ - INFO - check_ports:0
+2024-11-18 15:54:33,048 - __main__ - INFO - check_ports:1
+2024-11-18 15:54:34,055 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:35,056 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:36,057 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:37,058 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:38,059 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:39,053 - __main__ - INFO - check_ports:2
+2024-11-18 15:54:39,061 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:54:39,066 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:54:40,062 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:54:42,763 - __main__ - INFO - start_test
+2024-11-18 15:55:10,930 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:55:10,930 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:55:10,931 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:55:10,931 - __main__ - INFO - 端口数目：16
+2024-11-18 15:55:10,931 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:55:10,931 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:55:10,933 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:55:13,914 - __main__ - INFO - start_test
+2024-11-18 15:55:13,915 - __main__ - ERROR - 无可用端口
+2024-11-18 15:55:18,464 - __main__ - INFO - refresh_ports
+2024-11-18 15:55:18,464 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:55:18,467 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:18,472 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:55:18,473 - __main__ - INFO - check_ports:0
+2024-11-18 15:55:18,474 - __main__ - INFO - check_ports:1
+2024-11-18 15:55:19,913 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:20,915 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:21,917 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:22,921 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:23,922 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:55:24,482 - __main__ - INFO - check_ports:2
+2024-11-18 15:55:24,497 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:55:24,924 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:55:26,026 - __main__ - INFO - start_test
+2024-11-18 15:55:29,110 - __main__ - INFO - load_script
+2024-11-18 15:55:30,267 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:55:31,456 - __main__ - INFO - start_test
+2024-11-18 15:55:32,537 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:57:20,548 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:57:20,548 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:57:20,548 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:57:20,548 - __main__ - INFO - 端口数目：16
+2024-11-18 15:57:20,548 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:57:20,549 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:57:20,550 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:57:23,396 - __main__ - INFO - refresh_ports
+2024-11-18 15:57:23,397 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:57:23,399 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:23,406 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:57:23,407 - __main__ - INFO - check_ports:0
+2024-11-18 15:57:23,408 - __main__ - INFO - check_ports:1
+2024-11-18 15:57:24,411 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:25,415 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:26,417 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:27,428 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:28,428 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:29,424 - __main__ - INFO - check_ports:2
+2024-11-18 15:57:29,429 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:29,438 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:57:30,430 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:57:36,592 - __main__ - INFO - start_test
+2024-11-18 15:57:56,762 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:57:56,762 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:57:56,763 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:57:56,763 - __main__ - INFO - 端口数目：16
+2024-11-18 15:57:56,763 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:57:56,763 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:57:56,764 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:57:58,359 - __main__ - INFO - refresh_ports
+2024-11-18 15:57:58,359 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:57:58,361 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:57:58,368 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:57:58,369 - __main__ - INFO - check_ports:0
+2024-11-18 15:57:58,370 - __main__ - INFO - check_ports:1
+2024-11-18 15:57:59,379 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:58:00,388 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:58:01,391 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:58:02,399 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:58:03,406 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:58:04,377 - __main__ - INFO - check_ports:2
+2024-11-18 15:58:04,393 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:58:04,408 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:58:05,953 - __main__ - INFO - start_test
+2024-11-18 15:58:08,423 - __main__ - INFO - load_script
+2024-11-18 15:58:09,552 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:58:10,437 - __main__ - INFO - start_test
+2024-11-18 15:58:13,868 - __main__ - ERROR - Error in script execution: not enough values to unpack (expected 3, got 2)
+2024-11-18 15:59:21,380 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 15:59:21,380 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 15:59:21,380 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 15:59:21,380 - __main__ - INFO - 端口数目：16
+2024-11-18 15:59:21,381 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 15:59:21,381 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 15:59:21,382 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 15:59:23,038 - __main__ - INFO - start_test
+2024-11-18 15:59:23,038 - __main__ - ERROR - 无可用端口
+2024-11-18 15:59:25,171 - __main__ - INFO - refresh_ports
+2024-11-18 15:59:25,172 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 15:59:25,174 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:59:25,182 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 15:59:25,182 - __main__ - INFO - check_ports:0
+2024-11-18 15:59:25,183 - __main__ - INFO - check_ports:1
+2024-11-18 15:59:27,267 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:59:28,268 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:59:29,270 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:59:30,271 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 15:59:31,205 - __main__ - INFO - check_ports:2
+2024-11-18 15:59:31,219 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 15:59:31,273 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 15:59:35,725 - __main__ - INFO - load_script
+2024-11-18 15:59:37,161 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 15:59:38,497 - __main__ - INFO - start_test
+2024-11-18 16:00:42,066 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 16:00:42,067 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 16:00:42,067 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 16:00:42,067 - __main__ - INFO - 端口数目：16
+2024-11-18 16:00:42,067 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 16:00:42,068 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 16:00:42,069 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 16:00:44,595 - __main__ - INFO - start_test
+2024-11-18 16:00:51,053 - __main__ - ERROR - 无可用端口
+2024-11-18 16:01:03,354 - __main__ - INFO - refresh_ports
+2024-11-18 16:01:03,355 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 16:01:03,360 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:03,370 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 16:01:03,370 - __main__ - INFO - check_ports:0
+2024-11-18 16:01:03,371 - __main__ - INFO - check_ports:1
+2024-11-18 16:01:04,371 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:05,372 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:06,453 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:07,455 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:08,457 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:01:09,384 - __main__ - INFO - check_ports:2
+2024-11-18 16:01:09,396 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 16:01:09,458 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 16:01:13,242 - __main__ - INFO - start_test
+2024-11-18 16:02:37,700 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 16:02:37,700 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 16:02:37,701 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 16:02:37,701 - __main__ - INFO - 端口数目：16
+2024-11-18 16:02:37,701 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 16:02:37,701 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 16:02:37,702 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 16:02:42,320 - __main__ - INFO - refresh_ports
+2024-11-18 16:02:42,321 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 16:02:42,323 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:42,331 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 16:02:42,331 - __main__ - INFO - check_ports:0
+2024-11-18 16:02:42,333 - __main__ - INFO - check_ports:1
+2024-11-18 16:02:43,336 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:44,339 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:45,342 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:46,345 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:47,347 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:48,351 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:02:48,352 - __main__ - INFO - check_ports:2
+2024-11-18 16:02:48,367 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 16:02:49,355 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 16:02:53,353 - __main__ - INFO - start_test
+2024-11-18 16:02:53,354 - __main__ - ERROR - 请添加测试设备
+2024-11-18 16:03:11,410 - __main__ - INFO - start_test
+2024-11-18 16:03:11,410 - __main__ - ERROR - 请添加测试设备
+2024-11-18 16:03:14,797 - __main__ - INFO - start_test
+2024-11-18 16:03:18,219 - __main__ - INFO - load_script
+2024-11-18 16:03:19,557 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test.py，请点击开始测试按钮，执行脚本
+
+2024-11-18 16:03:20,395 - __main__ - INFO - start_test
+2024-11-18 16:03:22,802 - __main__ - INFO - stop_test
+2024-11-18 16:03:24,580 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-18 16:03:24,580 - __main__ - INFO - Port: COM4
+2024-11-18 16:03:24,580 - __main__ - INFO -  timestamp:2024-11-18 16:03:21 content: [0.0, 24.7, 4.0, 5.0, 11.3, 6.0], Result: 通过
+2024-11-18 16:03:26,477 - __main__ - INFO - start_test
+2024-11-18 16:03:29,546 - __main__ - INFO - start_test
+2024-11-18 16:03:29,547 - __main__ - ERROR - 请添加测试设备
+2024-11-18 16:03:33,410 - __main__ - INFO - start_test
+2024-11-18 16:03:35,254 - __main__ - INFO - stop_test
+2024-11-18 16:03:37,404 - __main__ - INFO - 本次测试结论为：不通过 
+详细测试数据为：
+
+2024-11-18 16:03:37,404 - __main__ - INFO - Port: COM4
+2024-11-18 16:03:37,405 - __main__ - INFO -  timestamp:2024-11-18 16:03:34 content: 当前端口无法获取到设备或无法连接到设备, Result: 不通过
+2024-11-18 16:03:37,405 - __main__ - INFO -  timestamp:2024-11-18 16:03:34 content: 当前端口无法获取到设备或无法连接到设备, Result: 不通过
+2024-11-18 16:03:37,406 - __main__ - INFO -  timestamp:2024-11-18 16:03:34 content: [6.0, 60.0, 11.3, 11.0, 8.0, 1.7], Result: 通过
+2024-11-18 16:25:10,490 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 16:25:10,490 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 16:25:10,490 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 16:25:10,490 - __main__ - INFO - 端口数目：16
+2024-11-18 16:25:10,491 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 16:25:10,491 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 16:25:10,492 - __main__ - INFO - update_port_options ,fist startup
+2024-11-18 16:25:12,075 - __main__ - INFO - refresh_ports
+2024-11-18 16:25:12,075 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-18 16:25:12,078 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:12,085 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-18 16:25:12,085 - __main__ - INFO - check_ports:0
+2024-11-18 16:25:12,087 - __main__ - INFO - check_ports:1
+2024-11-18 16:25:13,088 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:14,091 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:15,095 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:16,101 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:17,108 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:18,103 - __main__ - INFO - check_ports:2
+2024-11-18 16:25:18,115 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-18 16:25:18,117 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-18 16:25:19,119 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-18 17:40:01,746 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-18 17:40:01,746 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-18 17:40:01,746 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-18 17:40:01,746 - __main__ - INFO - 端口数目：16
+2024-11-18 17:40:01,747 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-18 17:40:01,747 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-18 17:40:01,748 - __main__ - INFO - update_port_options ,fist startup
+2024-11-19 10:36:49,555 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-19 10:36:49,555 - __main__ - INFO - current_ui_enable= n,log_ui_enable = n
+2024-11-19 10:36:49,556 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-19 10:36:49,556 - __main__ - INFO - 端口数目：16
+2024-11-19 10:36:49,556 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-19 10:36:49,556 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-19 10:36:49,568 - __main__ - INFO - update_port_options ,fist startup
+2024-11-19 10:37:01,818 - __main__ - INFO - load_script
+2024-11-19 10:37:11,206 - __main__ - INFO - load_script
+2024-11-19 10:37:56,224 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-19 10:37:56,224 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-19 10:37:56,225 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-19 10:37:56,225 - __main__ - INFO - 端口数目：16
+2024-11-19 10:37:56,225 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-19 10:37:56,226 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-19 10:37:56,295 - __main__ - INFO - update_port_options ,fist startup
+2024-11-19 10:38:19,007 - __main__ - INFO - start_test
+2024-11-19 10:38:19,008 - __main__ - ERROR - 无可用端口
+2024-11-19 10:38:23,221 - __main__ - INFO - refresh_ports
+2024-11-19 10:38:23,222 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-19 10:38:23,227 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-19 10:38:24,241 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-19 10:38:25,636 - __main__ - INFO - refresh_ports
+2024-11-19 10:38:25,636 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-19 10:38:25,638 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-19 10:38:26,643 - __main__ - INFO - update_port_options:collect port infos completely
