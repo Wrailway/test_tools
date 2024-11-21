@@ -4063,8 +4063,11 @@ def run_tests_for_port(port):
             logger.info(f"Test method: {test_method_name} failed. Error: {failure_message}\n")
             gesture_result = {
                 "timestamp":timestamp,
-                "content": f'{test_method_name},{failure_message}',
-                "result": "不通过"
+                "description":f'{test_method_name}',
+                "expected":'',
+                "content": '',
+                "result": "不通过",
+                "comment":f'{failure_message}'
             }
             port_result["gestures"].append(gesture_result)
 
@@ -4075,8 +4078,11 @@ def run_tests_for_port(port):
             logger.info(f"Test method: {test_method_name} encountered an error. Error: {error_message}\n")
             gesture_result = {
                 "timestamp":timestamp,
-                "content": f'{test_method_name},{error_message}',
-                "result": "不通过"
+                "description":f'{test_method_name}',
+                "expected":'',
+                "content": '',
+                "result": "不通过",
+                "comment":f'{error_message}'
             }
             port_result["gestures"].append(gesture_result)
 
@@ -4087,8 +4093,11 @@ def run_tests_for_port(port):
             logger.info(f"Test method: {test_method_name} was skipped. Reason: {reason}\n")
             gesture_result = {
                 "timestamp":timestamp,
-                "content": f'{test_method_name},{reason}',
-                "result": "通过"
+                "description":f'{test_method_name}',
+                "expected":'',
+                "content": '',
+                "result": "通过",
+                "comment":f'{reason}'
             }
             port_result["gestures"].append(gesture_result)
 
@@ -4111,6 +4120,7 @@ def main(ports,max_cycle_num=1):
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试MODBUS协议<开始时间：{start_time}>----------------------------------------------\n')
+    test_title = 'MODBUS协议测试'
     overall_result = []
     test_result = '通过'
     need_show_current = False
@@ -4134,7 +4144,7 @@ def main(ports,max_cycle_num=1):
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------MODBUS协议测试结束<结束时间：{end_time}>----------------------------------------------\n')
     # print_overall_result(overall_result)
-    return overall_result, test_result,need_show_current
+    return test_title, overall_result, test_result, need_show_current
 
 
 def print_overall_result(overall_result):
@@ -4145,13 +4155,13 @@ def print_overall_result(overall_result):
             if item['port'] not in port_data_dict:
                 port_data_dict[item['port']] = []
             for gesture in item['gestures']:
-                port_data_dict[item['port']].append((gesture['timestamp'],gesture['content'], gesture['result']))
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
 
         # 打印数据
         for port, data_list in port_data_dict.items():
             logger.info(f"Port: {port}")
-            for timestamp, content, result in data_list:
-                logger.info(f" timestamp:{timestamp} content: {content}, Result: {result}")
+            for timestamp, description, expected, content, result, comment in data_list:
+                logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 if __name__ == '__main__':
     ports = ['COM4']
