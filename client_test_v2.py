@@ -1042,12 +1042,16 @@ class ClientTest(QtCore.QObject):
         except OSError as e:
             logger.error(f"创建文件夹 {report_folder_path} 时出错: {e}")
             return  # 或者可以采取其他处理方式，比如提示用户手动创建文件夹后重新运行等
+        if self.script_name is not None:
+            name = os.path.splitext(os.path.basename(self.script_name))[0]
+            file_name = f"{name}_test_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
+            file_path = os.path.join(report_folder_path, file_name)
 
-        file_name = f"test_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
-        file_path = os.path.join(report_folder_path, file_name)
-
-        # 保存工作簿
-        wb.save(file_path)      
+            # 保存工作簿
+            wb.save(file_path)
+            QMessageBox.information(self.window, '保存成功', f'测试报告已保存为：{file_path}')   
+        else:
+            QMessageBox.information(self.window, '保存失败', f'尚未做测试，请先进行测试')  
                 
     def about_version(self):
         """
