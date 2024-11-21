@@ -259,3 +259,24 @@
 2024-11-21 10:46:05,356 - __main__ - INFO -  timestamp:2024-11-21 10:45:56 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 26.0, 7.3, 0.7, 14.0, 0.0], Result: 通过,comment:无
 2024-11-21 10:46:05,356 - __main__ - INFO -  timestamp:2024-11-21 10:45:59 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 37.3, 12.3, 4.0, 4.0, 5.7], Result: 通过,comment:无
 2024-11-21 10:46:05,356 - __main__ - INFO -  timestamp:2024-11-21 10:46:02 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [4.7, 59.3, 15.3, 9.3, 5.0, 4.7], Result: 通过,comment:无
+2024-11-21 15:58:46,834 - __main__ - INFO - ---------------------------------------------开始老化测试<开始时间：2024-11-21 15:58:46>----------------------------------------------
+
+2024-11-21 15:58:46,835 - __main__ - INFO - 测试目的：循环做抓握手势，进行压测
+2024-11-21 15:58:46,835 - __main__ - INFO - 标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >
+
+2024-11-21 15:58:46,835 - __main__ - INFO - ##########################第 1 轮测试开始######################
+
+2024-11-21 15:58:46,835 - __main__ - INFO - read_json_variable_and_execute->D:\ROHAND\rohand_test_scripts\v2\scripts
+2024-11-21 15:58:46,839 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+
+2024-11-21 15:58:47,595 - __main__ - INFO - [port = COM4]执行抓握手势，电机电流为 -->[0.0, 23.3, 11.7, 1.3, 5.0, 3.0]
+
+2024-11-21 15:58:49,918 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 15:58:49,919 - __main__ - INFO - #################第 1 轮测试结束，测试结果：通过#############
+
+2024-11-21 15:58:49,920 - __main__ - INFO - ##########################第 2 轮测试开始######################
+
+2024-11-21 15:58:49,920 - __main__ - INFO - read_json_variable_and_execute->D:\ROHAND\rohand_test_scripts\v2\scripts
+2024-11-21 15:58:49,923 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+

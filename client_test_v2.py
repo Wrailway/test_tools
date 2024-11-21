@@ -817,9 +817,10 @@ class ClientTest(QtCore.QObject):
                 if self.need_show_current:
                     result = self.get_currents_from_test_result(self.overall_result)
                     self.update_current_ui_worker = self.UpdateCurrentUIWorker(portName=self.port_names,result = result)
-                    self.update_current_ui_worker.update_com_name_signal.connect(self.update_current_ui_portnames)
-                    self.update_current_ui_worker.update_current_signal.connect(self.update_current_ui_motorcurrents)
-                    self.update_current_ui_worker.run_test()
+                    if self.current_ui_enable.lower() == 'y':
+                        self.update_current_ui_worker.update_com_name_signal.connect(self.update_current_ui_portnames)
+                        self.update_current_ui_worker.update_current_signal.connect(self.update_current_ui_motorcurrents)
+                        self.update_current_ui_worker.run_test()
                 self.running = False
                 self.set_checked_box_status(True)
             except Exception as e:

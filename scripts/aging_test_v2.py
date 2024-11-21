@@ -427,8 +427,8 @@ def main(ports=None, max_cycle_num=1):
     status, valid_ports = check_ports(ports)
     if not (status and len(valid_ports)>=1):
         logger.error('测试结束，无可用端口')
-        result = '不通过'
-        return overall_result,result
+        final_result = '不通过'
+        return test_title, overall_result, final_result, need_show_current
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始老化测试<开始时间：{start_time}>----------------------------------------------\n')
@@ -467,7 +467,7 @@ def main(ports=None, max_cycle_num=1):
     logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
     # print(f'最终测试结果：{result}')
     # print_overall_result(overall_result)
-    return test_title,overall_result, final_result,need_show_current
+    return test_title, overall_result, final_result, need_show_current
 
 def print_overall_result(overall_result):
         port_data_dict = {}

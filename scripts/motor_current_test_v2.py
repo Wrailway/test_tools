@@ -13,13 +13,17 @@ from pymodbus.exceptions import ConnectionException, ModbusIOException
 from pymodbus import FramerType
 from pymodbus.client import ModbusSerialClient
 
+# 设置日志级别为INFO，获取日志记录器实例
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 # 检查log文件夹是否存在，如果不存在则创建
 log_folder = "./log"
 if not os.path.exists(log_folder):
     os.makedirs(log_folder)
 
 # 创建一个文件处理器，用于将日志写入文件
-file_handler = logging.FileHandler('./log/AgingTest_log.txt')
+file_handler = logging.FileHandler('./log/MotorCurrentTest_log.txt')
 file_handler.setLevel(logging.INFO)
 
 # 创建一个日志格式
@@ -289,6 +293,9 @@ def check_ports(ports_list):
         status = False
     return status, valid_ports
 
+expected = [100,100,100,100,100,100]
+description = '各个手指在始末位置,记录各个电机的电流值'
+
 def main(ports=None, max_cycle_num=1):
     """
     测试的主函数。
@@ -299,7 +306,8 @@ def main(ports=None, max_cycle_num=1):
     :param port: 可选参数，默认为 COM4，要连接的设备端口号。
     :return: 一个字符串，表示测试结果（"通过"或其他未在代码中明确设置的结果）。
     """
-    result = '通过'
+    test_title = '电机电流测试'
+    final_result = '通过'
     overall_result = []
     connected_status = False
     need_show_current = True
@@ -307,8 +315,8 @@ def main(ports=None, max_cycle_num=1):
     status, valid_ports = check_ports(ports)
     if not (status and len(valid_ports)>=1):
         logger.error('测试结束，无可用端口')
-        result = '不通过'
-        return overall_result,result
+        final_result = '不通过'
+        return test_title, overall_result, final_result, need_show_current
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试电机电流<开始时间：{start_time}>----------------------------------------------\n')
@@ -323,9 +331,9 @@ def main(ports=None, max_cycle_num=1):
                 overall_result.append(port_result)
                 for gesture_result in port_result["gestures"]:
                     if gesture_result["result"]!= "通过":
-                        result = '不通过'
+                        final_result = '不通过'
                         break
-            logger.info(f"#################测试结束，测试结果：{result}#############\n")
+            logger.info(f"#################测试结束，测试结果：{final_result}#############\n")
 
     except Exception as e:
         logging.error(f"Error: {e}")
@@ -334,7 +342,7 @@ def main(ports=None, max_cycle_num=1):
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------电机电流测试结束<结束时间：{end_time}>----------------------------------------------\n')
     # print_overall_result(overall_result)
-    return overall_result, result,need_show_current
+    return test_title, overall_result, final_result, need_show_current
 
 def print_overall_result(overall_result):
         port_data_dict = {}
@@ -344,13 +352,13 @@ def print_overall_result(overall_result):
             if item['port'] not in port_data_dict:
                 port_data_dict[item['port']] = []
             for gesture in item['gestures']:
-                port_data_dict[item['port']].append((gesture['timestamp'],gesture['content'], gesture['result']))
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
 
         # 打印数据
         for port, data_list in port_data_dict.items():
             logger.info(f"Port: {port}")
-            for timestamp, content, result in data_list:
-                logger.info(f" timestamp:{timestamp} content: {content}, Result: {result}")
+            for timestamp, description, expected, content, result, comment in data_list:
+                logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 
 def run_tests_for_port(port, connected_status):
@@ -379,8 +387,11 @@ def run_tests_for_port(port, connected_status):
     motorCurrentTest.collect_motor_currents()
     gesture_result = {
                         "timestamp":timestamp,
+                        "description":description,
+                        "expected":expected,
                         "content": motorCurrentTest.collectMotorCurrents,
-                        "result": result
+                        "result": result,
+                        "comment":'无'
                         }
     port_result["gestures"].append(gesture_result)
     motorCurrentTest.disConnect_device()
