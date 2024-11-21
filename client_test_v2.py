@@ -3,11 +3,14 @@ import datetime
 import importlib
 import json
 import logging
-import multiprocessing
 import os
 import sys
 import threading
 import time
+from openpyxl import Workbook
+from openpyxl.styles import Alignment, Border, PatternFill, Side
+from openpyxl.styles.fonts import Font
+from openpyxl.utils import get_column_letter
 import serial.tools.list_ports
 from PyQt5 import QtCore
 from PyQt5 import QtGui, QtWidgets
@@ -49,7 +52,7 @@ class ClientTest(QtCore.QObject):
     定义客户端类ClientTest，用户操作界面
     """
     client_version = 'V1.0'
-    release_date_str = '2024-11-02'
+    release_date_str = '2024-11-21'
     # 以下定义Treeview表格的列名
     STR_PORT = '端口号'
     STR_DEVICE_NAME = '设备名称'
@@ -117,6 +120,7 @@ class ClientTest(QtCore.QObject):
     script_name = None
     overall_result = []
     result = '不通过'
+    report_title = '测试报告'
     class ConfigReader:
         """
         定义一个读取配置文件config.ini的工具类
@@ -404,8 +408,8 @@ class ClientTest(QtCore.QObject):
     def init_widgets(self):
         self.submenu_load_scripts = self.window.findChild(QtWidgets.QAction, "submenu_load_scripts")
         self.submenu_load_scripts.triggered.connect(self.load_script)
-        self.submenu_save_log = self.window.findChild(QtWidgets.QAction, "submenu_save_log")
-        # self.submenu_save_log.triggered.connect(self.save_record)
+        self.submenu_save_report = self.window.findChild(QtWidgets.QAction, "submenu_save_report")
+        self.submenu_save_report.triggered.connect(self.save_report)
         self.submenu_exit = self.window.findChild(QtWidgets.QAction, "submenu_exit")
         self.submenu_version = self.window.findChild(QtWidgets.QAction, "submenu_version")
         self.submenu_version.triggered.connect(self.about_version)
@@ -806,7 +810,7 @@ class ClientTest(QtCore.QObject):
     def update_test_result(self, module):
         def run_script():
             try:
-                self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,
+                self.test_title,self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,
                                                      max_cycle_num=float(self.selected_aging_duration))
                 logger.info(f'本次测试结论为：{self.result} \n详细测试数据为：\n')
                 self.print_overall_result(self.overall_result)
@@ -846,13 +850,13 @@ class ClientTest(QtCore.QObject):
             if item['port'] not in port_data_dict:
                 port_data_dict[item['port']] = []
             for gesture in item['gestures']:
-                port_data_dict[item['port']].append((gesture['timestamp'], gesture['content'], gesture['result']))
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
 
         # 打印数据
         for port, data_list in port_data_dict.items():
             logger.info(f"Port: {port}")
-            for timestamp, content, result in data_list:
-                logger.info(f" timestamp:{timestamp} content: {content}, Result: {result}")
+            for timestamp, description, expected, content, result, comment in data_list:
+                logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
     def update_device_info_progress(self, percentage):
         for port in self.select_port_names:
@@ -913,16 +917,6 @@ class ClientTest(QtCore.QObject):
         else:
             logger.info(' not refresh')
 
-    # def load_script(self):
-    #     logger.info('load_script')
-    #     # 弹出文件选择对话框，让用户选择要执行的脚本
-    #     file_path, _ = QFileDialog.getOpenFileName(self.window, '选择要执行的脚本', 'scripts', 'Python files (*.py)')
-    #     if file_path:
-    #         # 使用with语句打开脚本文件，确保在读取完成后自动关闭文件,释放资源
-    #         with open(file_path, 'r') as f:
-    #             self.script_name = os.path.splitext(os.path.basename(file_path))[0]
-    #             logger.info(f'加载脚本{self.script_name}，请点击开始测试按钮，执行脚本\n')
-                
     def load_script(self):
         logger.info('load_script')
         # 弹出文件选择对话框，让用户选择要执行的脚本
@@ -938,52 +932,122 @@ class ClientTest(QtCore.QObject):
                 self.script_name = os.path.join(scripts_dir, file_name)
                 logger.info(f'加载脚本{self.script_name}，请点击开始测试按钮，执行脚本\n')
                 
-    def save_record(self):
-        """
-        将端口数据字典保存到文件中的函数。
-
-        该函数会根据是否指定脚本名称来生成文件名，然后将端口数据字典的内容以特定格式写入文件，
-        最后弹出保存成功的提示框。
-
-        无输入参数。
-
-        无返回值，但会创建一个文本文件并写入端口数据字典的内容。
-        """
+                
+    def get_test_result(self):
         port_data_dict = {}
+
+        # 整理数据
         for item in self.overall_result:
             if item['port'] not in port_data_dict:
                 port_data_dict[item['port']] = []
             for gesture in item['gestures']:
-                port_data_dict[item['port']].append((gesture['timestamp'], gesture['content'], gesture['result']))
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
+        return port_data_dict
+    
+    def save_report(self):
+        # 表头
+        headers = ["用例编号", "用例描述", "期望值", "实际值", "是否通过", "备注"]
 
-        if not self.script_name:
-            script_name = "default_script"
-        else:
-            # 获取脚本名称
-            script_name = self.script_name
-            # 获取当前时间戳，格式为 "YYYYmmddHHMMSS"
-            timestamp = time.strftime("%Y%m%d%H%M%S")
-            # 构造文件名
-            file_name = f"{script_name}_test_result_{timestamp}.txt"
-            # 获取当前工作目录
-            current_dir = os.getcwd()
-            # 拼接出log文件夹的路径
-            log_folder_path = os.path.join(current_dir, "log")
-            # 判断log文件夹是否存在，如果不存在则创建它
-            if not os.path.exists(log_folder_path):
-                os.mkdir(log_folder_path)
-            # 拼接出最终的文件路径，文件存放在log文件夹内
-            file_path = os.path.join(log_folder_path, file_name)
+        # 表格宽高度
+        column_widths = [10, 30, 12, 12, 10, 11]
+        # column_higths = [18, 18, 18, 18, 18, 18]
 
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write("Port Data Dictionary:\n")
-                for port, data_list in port_data_dict.items():
-                    f.write(f"Port: {port}\n")
-                    for timestamp, content, result in data_list:
-                        f.write(f"  timestamp: {timestamp}, content: {content}, Result: {result}\n")
-
-            QMessageBox.information(self.window, '保存成功', f'文件已保存为：{file_path}')
+        # 设置表格边框样式
+        thin_border = Border(left=Side(style='thin'),
+                             right=Side(style='thin'),
+                             top=Side(style='thin'),
+                             bottom=Side(style='thin'))
         
+        title_fill = PatternFill(start_color="B2DFEE", end_color="B2DFEE", fill_type="solid")
+        title_fill_font_color = Font(color="333333")
+
+        # 单元格对齐方式（居中对齐且自动换行）
+        alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+
+        # 表头填充颜色（淡蓝色）
+        header_fill = PatternFill(start_color="B2DFEE", end_color="B2DFEE", fill_type="solid")
+        header_font_color = Font(color="333333")
+
+        # 奇数行填充颜色（淡米色）
+        odd_row_fill = PatternFill(start_color="FDF5E6", end_color="FDF5E6", fill_type="solid")
+        # 偶数行填充颜色（淡灰色）
+        even_row_fill = PatternFill(start_color="E0E0E0", end_color="E0E0E0", fill_type="solid")
+
+        # 创建工作簿
+        wb = Workbook()
+        ws = wb.active
+
+        # 设置标题占两列并居中
+        report_cell = ws.merge_cells('A1:F1')
+        ws['A1'] = self.report_title
+        ws['A1'].font = Font(bold=True, size=16)
+        ws['A1'].alignment = alignment
+        ws['A1'].fill = title_fill
+        ws['A1'].font = title_fill_font_color
+
+        ws['A2'] = '测试人员'
+        ws['C2'] = '测试时间'
+        # ws['C2'] = datetime.datetime.now().strftime('%Y-%m-%d')
+        ws['E2'] = '测试结论'
+        ws['F2'] = self.result
+        
+        ws['A3'] = '复核人员'
+        ws['C3'] = '复核时间'
+        
+        ws.append(headers)
+
+        # 设置表头字体为粗体，修正索引为2（对应第2行，表头所在行）
+        for cell in ws[4]:
+            cell.fill = header_fill
+            cell.font = header_font_color
+
+        # 测试数据填充
+        self.test_data = self.get_test_result()
+        row_index = 5  # 从第3行开始填充数据行
+        for port, data_list in self.test_data.items():
+            for timestamp, description, expected, content, result, comment in data_list:
+                row_data = [row_index - 2, description, str(expected), str(content), result,
+                            f"{timestamp} {comment}"]
+                ws.append(row_data)
+                if row_index % 2 == 1:
+                    fill_color = odd_row_fill
+                else:
+                    fill_color = even_row_fill
+                for cell in ws[row_index]:
+                    cell.fill = fill_color
+                row_index += 1
+
+        # 设置列宽并统一设置对齐方式（避免重复设置对齐方式）
+        for i in range(len(column_widths)):
+            col_letter = get_column_letter(i + 1)
+            ws.column_dimensions[col_letter].width = column_widths[i]
+        for row in ws.rows:
+            for cell in row:
+                cell.alignment = alignment
+
+        # 设置表格边框样式
+        for row in ws.iter_rows(min_row=1, max_row=len(ws['A']), min_col=1, max_col=6):
+            for cell in row:
+                cell.border = thin_border
+
+        # 根据时间动态生成文件名，避免覆盖（示例格式，可根据需求调整）
+        current_dir = os.getcwd()
+        # 拼接出log文件夹的路径
+        report_folder_path = os.path.join(current_dir, "report")
+        # 判断log文件夹是否存在，如果不存在则创建它，添加异常处理
+        try:
+            if not os.path.exists(report_folder_path):
+                os.mkdir(report_folder_path)
+        except OSError as e:
+            logger.error(f"创建文件夹 {report_folder_path} 时出错: {e}")
+            return  # 或者可以采取其他处理方式，比如提示用户手动创建文件夹后重新运行等
+
+        file_name = f"test_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
+        file_path = os.path.join(report_folder_path, file_name)
+
+        # 保存工作簿
+        wb.save(file_path)      
+                
     def about_version(self):
         """
         显示关于版本信息的弹出窗口。

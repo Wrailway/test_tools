@@ -337,7 +337,7 @@
      <string>文件</string>
     </property>
     <addaction name="submenu_load_scripts"/>
-    <addaction name="submenu_save_log"/>
+    <addaction name="submenu_save_report"/>
     <addaction name="submenu_exit"/>
    </widget>
    <widget class="QMenu" name="menu_about">
@@ -363,9 +363,9 @@
     <string>加载脚本</string>
    </property>
   </action>
-  <action name="submenu_save_log">
+  <action name="submenu_save_report">
    <property name="text">
-    <string>保存日志</string>
+    <string>输出报告</string>
    </property>
   </action>
   <action name="submenu_version">

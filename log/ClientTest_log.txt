@@ -1138,3 +1138,690 @@
 2024-11-19 10:38:25,636 - __main__ - INFO - update_port_options ,start collect port infos
 2024-11-19 10:38:25,638 - __main__ - INFO - update_port_options ,wait collect port...
 2024-11-19 10:38:26,643 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-19 13:34:32,633 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-19 13:34:32,633 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-19 13:34:32,633 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-19 13:34:32,633 - __main__ - INFO - 端口数目：16
+2024-11-19 13:34:32,634 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-19 13:34:32,634 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-19 13:34:32,647 - __main__ - INFO - update_port_options ,fist startup
+2024-11-19 13:38:34,772 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-19 13:38:34,772 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-19 13:38:34,773 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-19 13:38:34,773 - __main__ - INFO - 端口数目：16
+2024-11-19 13:38:34,773 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-19 13:38:34,773 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-19 13:38:34,781 - __main__ - INFO - update_port_options ,fist startup
+2024-11-19 18:27:09,057 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-19 18:27:09,057 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-19 18:27:09,058 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-19 18:27:09,058 - __main__ - INFO - 端口数目：16
+2024-11-19 18:27:09,058 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-19 18:27:09,058 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-19 18:27:09,067 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 10:20:27,002 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 10:20:27,003 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 10:20:27,003 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 10:20:27,004 - __main__ - INFO - 端口数目：16
+2024-11-21 10:20:27,004 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 10:20:27,004 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 10:20:27,068 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 10:52:29,182 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 10:52:29,183 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 10:52:29,183 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 10:52:29,183 - __main__ - INFO - 端口数目：16
+2024-11-21 10:52:29,183 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 10:52:29,183 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 10:52:29,193 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:44:55,949 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:44:55,949 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:44:55,950 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:44:55,950 - __main__ - INFO - 端口数目：16
+2024-11-21 11:44:55,950 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:44:55,950 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:44:55,961 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:45:05,709 - __main__ - INFO - load_script
+2024-11-21 11:45:08,256 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:45:10,260 - __main__ - INFO - refresh_ports
+2024-11-21 11:45:10,261 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:45:10,264 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:10,278 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:45:10,284 - __main__ - INFO - check_ports:0
+2024-11-21 11:45:10,286 - __main__ - INFO - check_ports:1
+2024-11-21 11:45:11,426 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:12,427 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:13,429 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:14,431 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:15,433 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:45:16,292 - __main__ - INFO - check_ports:2
+2024-11-21 11:45:16,304 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:45:16,436 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:45:18,347 - __main__ - INFO - start_test
+2024-11-21 11:45:58,956 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:45:58,956 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:45:58,956 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:45:58,957 - __main__ - INFO - 端口数目：16
+2024-11-21 11:45:58,957 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:45:58,957 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:45:58,966 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:46:00,540 - __main__ - INFO - refresh_ports
+2024-11-21 11:46:00,540 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:46:00,543 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:00,551 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:46:00,555 - __main__ - INFO - check_ports:0
+2024-11-21 11:46:00,557 - __main__ - INFO - check_ports:1
+2024-11-21 11:46:01,553 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:02,566 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:03,568 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:04,571 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:05,574 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:06,576 - __main__ - INFO - check_ports:2
+2024-11-21 11:46:06,578 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:46:06,589 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:46:07,582 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:46:09,837 - __main__ - INFO - load_script
+2024-11-21 11:46:11,479 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:46:12,295 - __main__ - INFO - start_test
+2024-11-21 11:46:30,662 - __main__ - INFO - 本次测试结论为：不通过 
+详细测试数据为：
+
+2024-11-21 11:46:30,663 - __main__ - INFO - Port: COM4
+2024-11-21 11:46:30,664 - __main__ - INFO -  timestamp:2024-11-21 11:46:15 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 8.0, 0.0, 103.7, 0.0, 10.7], Result: 不通过,comment:电流超标
+2024-11-21 11:46:30,668 - __main__ - INFO -  timestamp:2024-11-21 11:46:18 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 32.0, 2.7, 14.7, 12.0, 6.0], Result: 通过,comment:无
+2024-11-21 11:46:30,668 - __main__ - INFO -  timestamp:2024-11-21 11:46:21 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.0, 31.0, 5.3, 10.0, 8.0, 0.0], Result: 通过,comment:无
+2024-11-21 11:46:30,669 - __main__ - INFO -  timestamp:2024-11-21 11:46:24 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 21.7, 10.7, 7.3, 6.0, 0.0], Result: 通过,comment:无
+2024-11-21 11:46:30,670 - __main__ - INFO -  timestamp:2024-11-21 11:46:27 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 12.0, 16.0, 5.0, 10.0, 0.7], Result: 通过,comment:无
+2024-11-21 11:46:36,660 - __main__ - INFO - stop_test
+2024-11-21 11:48:47,295 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:48:47,296 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:48:47,296 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:48:47,296 - __main__ - INFO - 端口数目：16
+2024-11-21 11:48:47,296 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:48:47,296 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:48:47,306 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:48:49,397 - __main__ - INFO - refresh_ports
+2024-11-21 11:48:49,398 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:48:49,401 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:49,409 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:48:49,415 - __main__ - INFO - check_ports:0
+2024-11-21 11:48:49,417 - __main__ - INFO - check_ports:1
+2024-11-21 11:48:50,712 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:51,713 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:52,715 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:53,717 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:54,718 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:48:55,431 - __main__ - INFO - check_ports:2
+2024-11-21 11:48:55,443 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:48:55,721 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:49:26,504 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:49:26,504 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:49:26,504 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:49:26,505 - __main__ - INFO - 端口数目：16
+2024-11-21 11:49:26,505 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:49:26,505 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:49:26,514 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:49:53,463 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:49:53,463 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:49:53,463 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:49:53,463 - __main__ - INFO - 端口数目：16
+2024-11-21 11:49:53,463 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:49:53,464 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:49:53,474 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:49:54,794 - __main__ - INFO - refresh_ports
+2024-11-21 11:49:54,795 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:49:54,798 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:49:54,806 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:49:54,810 - __main__ - INFO - check_ports:0
+2024-11-21 11:49:54,811 - __main__ - INFO - check_ports:1
+2024-11-21 11:49:55,810 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:49:56,814 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:49:57,817 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:49:58,825 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:49:59,827 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:50:00,825 - __main__ - INFO - check_ports:2
+2024-11-21 11:50:00,832 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:50:00,837 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:50:01,835 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:50:04,256 - __main__ - INFO - load_script
+2024-11-21 11:50:05,837 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:50:07,032 - __main__ - INFO - start_test
+2024-11-21 11:50:23,461 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 11:50:23,462 - __main__ - INFO - Port: COM4
+2024-11-21 11:50:23,463 - __main__ - INFO -  timestamp:2024-11-21 11:50:08 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 40.3, 8.7, 11.0, 11.3, 0.0], Result: 通过,comment:无
+2024-11-21 11:50:23,468 - __main__ - INFO -  timestamp:2024-11-21 11:50:11 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [4.7, 25.3, 9.3, 11.0, 8.3, 3.3], Result: 通过,comment:无
+2024-11-21 11:50:23,469 - __main__ - INFO -  timestamp:2024-11-21 11:50:14 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.0, 39.3, 6.7, 2.7, 12.7, 0.0], Result: 通过,comment:无
+2024-11-21 11:50:23,469 - __main__ - INFO -  timestamp:2024-11-21 11:50:17 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 48.7, 11.7, 9.7, 8.7, 6.7], Result: 通过,comment:无
+2024-11-21 11:50:23,469 - __main__ - INFO -  timestamp:2024-11-21 11:50:20 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 8.3, 13.7, 11.7, 11.7, 0.0], Result: 通过,comment:无
+2024-11-21 11:50:28,155 - __main__ - INFO - stop_test
+2024-11-21 11:51:10,007 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:51:10,007 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:51:10,009 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:51:10,009 - __main__ - INFO - 端口数目：16
+2024-11-21 11:51:10,009 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:51:10,009 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:51:10,018 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:51:26,653 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:51:26,653 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:51:26,653 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:51:26,654 - __main__ - INFO - 端口数目：16
+2024-11-21 11:51:26,654 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:51:26,654 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:51:26,663 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:51:56,278 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:51:56,278 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:51:56,278 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:51:56,279 - __main__ - INFO - 端口数目：16
+2024-11-21 11:51:56,279 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:51:56,279 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:51:56,288 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:51:58,784 - __main__ - INFO - refresh_ports
+2024-11-21 11:51:58,785 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:51:58,788 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:51:58,796 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:51:58,801 - __main__ - INFO - check_ports:0
+2024-11-21 11:51:58,802 - __main__ - INFO - check_ports:1
+2024-11-21 11:51:59,799 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:00,803 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:01,804 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:02,806 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:03,807 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:04,809 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:52:04,819 - __main__ - INFO - check_ports:2
+2024-11-21 11:52:04,831 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:52:05,811 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:52:08,185 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:52:08,186 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 11:52:09,314 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:52:09,314 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 11:52:13,512 - __main__ - INFO - load_script
+2024-11-21 11:52:14,583 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:52:15,634 - __main__ - INFO - start_test
+2024-11-21 11:52:32,079 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 11:52:32,081 - __main__ - INFO - Port: COM4
+2024-11-21 11:52:32,081 - __main__ - INFO -  timestamp:2024-11-21 11:52:16 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 28.7, 10.3, 7.3, 2.7, 1.3], Result: 通过,comment:无
+2024-11-21 11:52:32,086 - __main__ - INFO -  timestamp:2024-11-21 11:52:19 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 46.0, 9.3, 6.0, 5.3, 1.3], Result: 通过,comment:无
+2024-11-21 11:52:32,087 - __main__ - INFO -  timestamp:2024-11-21 11:52:22 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.0, 23.3, 15.3, 7.3, 12.3, 1.0], Result: 通过,comment:无
+2024-11-21 11:52:32,087 - __main__ - INFO -  timestamp:2024-11-21 11:52:25 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 49.0, 8.0, 7.3, 15.3, 2.7], Result: 通过,comment:无
+2024-11-21 11:52:32,087 - __main__ - INFO -  timestamp:2024-11-21 11:52:28 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 21.7, 10.3, 10.3, 2.0, 2.0], Result: 通过,comment:无
+2024-11-21 11:53:33,164 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:53:33,164 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:53:33,164 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:53:33,164 - __main__ - INFO - 端口数目：16
+2024-11-21 11:53:33,165 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:53:33,165 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:53:33,173 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:53:35,332 - __main__ - INFO - refresh_ports
+2024-11-21 11:53:35,333 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:53:35,335 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:35,344 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:53:35,350 - __main__ - INFO - check_ports:0
+2024-11-21 11:53:35,351 - __main__ - INFO - check_ports:1
+2024-11-21 11:53:36,349 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:37,354 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:38,356 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:39,368 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:40,370 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:41,372 - __main__ - INFO - check_ports:2
+2024-11-21 11:53:41,375 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:53:41,386 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:53:42,378 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:53:43,934 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:53:43,935 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 11:53:45,045 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:53:45,046 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 11:53:48,295 - __main__ - INFO - load_script
+2024-11-21 11:53:49,940 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:53:50,842 - __main__ - INFO - start_test
+2024-11-21 11:54:29,044 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 11:54:29,045 - __main__ - INFO - Port: COM4
+2024-11-21 11:54:29,045 - __main__ - INFO -  timestamp:2024-11-21 11:53:52 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 33.3, 7.3, 4.7, 12.0, 10.0], Result: 通过,comment:无
+2024-11-21 11:54:29,050 - __main__ - INFO -  timestamp:2024-11-21 11:53:55 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 40.3, 8.3, 10.3, 2.7, 2.0], Result: 通过,comment:无
+2024-11-21 11:54:29,050 - __main__ - INFO -  timestamp:2024-11-21 11:53:58 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.3, 8.0, 17.7, 9.3, 10.3, 3.3], Result: 通过,comment:无
+2024-11-21 11:54:29,051 - __main__ - INFO -  timestamp:2024-11-21 11:54:01 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.7, 31.3, 8.0, 1.0, 15.0, 1.7], Result: 通过,comment:无
+2024-11-21 11:54:29,051 - __main__ - INFO -  timestamp:2024-11-21 11:54:04 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 37.3, 11.3, 4.7, 3.3, 11.0], Result: 通过,comment:无
+2024-11-21 11:54:29,052 - __main__ - INFO -  timestamp:2024-11-21 11:54:07 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 52.3, 8.3, 12.3, 6.0, 0.0], Result: 通过,comment:无
+2024-11-21 11:54:29,052 - __main__ - INFO -  timestamp:2024-11-21 11:54:10 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [3.0, 27.3, 2.3, 16.0, 10.3, 6.0], Result: 通过,comment:无
+2024-11-21 11:54:29,052 - __main__ - INFO -  timestamp:2024-11-21 11:54:13 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 25.3, 6.0, 4.0, 15.0, 0.7], Result: 通过,comment:无
+2024-11-21 11:54:29,053 - __main__ - INFO -  timestamp:2024-11-21 11:54:16 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 30.7, 11.3, 10.0, 2.7, 3.3], Result: 通过,comment:无
+2024-11-21 11:54:29,053 - __main__ - INFO -  timestamp:2024-11-21 11:54:19 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [7.3, 14.3, 12.7, 9.3, 6.3, 0.0], Result: 通过,comment:无
+2024-11-21 11:54:29,053 - __main__ - INFO -  timestamp:2024-11-21 11:54:22 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [4.7, 14.7, 6.0, 1.0, 12.3, 0.3], Result: 通过,comment:无
+2024-11-21 11:54:29,053 - __main__ - INFO -  timestamp:2024-11-21 11:54:25 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 45.0, 11.7, 3.3, 8.0, 0.7], Result: 通过,comment:无
+2024-11-21 11:56:24,794 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 11:56:24,794 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 11:56:24,794 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 11:56:24,795 - __main__ - INFO - 端口数目：16
+2024-11-21 11:56:24,795 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 11:56:24,795 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:56:24,805 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 11:56:27,924 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:56:27,925 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 11:56:28,896 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 11:56:28,897 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 11:56:29,555 - __main__ - INFO - refresh_ports
+2024-11-21 11:56:29,556 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 11:56:29,558 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:29,568 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 11:56:29,575 - __main__ - INFO - check_ports:0
+2024-11-21 11:56:29,576 - __main__ - INFO - check_ports:1
+2024-11-21 11:56:30,570 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:31,572 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:32,575 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:33,577 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:34,591 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:35,592 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 11:56:35,594 - __main__ - INFO - check_ports:2
+2024-11-21 11:56:35,605 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 11:56:36,597 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 11:56:39,912 - __main__ - INFO - load_script
+2024-11-21 11:56:41,235 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 11:56:42,175 - __main__ - INFO - start_test
+2024-11-21 11:57:20,191 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 11:57:20,192 - __main__ - INFO - Port: COM4
+2024-11-21 11:57:20,192 - __main__ - INFO -  timestamp:2024-11-21 11:56:43 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [7.0, 64.7, 12.3, 11.0, 7.7, 0.0], Result: 通过,comment:无
+2024-11-21 11:57:20,199 - __main__ - INFO -  timestamp:2024-11-21 11:56:46 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [3.3, 23.3, 10.7, 15.0, 9.0, 8.0], Result: 通过,comment:无
+2024-11-21 11:57:20,199 - __main__ - INFO -  timestamp:2024-11-21 11:56:49 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 41.7, 7.3, 4.7, 14.3, 0.7], Result: 通过,comment:无
+2024-11-21 11:57:20,200 - __main__ - INFO -  timestamp:2024-11-21 11:56:52 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 44.0, 9.0, 10.3, 8.7, 0.7], Result: 通过,comment:无
+2024-11-21 11:57:20,200 - __main__ - INFO -  timestamp:2024-11-21 11:56:55 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [6.7, 14.3, 15.7, 12.0, 7.0, 1.0], Result: 通过,comment:无
+2024-11-21 11:57:20,201 - __main__ - INFO -  timestamp:2024-11-21 11:56:58 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.0, 22.0, 6.7, 1.3, 15.7, 1.3], Result: 通过,comment:无
+2024-11-21 11:57:20,201 - __main__ - INFO -  timestamp:2024-11-21 11:57:01 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 30.0, 11.3, 2.7, 13.7, 1.0], Result: 通过,comment:无
+2024-11-21 11:57:20,201 - __main__ - INFO -  timestamp:2024-11-21 11:57:04 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 50.0, 16.3, 8.3, 11.3, 0.7], Result: 通过,comment:无
+2024-11-21 11:57:20,202 - __main__ - INFO -  timestamp:2024-11-21 11:57:07 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [6.3, 28.7, 4.0, 15.7, 7.0, 4.3], Result: 通过,comment:无
+2024-11-21 11:57:20,202 - __main__ - INFO -  timestamp:2024-11-21 11:57:10 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.0, 49.0, 7.3, 2.7, 3.3, 2.0], Result: 通过,comment:无
+2024-11-21 11:57:20,202 - __main__ - INFO -  timestamp:2024-11-21 11:57:14 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 53.0, 10.7, 7.0, 8.7, 1.3], Result: 通过,comment:无
+2024-11-21 11:57:20,203 - __main__ - INFO -  timestamp:2024-11-21 11:57:17 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 31.3, 15.3, 10.0, 11.0, 11.0], Result: 通过,comment:无
+2024-11-21 13:07:08,650 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:07:08,651 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:07:08,651 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:07:08,651 - __main__ - INFO - 端口数目：16
+2024-11-21 13:07:08,651 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:07:08,651 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:07:08,660 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:07:33,381 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:07:33,381 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:07:33,382 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:07:33,382 - __main__ - INFO - 端口数目：16
+2024-11-21 13:07:33,382 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:07:33,382 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:07:33,391 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:08:55,821 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:08:55,822 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:08:55,822 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:08:55,822 - __main__ - INFO - 端口数目：16
+2024-11-21 13:08:55,822 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:08:55,822 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:08:55,832 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:11:07,634 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:11:07,635 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:11:07,635 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:11:07,635 - __main__ - INFO - 端口数目：16
+2024-11-21 13:11:07,635 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:11:07,635 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:11:07,646 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:11:49,713 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:11:49,714 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:11:49,714 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:11:49,714 - __main__ - INFO - 端口数目：16
+2024-11-21 13:11:49,714 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:11:49,714 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:11:49,725 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:11:55,840 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:11:55,841 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 13:11:56,752 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:11:56,753 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 13:11:57,319 - __main__ - INFO - refresh_ports
+2024-11-21 13:11:57,320 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 13:11:57,322 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:11:57,331 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 13:11:57,337 - __main__ - INFO - check_ports:0
+2024-11-21 13:11:57,339 - __main__ - INFO - check_ports:1
+2024-11-21 13:11:58,334 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:11:59,340 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:12:00,342 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:12:01,345 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:12:02,349 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:12:03,347 - __main__ - INFO - check_ports:2
+2024-11-21 13:12:03,352 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:12:03,361 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 13:12:04,354 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 13:12:08,285 - __main__ - INFO - load_script
+2024-11-21 13:12:09,731 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 13:12:10,533 - __main__ - INFO - start_test
+2024-11-21 13:12:48,448 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 13:12:48,449 - __main__ - INFO - Port: COM4
+2024-11-21 13:12:48,449 - __main__ - INFO -  timestamp:2024-11-21 13:12:11 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.0, 30.0, 5.3, 11.0, 6.3, 7.0], Result: 通过,comment:无
+2024-11-21 13:12:48,449 - __main__ - INFO -  timestamp:2024-11-21 13:12:14 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 21.0, 10.7, 3.3, 9.0, 1.0], Result: 通过,comment:无
+2024-11-21 13:12:48,450 - __main__ - INFO -  timestamp:2024-11-21 13:12:17 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 39.3, 12.7, 3.0, 7.3, 1.7], Result: 通过,comment:无
+2024-11-21 13:12:48,450 - __main__ - INFO -  timestamp:2024-11-21 13:12:20 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 34.0, 14.3, 6.7, 10.7, 3.3], Result: 通过,comment:无
+2024-11-21 13:12:48,450 - __main__ - INFO -  timestamp:2024-11-21 13:12:23 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.3, 43.7, 6.0, 2.0, 9.0, 9.0], Result: 通过,comment:无
+2024-11-21 13:12:48,450 - __main__ - INFO -  timestamp:2024-11-21 13:12:26 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 31.3, 7.7, 5.3, 6.7, 3.3], Result: 通过,comment:无
+2024-11-21 13:12:48,451 - __main__ - INFO -  timestamp:2024-11-21 13:12:29 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 34.7, 17.3, 3.7, 11.0, 8.0], Result: 通过,comment:无
+2024-11-21 13:12:48,451 - __main__ - INFO -  timestamp:2024-11-21 13:12:33 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 13.3, 6.7, 7.0, 13.3, 5.3], Result: 通过,comment:无
+2024-11-21 13:12:48,451 - __main__ - INFO -  timestamp:2024-11-21 13:12:36 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 36.0, 12.0, 9.3, 2.0, 0.0], Result: 通过,comment:无
+2024-11-21 13:12:48,451 - __main__ - INFO -  timestamp:2024-11-21 13:12:39 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 53.3, 11.3, 4.3, 6.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:12:48,451 - __main__ - INFO -  timestamp:2024-11-21 13:12:42 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 12.7, 13.7, 4.7, 12.7, 6.7], Result: 通过,comment:无
+2024-11-21 13:12:48,452 - __main__ - INFO -  timestamp:2024-11-21 13:12:45 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 32.7, 10.0, 6.7, 15.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:20:53,613 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:20:53,613 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:20:53,613 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:20:53,613 - __main__ - INFO - 端口数目：16
+2024-11-21 13:20:53,613 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:20:53,614 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:20:53,626 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:20:55,683 - __main__ - INFO - refresh_ports
+2024-11-21 13:20:55,684 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 13:20:55,686 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:20:55,695 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 13:20:55,700 - __main__ - INFO - check_ports:0
+2024-11-21 13:20:55,702 - __main__ - INFO - check_ports:1
+2024-11-21 13:20:56,698 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:20:57,702 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:20:58,706 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:20:59,710 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:21:00,712 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:21:01,711 - __main__ - INFO - check_ports:2
+2024-11-21 13:21:01,714 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:21:01,727 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 13:21:02,723 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 13:21:04,715 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:21:04,716 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 13:21:05,660 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:21:05,660 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 13:21:07,266 - __main__ - INFO - load_script
+2024-11-21 13:21:09,049 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 13:21:11,162 - __main__ - INFO - start_test
+2024-11-21 13:21:49,722 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 13:21:49,723 - __main__ - INFO - Port: COM4
+2024-11-21 13:21:49,724 - __main__ - INFO -  timestamp:2024-11-21 13:21:12 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.7, 39.0, 5.3, 8.7, 11.3, 1.0], Result: 通过,comment:无
+2024-11-21 13:21:49,725 - __main__ - INFO -  timestamp:2024-11-21 13:21:15 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 34.7, 12.0, 6.0, 6.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:21:49,725 - __main__ - INFO -  timestamp:2024-11-21 13:21:18 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 16.0, 15.0, 4.3, 11.3, 0.7], Result: 通过,comment:无
+2024-11-21 13:21:49,726 - __main__ - INFO -  timestamp:2024-11-21 13:21:21 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 23.3, 8.7, 2.3, 20.7, 2.7], Result: 通过,comment:无
+2024-11-21 13:21:49,727 - __main__ - INFO -  timestamp:2024-11-21 13:21:25 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 23.7, 8.0, 6.7, 6.0, 8.0], Result: 通过,comment:无
+2024-11-21 13:21:49,727 - __main__ - INFO -  timestamp:2024-11-21 13:21:28 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.7, 44.7, 15.0, 5.3, 10.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:21:49,728 - __main__ - INFO -  timestamp:2024-11-21 13:21:31 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 28.0, 3.3, 6.3, 12.3, 8.7], Result: 通过,comment:无
+2024-11-21 13:21:49,728 - __main__ - INFO -  timestamp:2024-11-21 13:21:34 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 38.0, 6.0, 7.3, 14.3, 6.0], Result: 通过,comment:无
+2024-11-21 13:21:49,728 - __main__ - INFO -  timestamp:2024-11-21 13:21:37 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 53.3, 9.7, 8.7, 4.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:21:49,730 - __main__ - INFO -  timestamp:2024-11-21 13:21:40 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.0, 28.7, 17.3, 5.7, 9.3, 3.0], Result: 通过,comment:无
+2024-11-21 13:21:49,730 - __main__ - INFO -  timestamp:2024-11-21 13:21:43 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 32.0, 8.7, 2.0, 15.7, 6.7], Result: 通过,comment:无
+2024-11-21 13:21:49,730 - __main__ - INFO -  timestamp:2024-11-21 13:21:46 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 42.7, 10.7, 6.7, 10.0, 0.7], Result: 通过,comment:无
+2024-11-21 13:24:25,979 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:24:25,979 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:24:25,979 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:24:25,980 - __main__ - INFO - 端口数目：16
+2024-11-21 13:24:25,980 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:24:25,980 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:24:25,989 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:24:37,398 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:24:37,398 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:24:37,398 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:24:37,398 - __main__ - INFO - 端口数目：16
+2024-11-21 13:24:37,398 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:24:37,398 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:24:37,408 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:31:20,176 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:31:20,176 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:31:20,177 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:31:20,177 - __main__ - INFO - 端口数目：16
+2024-11-21 13:31:20,177 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:31:20,177 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:31:20,188 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:36:24,887 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:36:24,887 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:36:24,887 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:36:24,887 - __main__ - INFO - 端口数目：16
+2024-11-21 13:36:24,887 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:36:24,887 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:36:24,898 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:36:46,094 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:36:46,094 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:36:46,094 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:36:46,095 - __main__ - INFO - 端口数目：16
+2024-11-21 13:36:46,095 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:36:46,095 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:36:46,104 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:37:13,969 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:37:13,969 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:37:13,969 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:37:13,969 - __main__ - INFO - 端口数目：16
+2024-11-21 13:37:13,969 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:37:13,970 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:37:13,978 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:38:08,700 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:38:08,700 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:38:08,700 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:38:08,700 - __main__ - INFO - 端口数目：16
+2024-11-21 13:38:08,701 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:38:08,701 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:38:08,711 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:38:35,342 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:38:35,342 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:38:35,342 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:38:35,342 - __main__ - INFO - 端口数目：16
+2024-11-21 13:38:35,342 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:38:35,344 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:38:35,353 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:38:38,265 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:38:38,266 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 13:38:39,205 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:38:39,205 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 13:38:39,766 - __main__ - INFO - refresh_ports
+2024-11-21 13:38:39,767 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 13:38:39,769 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:39,777 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 13:38:39,785 - __main__ - INFO - check_ports:0
+2024-11-21 13:38:39,786 - __main__ - INFO - check_ports:1
+2024-11-21 13:38:40,780 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:41,790 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:42,791 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:43,796 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:44,800 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:45,806 - __main__ - INFO - check_ports:2
+2024-11-21 13:38:45,812 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 13:38:45,818 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 13:38:46,826 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 13:38:49,183 - __main__ - INFO - load_script
+2024-11-21 13:38:51,270 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 13:38:52,279 - __main__ - INFO - start_test
+2024-11-21 13:39:30,242 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 13:39:30,244 - __main__ - INFO - Port: COM4
+2024-11-21 13:39:30,244 - __main__ - INFO -  timestamp:2024-11-21 13:38:53 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 42.3, 5.3, 11.3, 12.3, 0.0], Result: 通过,comment:无
+2024-11-21 13:39:30,245 - __main__ - INFO -  timestamp:2024-11-21 13:38:56 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 34.3, 9.3, 9.0, 4.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:39:30,245 - __main__ - INFO -  timestamp:2024-11-21 13:38:59 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 14.3, 16.7, 4.7, 10.0, 0.0], Result: 通过,comment:无
+2024-11-21 13:39:30,247 - __main__ - INFO -  timestamp:2024-11-21 13:39:02 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 31.3, 6.7, 5.0, 15.7, 6.7], Result: 通过,comment:无
+2024-11-21 13:39:30,248 - __main__ - INFO -  timestamp:2024-11-21 13:39:05 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 29.0, 9.0, 7.3, 20.3, 5.3], Result: 通过,comment:无
+2024-11-21 13:39:30,248 - __main__ - INFO -  timestamp:2024-11-21 13:39:08 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 32.0, 8.3, 6.0, 10.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:39:30,249 - __main__ - INFO -  timestamp:2024-11-21 13:39:11 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.0, 29.3, 16.3, 8.0, 11.0, 3.3], Result: 通过,comment:无
+2024-11-21 13:39:30,250 - __main__ - INFO -  timestamp:2024-11-21 13:39:14 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 40.7, 6.0, 6.7, 12.7, 0.0], Result: 通过,comment:无
+2024-11-21 13:39:30,250 - __main__ - INFO -  timestamp:2024-11-21 13:39:17 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 28.3, 10.0, 11.3, 2.7, 1.7], Result: 通过,comment:无
+2024-11-21 13:39:30,251 - __main__ - INFO -  timestamp:2024-11-21 13:39:20 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [2.7, 16.7, 17.3, 10.7, 11.0, 3.0], Result: 通过,comment:无
+2024-11-21 13:39:30,252 - __main__ - INFO -  timestamp:2024-11-21 13:39:24 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 34.0, 8.0, 1.3, 14.3, 2.0], Result: 通过,comment:无
+2024-11-21 13:39:30,253 - __main__ - INFO -  timestamp:2024-11-21 13:39:27 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 36.3, 9.0, 5.3, 3.3, 4.7], Result: 通过,comment:无
+2024-11-21 13:44:08,572 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:44:08,572 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:44:08,573 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:44:08,573 - __main__ - INFO - 端口数目：16
+2024-11-21 13:44:08,573 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:44:08,573 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:44:08,584 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:45:56,165 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:45:56,166 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:45:56,166 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:45:56,166 - __main__ - INFO - 端口数目：16
+2024-11-21 13:45:56,166 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:45:56,166 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:45:56,176 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:50:28,910 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:50:28,912 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:50:28,912 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:50:28,912 - __main__ - INFO - 端口数目：16
+2024-11-21 13:50:28,912 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:50:28,912 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:50:28,921 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:50:52,864 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:50:52,864 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:50:52,864 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:50:52,865 - __main__ - INFO - 端口数目：16
+2024-11-21 13:50:52,865 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:50:52,865 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:50:52,874 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:51:53,673 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:51:53,673 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:51:53,673 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:51:53,673 - __main__ - INFO - 端口数目：16
+2024-11-21 13:51:53,674 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:51:53,674 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:51:53,684 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:53:01,836 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:53:01,836 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:53:01,836 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:53:01,836 - __main__ - INFO - 端口数目：16
+2024-11-21 13:53:01,837 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:53:01,837 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:53:01,848 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 13:54:38,088 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 13:54:38,088 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 13:54:38,088 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 13:54:38,088 - __main__ - INFO - 端口数目：16
+2024-11-21 13:54:38,088 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 13:54:38,088 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 13:54:38,096 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 14:00:02,707 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 14:00:02,708 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 14:00:02,708 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 14:00:02,708 - __main__ - INFO - 端口数目：16
+2024-11-21 14:00:02,709 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 14:00:02,709 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:00:02,720 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 14:00:58,565 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 14:00:58,565 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 14:00:58,565 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 14:00:58,565 - __main__ - INFO - 端口数目：16
+2024-11-21 14:00:58,566 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 14:00:58,566 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:00:58,575 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 14:01:01,324 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:01:01,324 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 14:01:02,255 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:01:02,255 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 14:01:02,953 - __main__ - INFO - refresh_ports
+2024-11-21 14:01:02,954 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 14:01:02,956 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:02,963 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 14:01:02,969 - __main__ - INFO - check_ports:0
+2024-11-21 14:01:02,970 - __main__ - INFO - check_ports:1
+2024-11-21 14:01:03,964 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:04,967 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:05,969 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:06,970 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:07,973 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:08,975 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:01:08,981 - __main__ - INFO - check_ports:2
+2024-11-21 14:01:08,992 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 14:01:09,977 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 14:01:44,671 - __main__ - INFO - load_script
+2024-11-21 14:01:45,993 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 14:01:47,212 - __main__ - INFO - start_test
+2024-11-21 14:02:25,158 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 14:02:25,159 - __main__ - INFO - Port: COM4
+2024-11-21 14:02:25,161 - __main__ - INFO -  timestamp:2024-11-21 14:01:48 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [3.0, 25.3, 6.7, 4.0, 10.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:02:25,162 - __main__ - INFO -  timestamp:2024-11-21 14:01:51 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 37.7, 11.0, 4.0, 21.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:02:25,163 - __main__ - INFO -  timestamp:2024-11-21 14:01:54 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 38.7, 14.3, 3.3, 10.3, 4.0], Result: 通过,comment:无
+2024-11-21 14:02:25,163 - __main__ - INFO -  timestamp:2024-11-21 14:01:57 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 15.3, 3.0, 7.0, 13.0, 2.0], Result: 通过,comment:无
+2024-11-21 14:02:25,164 - __main__ - INFO -  timestamp:2024-11-21 14:02:00 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [3.3, 22.0, 4.7, 8.0, 8.3, 4.0], Result: 通过,comment:无
+2024-11-21 14:02:25,165 - __main__ - INFO -  timestamp:2024-11-21 14:02:03 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 52.3, 9.0, 4.7, 6.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:02:25,165 - __main__ - INFO -  timestamp:2024-11-21 14:02:06 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 22.7, 15.0, 5.3, 12.3, 0.3], Result: 通过,comment:无
+2024-11-21 14:02:25,165 - __main__ - INFO -  timestamp:2024-11-21 14:02:09 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 29.0, 7.3, 6.0, 17.7, 1.7], Result: 通过,comment:无
+2024-11-21 14:02:25,166 - __main__ - INFO -  timestamp:2024-11-21 14:02:12 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 41.3, 10.7, 6.7, 4.0, 5.3], Result: 通过,comment:无
+2024-11-21 14:02:25,166 - __main__ - INFO -  timestamp:2024-11-21 14:02:15 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 58.7, 12.0, 5.7, 10.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:02:25,166 - __main__ - INFO -  timestamp:2024-11-21 14:02:18 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 29.3, 6.7, 6.0, 16.0, 5.0], Result: 通过,comment:无
+2024-11-21 14:02:25,167 - __main__ - INFO -  timestamp:2024-11-21 14:02:22 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 47.0, 12.3, 7.3, 10.0, 0.0], Result: 通过,comment:无
+2024-11-21 14:14:48,383 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 14:14:48,383 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 14:14:48,384 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 14:14:48,384 - __main__ - INFO - 端口数目：16
+2024-11-21 14:14:48,384 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 14:14:48,384 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:14:48,395 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 14:15:54,745 - __main__ - INFO - 客户端名称：测试客户端
+2024-11-21 14:15:54,745 - __main__ - INFO - current_ui_enable= y,log_ui_enable = y
+2024-11-21 14:15:54,745 - __main__ - INFO - window默认位置：(300, 100)
+2024-11-21 14:15:54,745 - __main__ - INFO - 端口数目：16
+2024-11-21 14:15:54,745 - __main__ - INFO - 老化时间选项：['0.01', '0.5', '1', '1.5', '3', '8', '12', '24', '48', '96', '168']
+2024-11-21 14:15:54,746 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:15:54,756 - __main__ - INFO - update_port_options ,fist startup
+2024-11-21 14:15:56,601 - __main__ - INFO - refresh_ports
+2024-11-21 14:15:56,602 - __main__ - INFO - update_port_options ,start collect port infos
+2024-11-21 14:15:56,604 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:15:56,612 - __main__ - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 14:15:56,619 - __main__ - INFO - check_ports:0
+2024-11-21 14:15:56,620 - __main__ - INFO - check_ports:1
+2024-11-21 14:15:57,617 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:15:58,622 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:15:59,625 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:16:00,626 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:16:01,630 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:16:02,629 - __main__ - INFO - check_ports:2
+2024-11-21 14:16:02,633 - __main__ - INFO - update_port_options ,wait collect port...
+2024-11-21 14:16:02,645 - __main__ - INFO - [port = COM4]Connection to Modbus device closed.
+
+2024-11-21 14:16:03,635 - __main__ - INFO - update_port_options:collect port infos completely
+2024-11-21 14:16:05,277 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:16:05,278 - __main__ - INFO - aging 选项为：0.5
+2024-11-21 14:16:06,249 - __main__ - INFO - offset_duration_in_hours= 0.0
+2024-11-21 14:16:06,250 - __main__ - INFO - aging 选项为：0.01
+2024-11-21 14:16:07,659 - __main__ - INFO - load_script
+2024-11-21 14:16:09,316 - __main__ - INFO - 加载脚本D:\ROHAND\rohand_test_scripts\v2\scripts\aging_test_v2.py，请点击开始测试按钮，执行脚本
+
+2024-11-21 14:16:10,296 - __main__ - INFO - start_test
+2024-11-21 14:16:48,159 - __main__ - INFO - 本次测试结论为：通过 
+详细测试数据为：
+
+2024-11-21 14:16:48,160 - __main__ - INFO - Port: COM4
+2024-11-21 14:16:48,161 - __main__ - INFO -  timestamp:2024-11-21 14:16:11 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 7.0, 16.0, 5.0, 13.3, 6.7], Result: 通过,comment:无
+2024-11-21 14:16:48,166 - __main__ - INFO -  timestamp:2024-11-21 14:16:14 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 23.3, 7.3, 6.7, 18.7, 4.3], Result: 通过,comment:无
+2024-11-21 14:16:48,167 - __main__ - INFO -  timestamp:2024-11-21 14:16:17 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 52.0, 11.7, 7.3, 4.0, 1.0], Result: 通过,comment:无
+2024-11-21 14:16:48,168 - __main__ - INFO -  timestamp:2024-11-21 14:16:20 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 35.0, 10.3, 10.0, 7.3, 1.3], Result: 通过,comment:无
+2024-11-21 14:16:48,168 - __main__ - INFO -  timestamp:2024-11-21 14:16:23 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.3, 13.3, 14.7, 5.3, 12.7, 2.0], Result: 通过,comment:无
+2024-11-21 14:16:48,169 - __main__ - INFO -  timestamp:2024-11-21 14:16:26 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 34.3, 7.3, 6.7, 16.0, 4.0], Result: 通过,comment:无
+2024-11-21 14:16:48,169 - __main__ - INFO -  timestamp:2024-11-21 14:16:29 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 29.7, 11.0, 13.7, 2.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:16:48,169 - __main__ - INFO -  timestamp:2024-11-21 14:16:32 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 6.7, 17.0, 7.7, 10.3, 1.0], Result: 通过,comment:无
+2024-11-21 14:16:48,170 - __main__ - INFO -  timestamp:2024-11-21 14:16:35 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.7, 14.7, 37.3, 5.7, 15.0, 0.3], Result: 通过,comment:无
+2024-11-21 14:16:48,170 - __main__ - INFO -  timestamp:2024-11-21 14:16:38 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 26.7, 11.7, 6.0, 8.0, 7.3], Result: 通过,comment:无
+2024-11-21 14:16:48,170 - __main__ - INFO -  timestamp:2024-11-21 14:16:41 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [0.0, 32.7, 9.3, 10.7, 5.7, 0.0], Result: 通过,comment:无
+2024-11-21 14:16:48,170 - __main__ - INFO -  timestamp:2024-11-21 14:16:45 ,description:抓握手势,记录各个电机的电流值,expected:[100, 100, 100, 100, 100, 100],content: [1.3, 12.7, 3.3, 13.7, 9.7, 0.0], Result: 通过,comment:无
