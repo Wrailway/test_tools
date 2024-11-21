@@ -280,6 +280,8 @@ def check_ports(ports_list):
         status = False
     return status, valid_ports
 
+expected = []
+description = '循环做抓握手势，进行压测'
 def main(ports=None, max_cycle_num=1):
     """
     测试的主函数。
@@ -290,6 +292,7 @@ def main(ports=None, max_cycle_num=1):
     :param port: 可选参数，默认为 COM4，要连接的设备端口号。
     :return: 一个字符串，表示测试结果（"通过"或其他未在代码中明确设置的结果）。
     """
+    test_title = '循环做抓握手势，进行压测'
     final_result = '通过'
     overall_result = []
     connected_status = False
@@ -334,7 +337,7 @@ def main(ports=None, max_cycle_num=1):
     logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
     # print(f'最终测试结果：{overall_result}')
     # print_overall_result(overall_result)
-    return overall_result, final_result,need_show_current
+    return test_title,overall_result, final_result,need_show_current
 
 def print_overall_result(overall_result):
         port_data_dict = {}
@@ -344,13 +347,13 @@ def print_overall_result(overall_result):
             if item['port'] not in port_data_dict:
                 port_data_dict[item['port']] = []
             for gesture in item['gestures']:
-                port_data_dict[item['port']].append((gesture['timestamp'],gesture['content'], gesture['result']))
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
 
         # 打印数据
         for port, data_list in port_data_dict.items():
             logger.info(f"Port: {port}")
-            for timestamp, content, result in data_list:
-                logger.info(f" timestamp:{timestamp} content: {content}, Result: {result}")
+            for timestamp, description, expected, content, result, comment in data_list:
+                logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 
 def run_tests_for_port(port, connected_status):
@@ -372,14 +375,20 @@ def run_tests_for_port(port, connected_status):
                 if gestureStressTest.do_gesture(key=key, gesture=gestureStressTest.get_initial_gesture()) and not gestureStressTest.judge_if_hand_broken(address=gestureStressTest.get_op_address(), gesture=gestureStressTest.get_initial_gesture()):
                     gesture_result = {
                         "timestamp":timestamp,
-                        "content": key,
-                        "result": "通过"
+                        "description":key,
+                        "expected":'',
+                        "content": '',
+                        "result": "通过",
+                        "comment":'无'
                     }
                 else:
                     gesture_result = {
                         "timestamp":timestamp,
-                        "content": key,
-                        "result": "不通过"
+                        "description":key,
+                        "expected":'',
+                        "content": '',
+                        "result": "不通过",
+                        "comment":'无'
                     }
 
                 # 做新的手势
@@ -387,14 +396,20 @@ def run_tests_for_port(port, connected_status):
                     if gestureStressTest.do_gesture(key=key, gesture=step) and not gestureStressTest.judge_if_hand_broken(address=gestureStressTest.get_op_address(), gesture=step):
                         gesture_result = {
                             "timestamp":timestamp,
-                            "content": key,
-                            "result": "通过"
+                            "description":key,
+                            "expected":'',
+                            "content": '',
+                            "result": "通过",
+                            "comment":'无'
                         }
                     else:
                         gesture_result = {
                             "timestamp":timestamp,
-                            "content": key,
-                            "result": "不通过"
+                            "description":key,
+                            "expected":'',
+                            "content": '',
+                            "result": "不通过",
+                            "comment":'无'
                         }
                 port_result["gestures"].append(gesture_result)
                 # logger.info(f'[port = {port}]测试结果 {gesture_result["result"]}')
@@ -403,8 +418,11 @@ def run_tests_for_port(port, connected_status):
             timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             gesture_result = {
                 "timestamp":timestamp,
-                "content": f'操作手势过程中发生错误：{e}',
-                "result": "不通过"
+                "description":key,
+                "expected":'',
+                "content": '',
+                "result": "不通过",
+                "comment":f'操作手势过程中发生错误：{e}'
             }
             port_result["gestures"].append(gesture_result)
             # logger.info(f'[port = {port}]测试结果 {gesture_result["result"]}')
