@@ -11,6 +11,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, PatternFill, Side
 from openpyxl.styles.fonts import Font
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.dimensions import RowDimension
 import serial.tools.list_ports
 from PyQt5 import QtCore
 from PyQt5 import QtGui, QtWidgets
@@ -839,7 +840,7 @@ class ClientTest(QtCore.QObject):
     def update_test_result(self, module):
         def run_script():
             try:
-                self.test_title,self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,
+                self.report_title,self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,
                                                      max_cycle_num=float(self.selected_aging_duration))
                 logger.info(f'本次测试结论为：{self.result} \n详细测试数据为：\n')
                 self.print_overall_result(self.overall_result)
@@ -980,14 +981,14 @@ class ClientTest(QtCore.QObject):
 
         # 表格宽高度
         column_widths = [10, 30, 12, 12, 10, 11]
-        # column_higths = [18, 18, 18, 18, 18, 18]
+        default_row_height = 35  # 设置默认行高为18
 
         # 设置表格边框样式
         thin_border = Border(left=Side(style='thin'),
                              right=Side(style='thin'),
                              top=Side(style='thin'),
                              bottom=Side(style='thin'))
-        
+
         title_fill = PatternFill(start_color="B2DFEE", end_color="B2DFEE", fill_type="solid")
         title_fill_font_color = Font(color="333333")
 
@@ -1015,25 +1016,36 @@ class ClientTest(QtCore.QObject):
         ws['A1'].fill = title_fill
         ws['A1'].font = title_fill_font_color
 
-        ws['A2'] = '测试人员'
-        ws['C2'] = '测试时间'
-        # ws['C2'] = datetime.datetime.now().strftime('%Y-%m-%d')
-        ws['E2'] = '测试结论'
-        ws['F2'] = self.result
-        
-        ws['A3'] = '复核人员'
-        ws['C3'] = '复核时间'
-        
+        ws['A2'] = '产品名称'
+        ws['C2'] = '产品型号'
+        ws.merge_cells('D2:F2')
+
+        ws['A3'] = '测试地点'
+        ws['C3'] = '测试时间'
+        ws.merge_cells('D3:F3')
+
+        ws['A4'] = '测试设备'
+        ws['C4'] = '设备编号'
+        ws.merge_cells('D4:F4')
+
+        ws['A5'] = '温度'
+        ws['C5'] = '湿度'
+        ws.merge_cells('D5:F5')
+
         ws.append(headers)
 
         # 设置表头字体为粗体，修正索引为2（对应第2行，表头所在行）
-        for cell in ws[4]:
+        for cell in ws[6]:
             cell.fill = header_fill
             cell.font = header_font_color
 
+        # 设置默认行高
+        for row in ws.iter_rows(min_row=ws.min_row, max_row=ws.max_row-1):
+            ws.row_dimensions[row[0].row].height = default_row_height
+
         # 测试数据填充
         self.test_data = self.get_test_result()
-        row_index = 5  # 从第3行开始填充数据行
+        row_index = 7  # 从第7行开始填充数据行
         for port, data_list in self.test_data.items():
             for timestamp, description, expected, content, result, comment in data_list:
                 row_data = [row_index - 2, description, str(expected), str(content), result,
@@ -1046,6 +1058,27 @@ class ClientTest(QtCore.QObject):
                 for cell in ws[row_index]:
                     cell.fill = fill_color
                 row_index += 1
+
+        # 设置自动换行后自适应行高（直接设置height为None来实现自适应）
+        for row in ws.iter_rows(min_row=7, max_row=ws.max_row):
+            row_dimension = RowDimension(ws, row[0].row)
+            row_dimension.height = None  # 设置为None让其根据内容自适应高度
+            ws.row_dimensions[row[0].row] = row_dimension
+
+        # ws.merge_cells('E2:E3')
+        ws['A' + str(row_index)] = '测试结论'
+        ws.merge_cells('B' + str(row_index) + ':' + 'F' + str(row_index))
+        ws['B' + str(row_index)] = '[ ]合格               [ ]不合格'
+
+        ws['A' + str(row_index + 1)] = '测试人'
+        ws['C' + str(row_index + 1)] = '审核人'
+        ws.merge_cells('D' + str(row_index + 1) + ':' + 'F' + str(row_index + 1))
+
+        ws['A' + str(row_index + 2)] = '备注'
+        ws.merge_cells('B' + str(row_index + 2) + ':' + 'F' + str(row_index + 2))
+        
+        for row in ws.iter_rows(min_row=row_index, max_row=ws.max_row):
+             ws.row_dimensions[row[0].row].height = default_row_height
 
         # 设置列宽并统一设置对齐方式（避免重复设置对齐方式）
         for i in range(len(column_widths)):
@@ -1078,9 +1111,136 @@ class ClientTest(QtCore.QObject):
 
             # 保存工作簿
             wb.save(file_path)
-            QMessageBox.information(self.window, '保存成功', f'测试报告已保存为：{file_path}')   
+            QMessageBox.information(self.window, '保存成功', f'测试报告已保存为：{file_path}')
         else:
-            QMessageBox.information(self.window, '保存失败', f'尚未做测试，请先进行测试')  
+            QMessageBox.information(self.window, '保存失败', f'尚未做测试，请先进行测试')
+    
+    # def save_report(self):
+    #     # 表头
+    #     headers = ["用例编号", "用例描述", "期望值", "实际值", "是否通过", "备注"]
+
+    #     # 表格宽高度
+    #     column_widths = [10, 30, 12, 12, 10, 11]
+    #     # column_higths = [18, 18, 18, 18, 18, 18]
+
+    #     # 设置表格边框样式
+    #     thin_border = Border(left=Side(style='thin'),
+    #                          right=Side(style='thin'),
+    #                          top=Side(style='thin'),
+    #                          bottom=Side(style='thin'))
+        
+    #     title_fill = PatternFill(start_color="B2DFEE", end_color="B2DFEE", fill_type="solid")
+    #     title_fill_font_color = Font(color="333333")
+
+    #     # 单元格对齐方式（居中对齐且自动换行）
+    #     alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+
+    #     # 表头填充颜色（淡蓝色）
+    #     header_fill = PatternFill(start_color="B2DFEE", end_color="B2DFEE", fill_type="solid")
+    #     header_font_color = Font(color="333333")
+
+    #     # 奇数行填充颜色（淡米色）
+    #     odd_row_fill = PatternFill(start_color="FDF5E6", end_color="FDF5E6", fill_type="solid")
+    #     # 偶数行填充颜色（淡灰色）
+    #     even_row_fill = PatternFill(start_color="E0E0E0", end_color="E0E0E0", fill_type="solid")
+
+    #     # 创建工作簿
+    #     wb = Workbook()
+    #     ws = wb.active
+
+    #     # 设置标题占两列并居中
+    #     report_cell = ws.merge_cells('A1:F1')
+    #     ws['A1'] = self.report_title
+    #     ws['A1'].font = Font(bold=True, size=16)
+    #     ws['A1'].alignment = alignment
+    #     ws['A1'].fill = title_fill
+    #     ws['A1'].font = title_fill_font_color
+        
+    #     ws['A2'] = '产品名称'
+    #     ws['C2'] = '产品型号'
+    #     ws.merge_cells('D2:F2')
+        
+    #     ws['A3'] = '测试地点'
+    #     ws['C3'] = '测试时间'
+    #     ws.merge_cells('D3:F3')
+        
+    #     ws['A4'] = '测试设备'
+    #     ws['C4'] = '设备编号'
+    #     ws.merge_cells('D4:F4')
+        
+    #     ws['A5'] = '温度'
+    #     ws['C5'] = '湿度'
+    #     ws.merge_cells('D5:F5')
+        
+    #     ws.append(headers)
+
+    #     # 设置表头字体为粗体，修正索引为2（对应第2行，表头所在行）
+    #     for cell in ws[6]:
+    #         cell.fill = header_fill
+    #         cell.font = header_font_color
+
+    #     # 测试数据填充
+    #     self.test_data = self.get_test_result()
+    #     row_index = 7  # 从第7行开始填充数据行
+    #     for port, data_list in self.test_data.items():
+    #         for timestamp, description, expected, content, result, comment in data_list:
+    #             row_data = [row_index - 2, description, str(expected), str(content), result,
+    #                         f"{timestamp} {comment}"]
+    #             ws.append(row_data)
+    #             if row_index % 2 == 1:
+    #                 fill_color = odd_row_fill
+    #             else:
+    #                 fill_color = even_row_fill
+    #             for cell in ws[row_index]:
+    #                 cell.fill = fill_color
+    #             row_index += 1
+                
+    #     # ws.merge_cells('E2:E3')
+    #     ws['A'+str(row_index)] = '测试结论'
+    #     ws.merge_cells('B' + str(row_index) + ':' + 'F' + str(row_index))
+    #     ws['B'+str(row_index)] = '[ ]合格               [ ]不合格'
+        
+    #     ws['A'+str(row_index+1)] = '测试人'
+    #     ws['C'+str(row_index+1)] = '审核人'
+    #     ws.merge_cells('D' + str(row_index+1) + ':' + 'F' + str(row_index+1))
+        
+    #     ws['A'+str(row_index+2)] = '备注'
+    #     ws.merge_cells('B' + str(row_index+2) + ':' + 'F' + str(row_index+2))
+
+    #     # 设置列宽并统一设置对齐方式（避免重复设置对齐方式）
+    #     for i in range(len(column_widths)):
+    #         col_letter = get_column_letter(i + 1)
+    #         ws.column_dimensions[col_letter].width = column_widths[i]
+    #     for row in ws.rows:
+    #         for cell in row:
+    #             cell.alignment = alignment
+
+    #     # 设置表格边框样式
+    #     for row in ws.iter_rows(min_row=1, max_row=len(ws['A']), min_col=1, max_col=6):
+    #         for cell in row:
+    #             cell.border = thin_border
+
+    #     # 根据时间动态生成文件名，避免覆盖（示例格式，可根据需求调整）
+    #     current_dir = os.getcwd()
+    #     # 拼接出log文件夹的路径
+    #     report_folder_path = os.path.join(current_dir, "report")
+    #     # 判断log文件夹是否存在，如果不存在则创建它，添加异常处理
+    #     try:
+    #         if not os.path.exists(report_folder_path):
+    #             os.mkdir(report_folder_path)
+    #     except OSError as e:
+    #         logger.error(f"创建文件夹 {report_folder_path} 时出错: {e}")
+    #         return  # 或者可以采取其他处理方式，比如提示用户手动创建文件夹后重新运行等
+    #     if self.script_name is not None:
+    #         name = os.path.splitext(os.path.basename(self.script_name))[0]
+    #         file_name = f"{name}_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
+    #         file_path = os.path.join(report_folder_path, file_name)
+
+    #         # 保存工作簿
+    #         wb.save(file_path)
+    #         QMessageBox.information(self.window, '保存成功', f'测试报告已保存为：{file_path}')   
+    #     else:
+    #         QMessageBox.information(self.window, '保存失败', f'尚未做测试，请先进行测试')  
                 
     def about_version(self):
         """
@@ -1276,7 +1436,7 @@ class ClientTest(QtCore.QObject):
                 self.update_result_signal.emit('通过')
             else:
                 self.update_result_signal.emit('停止测试')
-            self.test_finished_signal.emit() 
+            self.test_finished_signal.emit()  
                 
 class CustomDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter, option, index):
