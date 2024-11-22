@@ -1,0 +1,83 @@
+2024-11-21 16:30:29,675 - gesture_stress_test_v2 - INFO - ---------------------------------------------开始老化测试<开始时间：2024-11-21 16:30:29>----------------------------------------------
+
+2024-11-21 16:30:29,675 - gesture_stress_test_v2 - INFO - 测试目的：循环做抓握手势，进行压测
+2024-11-21 16:30:29,676 - gesture_stress_test_v2 - INFO - 标准：各个手头无异常，手指不脱线
+
+2024-11-21 16:30:29,676 - gesture_stress_test_v2 - INFO - ##########################第 1 轮测试开始######################
+
+2024-11-21 16:30:29,681 - gesture_stress_test_v2 - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 16:30:29,681 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  fist
+
+2024-11-21 16:30:34,240 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  mouse
+
+2024-11-21 16:30:38,799 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  key
+
+2024-11-21 16:31:28,962 - gesture_stress_test_v2 - INFO - ---------------------------------------------开始老化测试<开始时间：2024-11-21 16:31:28>----------------------------------------------
+
+2024-11-21 16:31:28,963 - gesture_stress_test_v2 - INFO - 测试目的：循环做抓握手势，进行压测
+2024-11-21 16:31:28,963 - gesture_stress_test_v2 - INFO - 标准：各个手头无异常，手指不脱线
+
+2024-11-21 16:31:28,963 - gesture_stress_test_v2 - INFO - ##########################第 1 轮测试开始######################
+
+2024-11-21 16:31:28,969 - gesture_stress_test_v2 - INFO - [port = COM4]Successfully connected to Modbus device.
+2024-11-21 16:31:28,969 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  fist
+
+2024-11-21 16:31:33,525 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  mouse
+
+2024-11-21 16:31:38,086 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  key
+
+2024-11-21 16:31:42,644 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  point
+
+2024-11-21 16:31:47,203 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  column
+
+2024-11-21 16:31:51,766 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  palm
+
+2024-11-21 16:31:56,330 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  salute
+
+2024-11-21 16:32:00,890 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  chopstick
+
+2024-11-21 16:32:05,449 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  power
+
+2024-11-21 16:32:10,011 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  grasp
+
+2024-11-21 16:32:14,574 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  lift
+
+2024-11-21 16:32:19,132 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  plate
+
+2024-11-21 16:32:23,691 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  buckle
+
+2024-11-21 16:32:28,251 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  pinch_ic
+
+2024-11-21 16:32:32,810 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  pinch_io
+
+2024-11-21 16:32:37,372 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  pinch_tc
+
+2024-11-21 16:32:41,934 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  pinch_to
+
+2024-11-21 16:32:46,496 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  pinch_itc
+
+2024-11-21 16:32:51,057 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  tripod_ic
+
+2024-11-21 16:32:55,618 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  tripod_io
+
+2024-11-21 16:33:00,178 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  tripod_tc
+
+2024-11-21 16:33:04,741 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  tripod_to
+
+2024-11-21 16:33:09,302 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  tripod_itc
+
+2024-11-21 16:33:13,860 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  gun
+
+2024-11-21 16:33:18,423 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  love
+
+2024-11-21 16:33:22,988 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  swear
+
+2024-11-21 16:33:27,548 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  victory
+
+2024-11-21 16:33:32,106 - gesture_stress_test_v2 - INFO - [port = COM4]执行    ---->  six
+
+2024-11-21 16:33:36,665 - gesture_stress_test_v2 - INFO - [port = COM4]Connection to Modbus device closed.
+2024-11-21 16:33:36,667 - gesture_stress_test_v2 - INFO - #################第 1 轮测试结束，测试结果：通过#############
+
+2024-11-21 16:33:36,669 - gesture_stress_test_v2 - INFO - ---------------------------------------------老化测试结束<结束时间：2024-11-21 16:33:36>----------------------------------------------
+

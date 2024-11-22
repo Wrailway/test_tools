@@ -121,6 +121,33 @@ class ClientTest(QtCore.QObject):
     overall_result = []
     result = '不通过'
     report_title = '测试报告'
+    
+    log_enable = 'y'
+    
+    def custom_logger(self, level='INFO', message=''):
+        """
+        自定义日志输出函数
+        :param message: 要记录的日志消息内容
+        :param level: 日志级别，可选值为 'DEBUG'、'INFO'、'WARNING'、'ERROR'、'CRITICAL'，默认是 'INFO'
+        """
+        level = level.upper()
+        
+        if self.log_enable == 'n':
+            return
+            
+        if level == 'DEBUG':
+            logger.debug(message)
+        elif level == 'INFO':
+            logger.info(message)
+        elif level == 'WARNING':
+            logger.warning(message)
+        elif level == 'ERROR':
+            logger.error(message)
+        elif level == 'CRITICAL':
+            logger.critical(message)
+        else:
+            raise ValueError("无效的日志级别，请选择 'DEBUG'、'INFO'、'WARNING'、'ERROR'、'CRITICAL' 之一")
+    
     class ConfigReader:
         """
         定义一个读取配置文件config.ini的工具类
@@ -264,6 +291,7 @@ class ClientTest(QtCore.QObject):
         except Exception as e:
             logger.error(e)
         self.window.setWindowTitle(self.window_name)
+        
 
     def read_configfile(self):
         try:
@@ -273,22 +301,23 @@ class ClientTest(QtCore.QObject):
             config = self.ConfigReader(config_file_path)
 
             self.window_name = config.get_value('window_parameter', 'window_name').strip("'")
-            logger.info(f'客户端名称：{self.window_name}')
+            # logger.info(f'客户端名称：{self.window_name}')
             
             self.current_ui_enable = config.get_value('window_parameter', 'current_ui_enable')
             self.log_ui_enable = config.get_value('window_parameter', 'log_ui_enable')
-            logger.info(f'current_ui_enable= {self.current_ui_enable},log_ui_enable = {self.log_ui_enable}')
+            # logger.info(f'current_ui_enable= {self.current_ui_enable},log_ui_enable = {self.log_ui_enable}')
 
             self.win_position_x = int(config.get_value('window_parameter', 'postion_x'))
             self.win_position_y = int(config.get_value('window_parameter', 'postion_y'))
-            logger.info(f'window默认位置：{self.win_position_x, self.win_position_y}')
+            # logger.info(f'window默认位置：{self.win_position_x, self.win_position_y}')
 
             self.max_port_num = int(config.get_value('aging_parameter', 'max_port_num'))
-            logger.info(f'端口数目：{self.max_port_num}')
+            # logger.info(f'端口数目：{self.max_port_num}')
 
             options_str = config.get_value('aging_parameter', 'aging_options')
             self.aging_duration_options = [x.strip("'") for x in options_str.strip("'").split(", ")]
-            logger.info(f'老化时间选项：{self.aging_duration_options}')
+            self.selected_aging_duration = self.aging_duration_options[0]
+            # logger.info(f'老化时间选项：{self.aging_duration_options}')
             
             self.unit_duration = config.get_value('aging_parameter', 'unit_duration')
             self.offset_duration = self.get_offset_duration()
@@ -302,7 +331,7 @@ class ClientTest(QtCore.QObject):
         # 将小数部分从秒转换为小时，因为1小时 = 3600秒，所以除以3600
         offset_duration_in_hours = (1-decimal_part) * float(self.unit_duration) / 3600
         # 使用round函数保留两位小数
-        logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 2)}')
+        # logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 2)}')
         return round(offset_duration_in_hours, 2)
 
     def create_style(self):
@@ -910,16 +939,16 @@ class ClientTest(QtCore.QObject):
     def refresh_ports(self):
         self.current_time = time.time()
         if (self.current_time - self.last_refresh_time >= 5) and not self.running and self.update_port_enable:
-            logger.info('refresh_ports')
+            logger.info('start refresh ports')
             self.update_port_enable = False
             # threading.Thread(target=self.update_port_options).start()
             self.update_port_options()
             self.update_current_ui_portnames(ports=self.port_names)
         else:
-            logger.info(' not refresh')
+            logger.info(' do not refresh')
 
     def load_script(self):
-        logger.info('load_script')
+        logger.info('start load script')
         # 弹出文件选择对话框，让用户选择要执行的脚本
         file_path, _ = QFileDialog.getOpenFileName(self.window, '选择要执行的脚本', 'scripts', 'Python files (*.py)')
         if file_path:
@@ -1044,7 +1073,7 @@ class ClientTest(QtCore.QObject):
             return  # 或者可以采取其他处理方式，比如提示用户手动创建文件夹后重新运行等
         if self.script_name is not None:
             name = os.path.splitext(os.path.basename(self.script_name))[0]
-            file_name = f"{name}_test_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
+            file_name = f"{name}_report_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.xlsx"
             file_path = os.path.join(report_folder_path, file_name)
 
             # 保存工作簿
@@ -1165,7 +1194,7 @@ class ClientTest(QtCore.QObject):
                     new_item_data.append(item)
 
             # 检查model中是否已存在相同port的数据
-            port_key_index = self.HEADS.index(self.STR_PORT)  # 获取port在表头中的索引位置
+            port_key_index = self.HEADS.index(self.STR_PORT)
             is_duplicate = False
             for row in range(self.model.rowCount()):
                 existing_item = self.model.item(row, port_key_index)
@@ -1238,7 +1267,7 @@ class ClientTest(QtCore.QObject):
                 elapsed_time = datetime.datetime.now() - start_time
                 percentage = (elapsed_time.total_seconds() / (((float(self.selected_aging_duration)+float(self.off_duration)) * 3600))) * 100
                 self.update_progress_signal.emit(percentage)
-                # 这里可以添加适当的时间间隔控制，避免过于频繁地更新信号发送，例如添加以下代码
+                # 这里可以添加适当的时间间隔控制，避免过于频繁地更新信号发送
                 # import time
                 time.sleep(1)
             # 最后将测试进度更新为100%
@@ -1247,7 +1276,7 @@ class ClientTest(QtCore.QObject):
                 self.update_result_signal.emit('通过')
             else:
                 self.update_result_signal.emit('停止测试')
-            self.test_finished_signal.emit()  # 在测试完成后发送这个信号
+            self.test_finished_signal.emit() 
                 
 class CustomDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter, option, index):
