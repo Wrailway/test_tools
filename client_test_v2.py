@@ -1046,10 +1046,11 @@ class ClientTest(QtCore.QObject):
         # 测试数据填充
         self.test_data = self.get_test_result()
         row_index = 7  # 从第7行开始填充数据行
+        
         for port, data_list in self.test_data.items():
             for timestamp, description, expected, content, result, comment in data_list:
-                row_data = [row_index - 2, description, str(expected), str(content), result,
-                            f"{timestamp} {comment}"]
+                row_data = [row_index-6, description, str(expected), str(content), result,
+                            f"[{port}]{timestamp} {comment}"]
                 ws.append(row_data)
                 if row_index % 2 == 1:
                     fill_color = odd_row_fill
