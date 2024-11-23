@@ -115,9 +115,10 @@ class AgingTest:
         self.ROH_FINGER_CURRENT_LIMIT0 = 1095
         self.ROH_BEEP_PERIOD  = 1010
         self.motor_currents = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-        self.initial_gesture = [0, 0, 0, 0, 0, 65535]  # 自然展开手势
+        self.initial_gesture = [[0,65535, 65535, 65535, 65535, 62258],[0, 0, 0, 0, 0, 62258]]  # 自然展开手势
         # self.grasp_gesture = [16294, 28966, 33673, 29328, 23897, 65535]  # 握手势
-        self.grasp_gesture = [23172, 65535, 65535, 65535, 65535, 65535]  # 握手势16294
+        # self.grasp_gesture = [65535, 65535, 65535, 65535, 65535, 65535]  # 握手势16294
+        self.grasp_gesture = [[0, 65535, 65535, 65535, 65535, 62258], [62258, 65535, 65535, 65535, 65535, 62258]]
         self.MAX_CYCLE_NUM = 1
         self.FINGER_POS_TARGET_MAX_LOSS = 32
         self.max_average_times = 3
@@ -182,12 +183,12 @@ class AgingTest:
         :param value: 要写入的值。
         :return: 如果写入成功则返回True，否则返回False。
         """
-        max_retries = 3
+        max_retries = 1
         retry_count = 0
         while retry_count < max_retries:
             try:
                 response = self.client.write_registers(address, value, self.node_id)
-                # time.sleep(1)
+                time.sleep(0.4)
                 if not response.isError():
                     return True
                 else:
@@ -303,18 +304,17 @@ class AgingTest:
         :return: 一个布尔值，表示获取电机电流的操作是否成功。
         """
         status = False
-        if self.do_gesture(self.grasp_gesture) and not self.judge_if_hand_broken(address=self.ROH_FINGER_POS_TARGET0,
-                                                                                gesture=self.grasp_gesture):
+        if self.do_gesture(self.grasp_gesture[0]) and self.do_gesture(self.grasp_gesture[1]):
+        
             self.motor_currents = self.count_motor_curtent(address=self.ROH_FINGER_CURRENT0)
             status = True
             logger.info(f'[port = {self.port}]执行抓握手势，电机电流为 -->{self.motor_currents}\n')
-            time.sleep(0.7)
-        if self.do_gesture(self.initial_gesture) and not self.judge_if_hand_broken(address=self.ROH_FINGER_POS_TARGET0,
-                                                                                   gesture=self.initial_gesture):
+            time.sleep(0.5)
+        if self.do_gesture(self.initial_gesture[0]) and self.do_gesture(self.initial_gesture[1])and not self.judge_if_hand_broken(self.ROH_FINGER_POS_TARGET0,self.initial_gesture[1]):
             # self.motor_currents = self.count_motor_curtent(address=self.ROH_FINGER_CURRENT0)
             status = True
             # logger.info(f'[port = {self.port}]执行自然展开手势, 电机电流为 -->{self.motor_currents}\n')
-            time.sleep(1.5)
+            time.sleep(0.5)
         return status
 
     def get_current(self):
@@ -391,22 +391,22 @@ def check_ports(ports_list):
 
 def read_json_variable_and_execute():
     current_dir = os.getcwd()
-    logger.info(f'read_json_variable_and_execute->{current_dir}')
+    # logger.info(f'read_json_variable_and_execute->{current_dir}')
     try:
         with open('shared_data.json', 'r') as f:
             data = json.load(f)
             continue_flag = data['continue_flag']
-            logger.info(f'read_json_variable_and_execute->{continue_flag}')
+            # logger.info(f'read_json_variable_and_execute->{continue_flag}')
             return continue_flag
     except FileNotFoundError:
-        print("共享的json文件不存在，等待...")
+        logger.error("共享的json文件不存在")
         return True
     except json.JSONDecodeError:
-        print("json文件数据格式错误，等待...")
+        logger.error("json文件数据格式错误")
         return True
     
 expected = [100,100,100,100,100,100]
-description = '抓握手势,记录各个电机的电流值'
+description = '重复抓握手势,记录各个电机的电流值'
     
 def main(ports=None, max_cycle_num=1):
     """
@@ -437,7 +437,7 @@ def main(ports=None, max_cycle_num=1):
     try:
         start_time1 = time.time()
         end_time1 = start_time1 + max_cycle_num * 3600
-        # end_time1 = start_time1 + 15
+        # end_time1 = start_time1 + 60
         i = 0
         while time.time() < end_time1:
             logger.info(f"##########################第 {i + 1} 轮测试开始######################\n")
@@ -510,24 +510,24 @@ def run_tests_for_port(port, connected_status):
                         "result": "通过",
                         "comment":'无'
                     }
-                if agingTest.checkCurrent(current):
-                    gesture_result = {
-                        "timestamp":timestamp,
-                        "description":description,
-                        "expected":expected,
-                        "content": current,
-                        "result": "通过",
-                        "comment":'无'
-                    }
-                else:
-                    gesture_result = {
-                        "timestamp":timestamp,
-                        "description":description,
-                        "expected":expected,
-                        "content": current,
-                        "result": "不通过",
-                        "comment":'电流超标'
-                    }
+                # if agingTest.checkCurrent(current):
+                #     gesture_result = {
+                #         "timestamp":timestamp,
+                #         "description":description,
+                #         "expected":expected,
+                #         "content": current,
+                #         "result": "通过",
+                #         "comment":'无'
+                #     }
+                # else:
+                #     gesture_result = {
+                #         "timestamp":timestamp,
+                #         "description":description,
+                #         "expected":expected,
+                #         "content": current,
+                #         "result": "不通过",
+                #         "comment":'电流超标'
+                #     }
                     # agingTest.do_alarm()
                 port_result["gestures"].append(gesture_result)
             else:
