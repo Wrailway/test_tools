@@ -47,7 +47,7 @@ class MotorCurrentTest:
         self.ROH_FINGER_CURRENT0 = 1105
         self.ROH_BEEP_PERIOD  = 1010
         self.max_average_times = 5
-        self.initial_gesture = [0,0,0,0,0,0] #自然展开
+        self.initial_gesture = [0,0,0,0,0,0] #自然展开2°对应的值1456
         self.thumb_up_gesture = [0, 65535, 65535, 65535, 65535, 0] # 四指弯曲
         self.thumb_bend_gesture = [65535, 0, 0, 0, 0, 0] # 大拇值弯曲
         self.thumb_rotation_gesture = [0, 0, 0, 0, 0, 65535] # 大拇指旋转到对掌位
@@ -67,6 +67,9 @@ class MotorCurrentTest:
         
     def set_port(self,port):
         self.port = port
+        
+    def set_node_id(self,node_id=2):
+        self.node_id = node_id
         
     def create_gesture_dict(self):
         gesture_dict = {
@@ -296,7 +299,7 @@ def check_ports(ports_list):
 expected = [100,100,100,100,100,100]
 description = '各个手指在始末位置,记录各个电机的电流值'
 
-def main(ports=None, max_cycle_num=1):
+def main(ports=None, node_ids=None, max_cycle_num=1):
     """
     测试的主函数。
 
@@ -325,7 +328,8 @@ def main(ports=None, max_cycle_num=1):
     try:
         logger.info(f"##########################测试开始######################\n")
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+            # futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+            futures = [executor.submit(run_tests_for_port, port, node_id, connected_status) for port, node_id in zip(ports, node_ids)]
             for future in concurrent.futures.as_completed(futures):
                 port_result, _ = future.result()
                 overall_result.append(port_result)
@@ -361,10 +365,12 @@ def print_overall_result(overall_result):
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 
-def run_tests_for_port(port, connected_status):
+def run_tests_for_port(port, node_id, connected_status):
     result = '通过'
     motorCurrentTest = MotorCurrentTest()
-    motorCurrentTest.set_port(port)
+    motorCurrentTest.set_port(port=port)
+    motorCurrentTest.set_node_id(node_id=node_id)
+    
     if not connected_status:
         motorCurrentTest.connect_device()
         connected_status = True
@@ -398,5 +404,6 @@ def run_tests_for_port(port, connected_status):
     return port_result, connected_status
             
 if __name__ == "__main__":
-    port = ['COM4']
-    main(ports = port,max_cycle_num=1)
+    ports = ['COM4']
+    node_ids = [2]
+    main(ports = ports,node_ids = node_ids,max_cycle_num=1)

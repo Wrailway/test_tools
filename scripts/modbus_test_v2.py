@@ -1,6 +1,7 @@
 import datetime
 import logging
 import os
+import random
 import struct
 import sys
 import concurrent.futures
@@ -335,7 +336,7 @@ class FingerStatusGetter:
 
 
 class ModbusClient:
-    # node_id = 2
+    node_id = 2
     baudrate=115200
     framer=FramerType.RTU
     port = None
@@ -396,12 +397,13 @@ class ModbusClient:
             strException = self.roh_exception_list.get(response.exception_code)
         return strException
 
-    def __new__(cls, port):
+    def __new__(cls, port,node_id):
         if not cls._instance:
             with cls._lock:
                 if not cls._instance:
                     cls._instance = super().__new__(cls)
                     cls._instance.port = port
+                    cls._instance.node_id = node_id
                     cls._instance.connect()
         return cls._instance
 
@@ -415,20 +417,21 @@ class ModbusClient:
             logger.error(f"[port = {self.port}]Error during connection: {e}")
             raise
 
-    def read_from_register(self, address, count=1, node_id=2):
+    def read_from_register(self, address, count=1,node_id=2):
         max_retries = 1
         retry_count = 0
+        self.node_id = node_id
         while retry_count < max_retries:
             try:
                 if not self.client:
                     raise ValueError(f"[port = {self.port}]Modbus client not initialized.")
-                response = self.client.read_holding_registers(address, count,node_id)
+                response = self.client.read_holding_registers(address, count,self.node_id)
                 time.sleep(0.5)
                 if not response.isError():
                     logger.info(f'[port = {self.port}]Read value successfully: {response.registers[0]}\n')
                     return response
                 else:
-                    error_type = self.get_exception(response,node_id)
+                    error_type = self.get_exception(response,self.node_id)
                     if "connection timeout" in error_type.lower():
                         self.connect()
                     elif "read timeout" in error_type.lower():
@@ -451,14 +454,15 @@ class ModbusClient:
                 return None
         return None
 
-    def write_to_register(self, address, values, node_id=2):
+    def write_to_register(self, address, values,node_id=2):
         max_retries = 3
         retry_count = 0
+        self.node_id=node_id
         while retry_count < max_retries:
             try:
                 if not self.client:
                     raise ValueError(f"[port = {self.port}]Modbus client not initialized.")
-                response = self.client.write_registers(address, values,node_id)
+                response = self.client.write_registers(address, values,self.node_id)
                 time.sleep(0.5)
                 if not response.isError():
                     logger.info(f'[port = {self.port}]Write value successfully: {values}\n')
@@ -533,17 +537,17 @@ class TestModbus(unittest.TestCase):
             """打印其他状态信息"""
             logger.info(f'{self.roh_test_status_list.get(status)}\n')
             
-    def __init__(self, port, *args, **kwargs):
+    def __init__(self, port,node_id=2, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # logger.info(f'[port = {port}]TestModbus__init__')
         self.port = port
-        self.node_id = 2
+        self.node_id = node_id
         self.client = None
         self.fingerStatusGetter = None
 
     def setUp(self):
         logger.info(f'[port = {self.port}]setUp\n')
-        self.client = ModbusClient(port=self.port)
+        self.client = ModbusClient(port=self.port,node_id=self.node_id)
         self.fingerStatusGetter = FingerStatusGetter()
 
     def tearDown(self):
@@ -612,8 +616,10 @@ class TestModbus(unittest.TestCase):
                        
     def test_write_nodeID_version(self): 
         self.print_test_info(status=self.TEST_STRAT,info='write node id：3')
-        default_node_id = 2
-        target_node_id = 3
+        default_node_id = self.node_id
+        target_node_id = random.randint(1, 256)
+        while target_node_id == default_node_id:
+            target_node_id = random.randint(1, 256)
         
         logger.info(f'[port = {self.port}]尝试更改设备ID 为 {target_node_id}\n')
         response1 = self.client.write_to_register(address=ROH_NODE_ID,values=target_node_id,node_id=default_node_id)
@@ -4022,7 +4028,7 @@ class TestModbus(unittest.TestCase):
     #         self.print_test_info(status=self.TEST_PASS)
         
 
-def run_tests_for_port(port):
+def run_tests_for_port(port,node_id):
     connected_status = True
     port_result = {
         "port": port,
@@ -4030,7 +4036,7 @@ def run_tests_for_port(port):
     }
     start_time = time.time()
     # TestModbus.args = {'port': port, 'framer': framer, 'baudrate': baudrate}
-    TempTestClass = type('TempTest', (TestModbus,), {'__init__': lambda self, *args, **kwargs: TestModbus.__init__(self, port, *args, **kwargs)})
+    TempTestClass = type('TempTest', (TestModbus,), {'__init__': lambda self, *args, **kwargs: TestModbus.__init__(self, port, node_id, *args, **kwargs)})
 
     suite = unittest.TestSuite()
     loader = unittest.TestLoader()
@@ -4116,7 +4122,8 @@ def check_ports(ports_list):
         status = False
     return status, valid_ports
 
-def main(ports,max_cycle_num=1):
+# def main(ports,max_cycle_num=1):
+def main(ports=None, node_ids=None, max_cycle_num=1):
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试MODBUS协议<开始时间：{start_time}>----------------------------------------------\n')
@@ -4132,7 +4139,8 @@ def main(ports,max_cycle_num=1):
         return overall_result,result
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(run_tests_for_port, port) for port in ports]
+        # futures = [executor.submit(run_tests_for_port, port) for port in ports]
+        futures = [executor.submit(run_tests_for_port, port, node_id) for port, node_id in zip(ports, node_ids)]
         for future in concurrent.futures.as_completed(futures):
             port_result= future.result()
             overall_result.append(port_result)
@@ -4165,7 +4173,8 @@ def print_overall_result(overall_result):
 
 if __name__ == '__main__':
     ports = ['COM4']
-    overall_result,test_result = main(ports=ports,max_cycle_num=1)
+    node_ids = [2]
+    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,max_cycle_num=1)
     logger.info(f'测试结果：{test_result}\n')
     logger.info(f'详细数据：\n')
     print_overall_result(overall_result)

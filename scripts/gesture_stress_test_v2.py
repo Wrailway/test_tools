@@ -77,6 +77,9 @@ class GestureStressTest:
     def set_port(self,port):
         self.port = port
         
+    def set_node_id(self,node_id=2):
+        self.node_id = node_id
+        
     def set_cycle_times(self,max_cycle_num):
         self.MAX_CYCLE_NUM = max_cycle_num
         
@@ -282,7 +285,7 @@ def check_ports(ports_list):
 
 expected = []
 description = '循环做抓握手势，进行压测'
-def main(ports=None, max_cycle_num=1):
+def main(ports=None, node_ids=None, max_cycle_num=1):
     """
     测试的主函数。
 
@@ -317,7 +320,8 @@ def main(ports=None, max_cycle_num=1):
             logger.info(f"##########################第 {i + 1} 轮测试开始######################\n")
             result = '通过'
             with concurrent.futures.ThreadPoolExecutor() as executor:
-                futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+                # futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+                futures = [executor.submit(run_tests_for_port, port, node_id, connected_status) for port, node_id in zip(ports, node_ids)]
                 for future in concurrent.futures.as_completed(futures):
                     port_result, _ = future.result()
                     overall_result.append(port_result)
@@ -356,9 +360,11 @@ def print_overall_result(overall_result):
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 
-def run_tests_for_port(port, connected_status):
+def run_tests_for_port(port, node_id, connected_status):
     gestureStressTest = GestureStressTest()
-    gestureStressTest.set_port(port)
+    gestureStressTest.set_port(port=port)
+    gestureStressTest.set_node_id(node_id=node_id)
+    
     if not connected_status:
         gestureStressTest.connect_device()
         connected_status = True
@@ -433,5 +439,5 @@ def run_tests_for_port(port, connected_status):
 
 if __name__ == "__main__":
     ports = ['COM4']
-    max_cycle_num = 1
-    main(ports, max_cycle_num)
+    node_ids = [2]
+    main(ports = ports,node_ids = node_ids,max_cycle_num=1)

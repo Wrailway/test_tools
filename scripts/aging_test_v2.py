@@ -127,6 +127,9 @@ class AgingTest:
     def set_port(self,port):
         self.port = port
         
+    def set_node_id(self,node_id=2):
+        self.node_id = node_id
+        
     def set_cycle_times(self,max_cycle_num):
         self.MAX_CYCLE_NUM = max_cycle_num
         
@@ -408,7 +411,7 @@ def read_json_variable_and_execute():
 expected = [100,100,100,100,100,100]
 description = '重复抓握手势,记录各个电机的电流值'
     
-def main(ports=None, max_cycle_num=1):
+def main(ports=None,node_ids=None,max_cycle_num=1):
     """
     测试的主函数。
 
@@ -447,7 +450,8 @@ def main(ports=None, max_cycle_num=1):
                 continue
             result = '通过'
             with concurrent.futures.ThreadPoolExecutor() as executor:
-                futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+                # futures = [executor.submit(run_tests_for_port, port, connected_status) for port in ports]
+                futures = [executor.submit(run_tests_for_port, port, node_id, connected_status) for port, node_id in zip(ports, node_ids)]
                 for future in concurrent.futures.as_completed(futures):
                     port_result, _ = future.result()
                     overall_result.append(port_result)
@@ -486,9 +490,11 @@ def print_overall_result(overall_result):
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 
-def run_tests_for_port(port, connected_status):
+def run_tests_for_port(port, node_id, connected_status):
     agingTest = AgingTest()
-    agingTest.set_port(port)
+    agingTest.set_port(port=port)
+    agingTest.set_node_id(node_id=node_id)
+    
     if not connected_status:
         connected_status = agingTest.connect_device()
     port_result = {
@@ -568,5 +574,6 @@ def run_tests_for_port(port, connected_status):
     return port_result, connected_status
 
 if __name__ == "__main__":
-    port = ['COM4']
-    main(ports = port,max_cycle_num=1)
+    ports = ['COM4']
+    node_ids = [2]
+    main(ports = ports,node_ids = node_ids,max_cycle_num=1)
