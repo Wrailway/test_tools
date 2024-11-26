@@ -65,7 +65,7 @@
    <widget class="QPushButton" name="btn_start_test">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>180</x>
       <y>700</y>
       <width>181</width>
       <height>61</height>
@@ -154,10 +154,10 @@
      <string>全选</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_stop_test">
+   <widget class="QPushButton" name="btn_pause_test">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>480</x>
       <y>700</y>
       <width>181</width>
       <height>61</height>
@@ -209,7 +209,7 @@
      </font>
     </property>
     <property name="text">
-     <string>停止测试</string>
+     <string>暂停测试</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_remaining_duration">
@@ -320,6 +320,64 @@
     </property>
     <property name="text">
      <string>获取端口信息中，请稍等...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_stop_test">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>700</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Agency FB</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>停止测试</string>
     </property>
    </widget>
   </widget>

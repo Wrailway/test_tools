@@ -299,11 +299,11 @@ def check_ports(ports_list):
 expected = [100,100,100,100,100,100]
 description = '各个手指在始末位置,记录各个电机的电流值'
 
-def main(ports=None, node_ids=None, max_cycle_num=1):
+def main(ports=None, node_ids=None, aging_duration=1):
     """
     测试的主函数。
 
-    创建 AgeTest 类的实例，设置端口号并连接设备，然后进行多次（最多 MAX_CYCLE_NUM 次）测试循环，
+    创建 AgeTest 类的实例，设置端口号并连接设备，然后进行多次（最多 aging_duration 次）测试循环，
     在每次循环中获取电机电流并检查电流是否正常，根据结果设置 result 变量，最后断开设备连接并返回测试结果。
 
     :param port: 可选参数，默认为 COM4，要连接的设备端口号。
@@ -406,4 +406,4 @@ def run_tests_for_port(port, node_id, connected_status):
 if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]
-    main(ports = ports,node_ids = node_ids,max_cycle_num=1)
+    main(ports = ports,node_ids = node_ids,aging_duration=1)

@@ -273,9 +273,37 @@ class ClientTest(QtCore.QObject):
         
     def close_event_handler(self, event):
         self.running = False
+        self.write_to_json_file(stop_test=True,pause_test=True)
+
+    def write_to_json_file(self, stop_test, pause_test):
+        data_to_write = {
+            "stop_test": stop_test,
+            "pause_test": pause_test
+        }
         with open('shared_data.json', 'w') as f:
-            initial_data = {'continue_flag': self.running}
-            json.dump(initial_data, f)
+            json.dump(data_to_write, f)
+            
+    def read_from_json_file(self):
+        """
+        从json文件读取标志位，判断是否继续执行测试
+        Returns:
+            返回fasle则终止测试，true继续测试
+        """
+        try:
+            with open('shared_data.json', 'r') as f:
+                data = json.load(f)
+                stop_test = data['stop_test']
+                pause_test = data['pause_test']
+                return stop_test,pause_test
+        except FileNotFoundError:
+            logger.error("共享的json文件不存在")
+            return False,False
+        except json.JSONDecodeError:
+            logger.error("json文件数据格式错误")
+            return False,False
+        except Exception as e:
+            logger.error(f"读取JSON文件时出现其他未知错误: {e}")
+            return False, False
 
     def set_window_style(self):
         self.window.setFixedSize(1369, 827)
@@ -294,7 +322,6 @@ class ClientTest(QtCore.QObject):
             logger.error(e)
         self.window.setWindowTitle(self.window_name)
         
-
     def read_configfile(self):
         try:
             current_dir = os.getcwd()
@@ -333,7 +360,7 @@ class ClientTest(QtCore.QObject):
         # 将小数部分从秒转换为小时，因为1小时 = 3600秒，所以除以3600
         offset_duration_in_hours = (1-decimal_part) * float(self.unit_duration) / 3600
         # 使用round函数保留两位小数
-        # logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 2)}')
+        logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 2)}')
         return round(offset_duration_in_hours, 2)
 
     def create_style(self):
@@ -398,9 +425,26 @@ class ClientTest(QtCore.QObject):
                                              "QPushButton:pressed {" + \
                                              "background-color: #0070d8; /* 按下时背景色再深一点 */" + \
                                              "}"
+                                             
+        self.pause_test_button_style_sheet = "QPushButton {" + \
+                                            "background-color: #00FF00; /* 按钮背景色为绿色 */" + \
+                                            "color: white; /* 按钮文本颜色为白色，与绿色背景形成鲜明对比 */" + \
+                                            "border: none; /* 无边框，使按钮看起来更简洁流畅 */" + \
+                                            "padding: 12px 24px; /* 内边距，上下12px，左右24px，给文本足够空间 */" + \
+                                            "text-align: center; /* 文本居中对齐，保证美观度 */" + \
+                                            "text-decoration: none; /* 无文本装饰，保持简洁 */" + \
+                                            "font-size: 16px; /* 字体大小为16px，清晰可读 */" + \
+                                            "border-radius: 6px; /* 按钮四个角为半径6px的圆角，更显圆润精致 */" + \
+                                            "}" + \
+                                            "QPushButton:hover {" + \
+                                            "background-color: #00c200; /* 鼠标悬停时背景色变深一点 */" + \
+                                            "}" + \
+                                            "QPushButton:pressed {" + \
+                                            "background-color: #00c200; /* 按下时背景色再深一点 */" + \
+                                            "}"
 
         self.stop_test_button_style_sheet = "QPushButton {" + \
-                                            "background-color: #FF0000; /* 按钮背景色为蓝色 */" + \
+                                            "background-color: #FF0000; /* 按钮背景色为红色 */" + \
                                             "color: white; /* 按钮文本颜色为白色，与蓝色背景形成鲜明对比 */" + \
                                             "border: none; /* 无边框，使按钮看起来更简洁流畅 */" + \
                                             "padding: 12px 24px; /* 内边距，上下12px，左右24px，给文本足够空间 */" + \
@@ -487,6 +531,10 @@ class ClientTest(QtCore.QObject):
         self.btn_start_test = self.window.findChild(QtWidgets.QPushButton, "btn_start_test")
         self.btn_start_test.setStyleSheet(self.start_test_button_style_sheet)
         self.btn_start_test.clicked.connect(self.start_test)
+        
+        self.btn_pause_test = self.window.findChild(QtWidgets.QPushButton, "btn_pause_test")
+        self.btn_pause_test.setStyleSheet(self.pause_test_button_style_sheet)
+        self.btn_pause_test.clicked.connect(self.pause_test)
 
         self.btn_stop_test = self.window.findChild(QtWidgets.QPushButton, "btn_stop_test")
         self.btn_stop_test.setStyleSheet(self.stop_test_button_style_sheet)
@@ -794,10 +842,7 @@ class ClientTest(QtCore.QObject):
             return
         
         self.execute_script ()
-        
-        with open('shared_data.json', 'w') as f:
-            initial_data = {'continue_flag': self.running}
-            json.dump(initial_data, f)
+        self.write_to_json_file(stop_test=False,pause_test=False)
 
     def execute_script (self):
         if self.script_name is not None:
@@ -842,7 +887,7 @@ class ClientTest(QtCore.QObject):
         def run_script():
             try:
                 self.report_title,self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,node_ids=self.node_ids,
-                                                     max_cycle_num=float(self.selected_aging_duration))
+                                                     aging_duration=float(self.selected_aging_duration))
                 logger.info(f'本次测试结论为：{self.result} \n详细测试数据为：\n')
                 self.print_overall_result(self.overall_result)
                 if self.need_show_current:
@@ -908,27 +953,39 @@ class ClientTest(QtCore.QObject):
                         item = self.model.item(i, j)
                         item.setText(str(new_value))
         self.tv_test_detail.update()
-        
+
     def stop_test(self):
         logger.info('stop_test')
+        if self.running:
+            if self.timer_running:
+                self.timer.stop()
+                self.timer_running = False
 
-        if self.timer_running:
-            self.timer.stop()
-            self.timer_running = False
-
-        # 假设存在与测试线程相关的操作，以下是完善后的处理方式
-        if hasattr(self, 'update_device_Info_thread') and self.update_device_Info_thread.is_alive():
-            self.update_device_Info_worker.stop_flag=True
-            self.update_device_Info_worker.test_finished_signal.connect(self.on_test_finished)  # 连接信号到槽函数
-            self.run_script_thread.join()
-        else:
-            self.on_test_finished()
+            # 假设存在与测试线程相关的操作，以下是完善后的处理方式
+            if hasattr(self, 'update_device_Info_thread') and self.update_device_Info_thread.is_alive():
+                self.update_device_Info_worker.stop_flag=True
+                self.update_device_Info_worker.test_finished_signal.connect(self.on_test_finished)  # 连接信号到槽函数
+                self.run_script_thread.join()
+            else:
+                self.on_test_finished()
+            
+            self.running = False
+            self.write_to_json_file(stop_test=True, pause_test=True)
         
-        self.running = False
-        
-        with open('shared_data.json', 'w') as f:
-            initial_data = {'continue_flag': self.running}
-            json.dump(initial_data, f)
+    def pause_test(self):
+        pause = False
+        if self.running:
+            _,pause = self.read_from_json_file()
+            if not pause:
+                pause = True
+                self.btn_pause_test.setText('恢复测试')
+                logger.info('pause test')
+            else:
+                pause = False
+                self.btn_pause_test.setText('暂停测试')
+                logger.info('go on  test')
+                
+            self.write_to_json_file(stop_test=False, pause_test=pause)
             
             
     def on_test_finished(self):

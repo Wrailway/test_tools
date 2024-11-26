@@ -4123,7 +4123,7 @@ def check_ports(ports_list):
     return status, valid_ports
 
 # def main(ports,max_cycle_num=1):
-def main(ports=None, node_ids=None, max_cycle_num=1):
+def main(ports=None, node_ids=None, aging_duration=1):
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试MODBUS协议<开始时间：{start_time}>----------------------------------------------\n')
@@ -4174,7 +4174,7 @@ def print_overall_result(overall_result):
 if __name__ == '__main__':
     ports = ['COM4']
     node_ids = [2]
-    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,max_cycle_num=1)
+    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,aging_duration=1)
     logger.info(f'测试结果：{test_result}\n')
     logger.info(f'详细数据：\n')
     print_overall_result(overall_result)

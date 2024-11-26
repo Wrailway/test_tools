@@ -285,7 +285,7 @@ def check_ports(ports_list):
 
 expected = []
 description = '循环做抓握手势，进行压测'
-def main(ports=None, node_ids=None, max_cycle_num=1):
+def main(ports=None, node_ids=None, aging_duration=1):
     """
     测试的主函数。
 
@@ -313,7 +313,7 @@ def main(ports=None, node_ids=None, max_cycle_num=1):
     logger.info('标准：各个手头无异常，手指不脱线\n')
     try:
         start_time1 = time.time()
-        end_time1 = start_time1 + max_cycle_num * 3600
+        end_time1 = start_time1 + aging_duration * 3600
         # end_time1 = start_time1 + 60
         i = 0
         while time.time() < end_time1:
@@ -440,4 +440,4 @@ def run_tests_for_port(port, node_id, connected_status):
 if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]
-    main(ports = ports,node_ids = node_ids,max_cycle_num=1)
+    main(ports = ports,node_ids = node_ids,aging_duration=1)
