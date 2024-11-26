@@ -498,7 +498,6 @@ def main(ports: Optional[List] = None, node_ids: Optional[List] = None, aging_du
             stop,pause = read_from_json_file()
             if stop:
                 logging.info('测试已停止')
-                time.time()
                 break
                 
             if pause:
