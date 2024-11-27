@@ -150,14 +150,6 @@ class AgingTest:
                 logger.error(f'[port = {self.port}]异常: {e}')
                 return False
     
-    # def do_alarm(self):
-    #     """
-    #     蜂鸣器报警，当设备异常时，每隔3s报警一次
-    #     """
-    #     while True:
-    #         self.write_to_regesister(address=self.ROH_BEEP_PERIOD ,value=1000)
-    #         time.sleep(3)
-
     def do_gesture(self, gesture):
         """
         执行特定的手势动作。
@@ -302,205 +294,39 @@ def read_from_json_file():
         except Exception as e:
             logger.error(f"读取JSON文件时出现其他未知错误: {e}")
             return False, False
-    
-# test_title = '老化测试报告'
-# expected = [100,100,100,100,100,100]
-# description = '重复抓握手势,记录各个电机的电流值' #用例描述
-    
-# def main(ports=None,node_ids=None,aging_duration=1.5):
-#     """
-#     测试的主函数。
-#     :param ports: 端口列表
-#     :param node_ids: 设备id列表,与端口号一一对应
-#     :return: 测试标题,测试结果数据,测试结论,是否需要显示电机电流(false)
-#     """
-#     final_result = '通过'
-#     overall_result = []
-#     # connected_status = False
-#     need_show_current = False
-    
-#     if ports is None:
-#         logger.error('测试结束，无可用端口')
-#         final_result = '不通过'
-#         return test_title, overall_result, final_result, need_show_current
-    
-#     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#     logger.info(f'---------------------------------------------开始老化测试<开始时间：{start_time}>----------------------------------------------\n')
-#     logger.info('测试目的：循环做抓握手势，进行压测')
-#     logger.info('标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >\n')
-#     try:
-#         start_time1 = time.time()
-#         end_time1 = start_time1 + aging_duration * 3600
-#         # end_time1 = start_time1 + 60
-#         i = 0
-#         while time.time() < end_time1:
-#             logger.info(f"##########################第 {i + 1} 轮测试开始######################\n")
-#             if not read_json_variable_and_execute():
-#                 logger.info('测试已停止')
-#                 time.time(5)
-#                 continue
-#             result = '通过'
-#             with concurrent.futures.ThreadPoolExecutor() as executor:
-#                 futures = [executor.submit(run_tests_for_port, port, node_id) for port, node_id in zip(ports, node_ids)]
-#                 for future in concurrent.futures.as_completed(futures):
-#                     port_result, _ = future.result()
-#                     overall_result.append(port_result)
-#                     for gesture_result in port_result["gestures"]:
-#                         if gesture_result["result"]!= "通过":
-#                             result = '不通过'
-#                             final_result = '不通过'
-#                             break
-#             logger.info(f"#################第 {i + 1} 轮测试结束，测试结果：{result}#############\n")
-#             i += 1
 
-#     except Exception as e:
-#         logging.error(f"Error: {e}")
-#     finally:
-#         pass
-#     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#     logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
-#     # print(f'最终测试结果：{result}')
-#     # print_overall_result(overall_result)
-#     return test_title, overall_result, final_result, need_show_current
-
-# def print_overall_result(overall_result):
-#         port_data_dict = {}
-
-#         # 整理数据
-#         for item in overall_result:
-#             if item['port'] not in port_data_dict:
-#                 port_data_dict[item['port']] = []
-#             for gesture in item['gestures']:
-#                 port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
-
-#         # 打印数据
-#         for port, data_list in port_data_dict.items():
-#             logger.info(f"Port: {port}")
-#             for timestamp, description, expected, content, result, comment in data_list:
-#                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
-
-
-# def run_tests_for_port(port, node_id):
-#     agingTest = AgingTest()
-#     agingTest.port = port
-#     agingTest.node_id = node_id
-#     connected_status = agingTest.connect_device()
-#     port_result = {
-#         "port": port,
-#         "gestures": []
-#     }
-#     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#     if connected_status:
-#         # set max current 200ma
-#         agingTest.set_max_current()
-#         try:
-#             if agingTest.get_motor_currents():
-#                 current = agingTest.get_current()
-#                 gesture_result = {
-#                         "timestamp":timestamp,
-#                         "description":description,
-#                         "expected":expected,
-#                         "content": current,
-#                         "result": "通过",
-#                         "comment":'无'
-#                     }
-#                 # if agingTest.checkCurrent(current):
-#                 #     gesture_result = {
-#                 #         "timestamp":timestamp,
-#                 #         "description":description,
-#                 #         "expected":expected,
-#                 #         "content": current,
-#                 #         "result": "通过",
-#                 #         "comment":'无'
-#                 #     }
-#                 # else:
-#                 #     gesture_result = {
-#                 #         "timestamp":timestamp,
-#                 #         "description":description,
-#                 #         "expected":expected,
-#                 #         "content": current,
-#                 #         "result": "不通过",
-#                 #         "comment":'电流超标'
-#                 #     }
-#                     # agingTest.do_alarm()
-#                 port_result["gestures"].append(gesture_result)
-#             else:
-#                 gesture_result = {
-#                     "timestamp":timestamp,
-#                     "description":description,
-#                     "expected":expected,
-#                     "content": '',
-#                     "result": "不通过",
-#                     "comment":'手指出现异常'
-#                 }
-#                 port_result["gestures"].append(gesture_result)
-#                 logger.error('1111111111')
-#         except Exception as current_error:
-#             logger.error(f"获取电机电流或检查电流时出现错误：{current_error}")
-#             gesture_result = {
-#                 "timestamp":timestamp,
-#                 "description":description,
-#                 "expected":expected,
-#                 "content": '',
-#                 "result": "不通过",
-#                 "comment":f'获取电机电流或检查电流时出现错误：{current_error}'
-#             }
-#             port_result["gestures"].append(gesture_result)
-            
-#         finally:
-#             agingTest.disConnect_device()
-#     else:
-#         gesture_result = {
-#                 "timestamp":timestamp,
-#                 "description":description,
-#                 "expected":expected,
-#                 "content": '',
-#                 "result": "不通过",
-#                 "comment": '当前端口无法获取到设备或无法连接到设备',
-#             }
-#         port_result["gestures"].append(gesture_result)
-        
-#     return port_result, connected_status
-
-test_title = '老化测试报告'
+test_title = '老化测试报告\n标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >'
 expected = [100, 100, 100, 100, 100, 100]
 description = '重复抓握手势,记录各个电机的电流值'  # 用例描述
 
 # 定义一个常量用于表示老化测试的时长单位转换（从小时转换为秒）
 SECONDS_PER_HOUR = 3600
 
-
-def main(ports: Optional[List] = None, node_ids: Optional[List] = None, aging_duration: float = 1.5) -> Tuple[str, List, str, bool]:
+def main(ports: List, node_ids: List, aging_duration: float) -> Tuple[str, List, str, bool]:
     """
     测试的主函数。
     :param ports: 端口列表
     :param node_ids: 设备id列表,与端口号一一对应
     :return: 测试标题,测试结果数据,测试结论,是否需要显示电机电流(false)
     """
-    if ports is None:
-        logging.error('测试结束，无可用端口')
-        return test_title, [], '不通过', False
-
+    overall_result = []
+    final_result = '通过'
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logging.info(f'---------------------------------------------开始老化测试<开始时间：{start_time}>----------------------------------------------\n')
     logging.info('测试目的：循环做抓握手势，进行压测')
     logging.info('标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >\n')
-
-    overall_result = []
-    final_result = '通过'
-
     try:
         end_time = time.time() + aging_duration * SECONDS_PER_HOUR
         round_num = 0
         while time.time() < end_time:
             round_num += 1
             logging.info(f"##########################第 {round_num} 轮测试开始######################\n")
-            stop,pause = read_from_json_file()
-            if stop:
+            stop_test,pause_test = read_from_json_file()
+            if stop_test:
                 logging.info('测试已停止')
                 break
                 
-            if pause:
+            if pause_test:
                 logging.info('测试暂停')
                 time.sleep(2)
                 continue
@@ -517,6 +343,7 @@ def main(ports: Optional[List] = None, node_ids: Optional[List] = None, aging_du
             overall_result.extend(round_results)
             logging.info(f"#################第 {round_num} 轮测试结束，测试结果：{final_result}#############\n")
     except Exception as e:
+        final_result = '不通过'
         logging.error(f"Error: {e}")
     finally:
         end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -543,39 +370,30 @@ def test_single_port(port, node_id):
             aging_test.set_max_current()
             if aging_test.get_motor_currents():
                 current = aging_test.get_current()
-                gesture_result = {
-                    'description': description,
-                    'expected': expected,
-                    'content': current,
-                    'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'result': '通过',
-                    'comment': '无'
-                }
+                gesture_result = get_gesture_result(timestamp=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),content=current,result='通过',comment='无')
             else:
-                gesture_result = {
-                    'description': description,
-                    'expected': expected,
-                    'content': '',
-                    'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'result': '不通过',
-                    'comment': '手指出现异常'
-                }
+                gesture_result = get_gesture_result(timestamp=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),content='',result='不通过',comment='手指出现异常')
             result['gestures'].append(gesture_result)
         except Exception as e:
-            error_gesture_result = {
-                'description': description,
-                'expected': expected,
-                'content': '',
-                'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'result': '不通过',
-                'comment': f'出现错误：{e}'
-            }
+            error_gesture_result = get_gesture_result(timestamp=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),content='',result='不通过',comment=f'出现错误：{e}')
             result['gestures'].append(error_gesture_result)
         finally:
             aging_test.disConnect_device()
     return result
 
+def get_gesture_result(timestamp,content,result,comment):
+    gesture_result = {
+                    'description': description,
+                    'expected': expected,
+                    'content': content,
+                    'timestamp': timestamp,
+                    'result': result,
+                    'comment': comment
+                }
+    return gesture_result
+
 if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]
-    main(ports = ports,node_ids = node_ids)
+    aging_duration = 0.01
+    main(ports = ports, node_ids = node_ids, aging_duration = aging_duration)
