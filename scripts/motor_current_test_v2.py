@@ -63,8 +63,8 @@ class MotorCurrentTest:
             'thumb_root':[0.0,0.0]
         }
         
-        self.min_motor_currents =[0.0,0.0,0.0,0.0,0.0,0.0]
-        self.max_motor_currents =[0.0,0.0,0.0,0.0,0.0,0.0]
+        self.start_motor_currents =[0.0,0.0,0.0,0.0,0.0,0.0]
+        self.end_motor_currents =[0.0,0.0,0.0,0.0,0.0,0.0]
         
     def set_port(self,port):
         self.port = port
@@ -197,39 +197,26 @@ class MotorCurrentTest:
        
         return ave_currents
     
-    def collect_min_and_max_currents(self,ges='',current=[]):
+    def collect_start_and_end_currents(self,ges='',current=[]):
         if ges == '自然展开':
-            self.min_motor_currents = current
+            self.start_motor_currents = current
         elif ges == '四指弯曲':
-            self.max_motor_currents[1:4] = current[1:4]
+            self.end_motor_currents[1:4] = current[1:4]
         elif ges == '大拇值弯曲':
-            self.max_motor_currents[0] = current[0]
+            self.end_motor_currents[0] = current[0]
         elif ges == '大拇指旋转到对掌位':
-            self.max_motor_currents[5] = current[5]
+            self.end_motor_currents[5] = current[5]
         else:
             logger.error('错误的手势')
             
     def collect_motor_currents(self):
         for key in self.collectMotorCurrents:
             index = list(self.collectMotorCurrents.keys()).index(key)
-            self.collectMotorCurrents[key][0] = self.min_motor_currents[index]
-            self.collectMotorCurrents[key][1] = self.max_motor_currents[index]
+            self.collectMotorCurrents[key][0] = self.start_motor_currents[index]
+            self.collectMotorCurrents[key][1] = self.end_motor_currents[index]
         
         # logger.info(f'port = {self.port}\n')
         print(*[f"[port = {self.port}][{key}]电机电流-->  <start> {values[0]}ma, <end> {values[1]}ma\n" for key, values in self.collectMotorCurrents.items()], sep='\n')
-
-def check_ports(ports_list):
-    valid_ports = []
-    status = True
-    if ports_list is not None:
-        for port in ports_list:
-            if isinstance(port, str) and port.startswith('COM'):
-                valid_ports.append(port)
-            else:
-                status = False
-    else:
-        status = False
-    return status, valid_ports
 
 test_title = '电机电流测试\n标准：电流值范围 < 0~100mA >'
 expected = [100, 100, 100, 100, 100, 100]
@@ -248,15 +235,9 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 0) -> Tu
     :param aging_duration: 测试持续时长，默认为1，单位根据具体业务逻辑确定（可能是小时等）。
     :return: 包含测试标题、整体测试结果、最终测试结论、是否显示电流的元组。
     """
-    final_result = '通过'
     overall_result = []
+    final_result = '通过'
     need_show_current = True
-
-    # 这里可以添加更详细的端口合法性检查逻辑，目前简单假设传入的ports和node_ids是匹配可用的
-    if not ports or not node_ids or len(ports)!= len(node_ids):
-        logger.error('测试结束，端口或节点ID参数不合法')
-        final_result = '不通过'
-        return test_title, overall_result, final_result, need_show_current
 
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试电机电流<开始时间：{start_time}>----------------------------------------------\n')
@@ -290,15 +271,6 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 0) -> Tu
     logger.info(f'---------------------------------------------电机电流测试结束<结束时间：{end_time}>----------------------------------------------\n')
     return test_title, overall_result, final_result, need_show_current
 
-def check_motor_current_validity(motors_current):
-    """
-    检查电机电流是否在有效范围内，返回True或False表示是否有效。
-    这里假设存在一个MotorCurrentTest类的实例可调用checkCurrent方法进行电流范围检查，实际需根据具体实现调整。
-    """
-    motorCurrentTest = MotorCurrentTest()
-    return motorCurrentTest.checkCurrent(motors_current)
-
-
 def build_gesture_result(timestamp, result, motors_current):
     """
     根据给定的时间戳、测试结果以及电机电流值构建手势结果字典。
@@ -318,34 +290,36 @@ def test_single_port(port, node_id, connected_status):
     motor_current_test = MotorCurrentTest()
     motor_current_test.set_port(port=port)
     motor_current_test.set_node_id(node_id=node_id)
-
-    if not connected_status:
-        motor_current_test.connect_device()
-
+    
+    connected_status = motor_current_test.connect_device()
+    
     port_result = {
         "port": port,
         "gestures": []
     }
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    try:
-        for gesture_name, gesture in motor_current_test.gestures.items():
-            if motor_current_test.do_gesture(gesture=gesture):
-                logger.info(f'[port = {port}]执行    ---->  {gesture_name}')
-                time.sleep(5)
-                motors_current = motor_current_test.count_motor_curtent()
-                logger.info(f'[port = {port}]电机电流为 -->{motors_current}')
-                if  not motor_current_test.checkCurrent(motors_current):
-                    result = '不通过'
-                motor_current_test.collect_min_and_max_currents(ges=gesture_name, current=motors_current)
-                motor_current_test.collect_motor_currents()
-                gesture_result = build_gesture_result(timestamp, result, motor_current_test.collectMotorCurrents)
-                port_result["gestures"].append(gesture_result)
-    except Exception as current_error:
-        logger.error(f"获取电机电流或检查电流时出现错误：{current_error}")
-        result = '不通过'
-        gesture_result = build_gesture_result(timestamp, result, [])
-        port_result["gestures"].append(gesture_result)
-    motor_current_test.disConnect_device()
+    
+    if connected_status:
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        try:
+            for gesture_name, gesture in motor_current_test.gestures.items():
+                if motor_current_test.do_gesture(gesture=gesture):
+                    logger.info(f'[port = {port}]执行    ---->  {gesture_name}')
+                    time.sleep(5)
+                    motors_current = motor_current_test.count_motor_curtent()
+                    logger.info(f'[port = {port}]电机电流为 -->{motors_current}')
+                    if  not motor_current_test.checkCurrent(motors_current):
+                        result = '不通过'
+                motor_current_test.collect_start_and_end_currents(ges=gesture_name, current=motors_current)
+            motor_current_test.collect_motor_currents()
+            gesture_result = build_gesture_result(timestamp, result, motor_current_test.collectMotorCurrents)
+            port_result["gestures"].append(gesture_result)
+        except Exception as current_error:
+            logger.error(f"获取电机电流或检查电流时出现错误：{current_error}")
+            result = '不通过'
+            gesture_result = build_gesture_result(timestamp, result, [])
+            port_result["gestures"].append(gesture_result)
+        finally:
+            motor_current_test.disConnect_device()
     return port_result, connected_status
             
 if __name__ == "__main__":

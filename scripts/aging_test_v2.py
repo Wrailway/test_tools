@@ -286,13 +286,13 @@ def read_from_json_file():
                 pause_test = data['pause_test']
                 return stop_test,pause_test
         except FileNotFoundError:
-            logger.error("共享的json文件不存在")
+            # logger.error("共享的json文件不存在")
             return False,False
         except json.JSONDecodeError:
-            logger.error("json文件数据格式错误")
+            # logger.error("json文件数据格式错误")
             return False,False
         except Exception as e:
-            logger.error(f"读取JSON文件时出现其他未知错误: {e}")
+            # logger.error(f"读取JSON文件时出现其他未知错误: {e}")
             return False, False
 
 test_title = '老化测试报告\n标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >'
@@ -321,6 +321,7 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
         while time.time() < end_time:
             round_num += 1
             logging.info(f"##########################第 {round_num} 轮测试开始######################\n")
+            result = '通过'
             stop_test,pause_test = read_from_json_file()
             if stop_test:
                 logging.info('测试已停止')
@@ -335,13 +336,16 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 futures = [executor.submit(test_single_port, port, node_id) for port, node_id in zip(ports, node_ids)]
                 for future in concurrent.futures.as_completed(futures):
-                    result = future.result()
-                    round_results.append(result)
-                    if not result['result']:
-                        final_result = '不通过'
+                    port_result, _ = future.result()
+                    round_results.append(port_result)
+                    for gesture_result in port_result["gestures"]:
+                        if gesture_result["result"]!= "通过":
+                            result = '不通过'
+                            final_result = '不通过'
+                            break
 
             overall_result.extend(round_results)
-            logging.info(f"#################第 {round_num} 轮测试结束，测试结果：{final_result}#############\n")
+            logging.info(f"#################第 {round_num} 轮测试结束，测试结果：{result}#############\n")
     except Exception as e:
         final_result = '不通过'
         logging.error(f"Error: {e}")
@@ -352,7 +356,6 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
 
     return test_title, overall_result, final_result, False
 
-
 def test_single_port(port, node_id):
     """
     针对单个端口进行测试，返回该端口测试结果的字典，包含端口号、是否通过及具体手势测试结果等信息。
@@ -360,13 +363,15 @@ def test_single_port(port, node_id):
     aging_test = AgingTest()
     aging_test.port = port
     aging_test.node_id = node_id
-    connected = aging_test.connect_device()
-    result = {
+    
+    connected_status = aging_test.connect_device()
+    
+    port_result = {
         'port': port,
-       'result': True if connected else False,
         'gestures': []
     }
-    if connected:
+    
+    if connected_status:
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         try:
             aging_test.set_max_current()
@@ -375,13 +380,13 @@ def test_single_port(port, node_id):
                 gesture_result = build_gesture_result(timestamp =timestamp,content=current,result='通过',comment='无')
             else:
                 gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment='手指出现异常')
-            result['gestures'].append(gesture_result)
+            port_result['gestures'].append(gesture_result)
         except Exception as e:
             error_gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment=f'出现错误：{e}')
-            result['gestures'].append(error_gesture_result)
+            port_result['gestures'].append(error_gesture_result)
         finally:
             aging_test.disConnect_device()
-    return result
+    return port_result,connected_status
 
 def build_gesture_result(timestamp,content,result,comment):
     return {
