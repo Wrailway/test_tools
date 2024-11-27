@@ -157,7 +157,7 @@
    <widget class="QPushButton" name="btn_pause_test">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>470</x>
       <y>700</y>
       <width>181</width>
       <height>61</height>

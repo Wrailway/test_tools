@@ -546,7 +546,7 @@ class ClientTest(QtCore.QObject):
         self.label_com_list.clear()
         self.editText_current_list.clear()
         
-        for i in range(1, 11):
+        for i in range(1, 17):
             label_name = f"label_com{i}"
             label_com = self.motor_ui_window.findChild(QtWidgets.QLabel, label_name)
             setattr(self, f"label_com{i}", label_com)
@@ -615,6 +615,47 @@ class ClientTest(QtCore.QObject):
             setattr(self, f"text_current_{i}", text_current)
             self.editText_current_list.append(text_current)
             
+         # 初始化text_current_111到text_current_116
+        for i in range(111, 117):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
+            
+            # 初始化text_current_121到text_current_126
+        for i in range(121, 127):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
+            
+            # 初始化text_current_131到text_current_136
+        for i in range(131, 137):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
+            
+            # 初始化text_current_141到text_current_146
+        for i in range(141, 147):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
+            
+            # 初始化text_current_151到text_current_156
+        for i in range(151, 157):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
+            
+            # 初始化text_current_111到text_current_116
+        for i in range(161, 167):
+            text_name = f"text_current_{i}"
+            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
+            setattr(self, f"text_current_{i}", text_current)
+            self.editText_current_list.append(text_current)
                 
     def update_current_ui_portnames(self,ports=[]):
         if ports[0] == self.no_used_port:
