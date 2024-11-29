@@ -17,7 +17,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtGui, QtWidgets
 from PyQt5 import uic
 from PyQt5.QtCore import QObject, Qt, pyqtSignal
-from PyQt5.QtGui import QColor, QIcon, QPainter, QPalette, QStandardItem, QStandardItemModel, QTextCharFormat
+from PyQt5.QtGui import QColor, QFont, QIcon, QPainter, QPalette, QStandardItem, QStandardItemModel, QTextCharFormat
 from PyQt5.QtWidgets import QApplication, QCheckBox, QFileDialog, QLabel, QMessageBox, QTextEdit, QVBoxLayout
 from PyQt5.QtGui import QColor, QTextCharFormat, QTextCursor  # 正确导入QTextCursor
 from pymodbus import FramerType
@@ -1425,6 +1425,10 @@ class CustomDelegate(QtWidgets.QStyledItemDelegate):
         value = item.text()
         # 设置文本居中对齐
         option.displayAlignment = Qt.AlignmentFlag.AlignCenter
+         # 创建字体对象并设置字体及大小属性，这里示例设置为字体 "Arial"，大小为12
+        font = QFont("Arial", 10)
+        font.setBold(True)  # 设置字体加粗
+        option.font = font
 
         if column_name == ClientTest.STR_CONNECT_STATUS:
             if value == "已连接":
@@ -1448,9 +1452,11 @@ class CustomDelegate(QtWidgets.QStyledItemDelegate):
             # 绘制进度部分
             progress_rect = bar_rect.adjusted(0, 0, round(-(bar_rect.width() * (1 - percentage / 100))), 0)
             if percentage > 0 and percentage < 100:
-                painter.setBrush(QColor("blue"))
+                # painter.setBrush(QColor("blue"))
+                painter.setBrush(QColor("#1890FF"))
             else:
-                painter.setBrush(QColor("green"))
+                # painter.setBrush(QColor("green"))
+                painter.setBrush(QColor("#73CD73"))
             painter.drawRect(progress_rect)
             painter.restore()
         elif column_name == ClientTest.STR_TEST_RESULT:
