@@ -6,6 +6,8 @@ import struct
 import sys
 import concurrent.futures
 import time
+import types
+from typing import List, Tuple
 import unittest
 import threading
 
@@ -3969,161 +3971,170 @@ class TestModbus(unittest.TestCase):
         except FileNotFoundError as e:
             logger.error(e)
             self.print_test_info(status=self.TEST_PASS)
-        
-    # # 测试读取超过范围的寄存器数量
-    # def test_read_exceeding_registers(self):
-    #     self.print_test_info(status=self.TEST_STRAT,info='read exceeding registers:65535+1')
-    #     max_address = 65535
-    #     try:
-    #         self.client.read_from_register(0, max_address + 1)
-    #         self.print_test_info(status=self.TEST_FAIL)
-    #     except ModbusException as e:
-    #         self.assertEqual(e.exception_code, 0x03)
-    #         self.print_test_info(status=self.TEST_PASS)
-    #     except struct.error as e:
-    #         logger.error(f"异常: {e}")
-    #         self.print_test_info(status=self.TEST_PASS)
-                
-            
-    # # 测试在网络不稳定情况下的读写操作，暂时保留,意义不大
-    # def test_network_unstable_operations(self):
-    #     self.print_test_info(status=self.TEST_STRAT,info='test network unstable operations')
-    #     import time
-    #     import random
+     
+#     return port_result
+def test_single_port(port, node_id):
+    """
+    针对指定端口和节点ID运行测试用例，并整理测试结果返回。
 
-    #     for _ in range(10):
-    #         try:
-    #             # 模拟网络不稳定，随机进行读或写操作
-    #             if random.choice([True, False]):
-    #                 response = self.client.read_from_register(address=0, count=3)
-    #                 if response.isError():
-    #                     logger.error(f"网络不稳定时读取保持寄存器失败: {response}")
-                        
-    #             else:
-    #                 value = random.randint(100, 999)
-    #                 response = self.client.write_to_register(address=5, values=value)
-    #                 if response.isError():
-    #                     logger.error(f"网络不稳定时写入保持寄存器失败: {response}")
-                        
-    #             time.sleep(random.uniform(0.1, 0.5))
-                
-    #         except Exception as e:
-    #             logger.error(f"网络不稳定时操作失败: {e}")
-                
-    #     self.print_test_info(status=self.TEST_PASS)
+    参数:
+    port (str): 要测试的端口信息
+    node_id (str): 对应的节点ID
 
-    # # # 测试设备响应超时情况
-    # def test_device_response_timeout(self):
-    #     self.print_test_info(status=self.TEST_STRAT,info='test device response timeout')
-    #     slow_client = ModbusSerialClient(port=self.port, framer=FramerType.RTU, baudrate=115200)
-    #     slow_client.connect()
-        
-    #     try:
-    #         response = slow_client.read_holding_registers(0, 5, self.node_id)
-    #         if response.isError():
-    #             logger.error(f"设备响应超时，但未按预期抛出异常: {response}")
-                
-    #     except ModbusException as e:
-    #         logger.error(f"设备响应超时: {e}")
-    #         self.print_test_info(status=self.TEST_PASS)
-        
-
-def run_tests_for_port(port,node_id):
-    connected_status = True
+    返回:
+    dict: 包含端口信息以及各个测试用例执行情况的字典，格式如下：
+        {
+            "port": port,
+            "gestures": [
+                {
+                    "timestamp": "测试时间戳",
+                    "description": "测试方法名",
+                    "expected": "期望结果（可补充完善）",
+                    "content": "实际内容（可补充完善）",
+                    "result": "通过/不通过",
+                    "comment": "相关备注（失败原因、跳过原因等）"
+                },
+               ...
+            ]
+        }
+    """
     port_result = {
         "port": port,
         "gestures": []
     }
     start_time = time.time()
-    # TestModbus.args = {'port': port, 'framer': framer, 'baudrate': baudrate}
-    TempTestClass = type('TempTest', (TestModbus,), {'__init__': lambda self, *args, **kwargs: TestModbus.__init__(self, port, node_id, *args, **kwargs)})
 
-    suite = unittest.TestSuite()
-    loader = unittest.TestLoader()
-    tests = loader.loadTestsFromTestCase(TempTestClass)
-    suite.addTests(tests)
+    try:
+        # 动态创建测试类，确保正确传入port和node_id进行初始化
+        TempTestClass = type('TempTest', (TestModbus,), {'__init__': lambda self, *args, **kwargs: TestModbus.__init__(self, port, node_id, *args, **kwargs)})
 
-    runner = unittest.TextTestRunner()
-    result = runner.run(suite)
-     # suite = unittest.TestLoader().loadTestsFromTestCase(TestModbus)
-    # # suite = unittest.TestLoader().loadTestsFromTestCase(TestModbus(port, framer, baudrate))
-    # runner = unittest.TextTestRunner(verbosity=2)
-    # result = runner.run(suite)
-    
-    #  下面为单个用例调试使用
-    # testModbus =TestModbus(port=port)
-    # suite = unittest.TestSuite()
-    # # 添加单个测试用例，这里添加 test_case1
-    # suite.addTest(testModbus)
-    # runner = unittest.TextTestRunner(verbosity=2)
-    # result = runner.run(suite)
+        suite = unittest.TestSuite()
+        loader = unittest.TestLoader()
+        tests = loader.loadTestsFromTestCase(TempTestClass)
+        suite.addTests(tests)
+
+        runner = unittest.TextTestRunner(verbosity=2)
+        result = runner.run(suite)
+    except Exception as e:
+        # 若在测试用例加载或运行过程中出现任何异常，进行记录并将异常作为整体测试的失败原因
+        logging.error(f"An error occurred while running tests for port {port}: {str(e)}")
+        gesture_result = {
+            "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "description": "Overall Test Execution",
+            "expected": "",
+            "content": "",
+            "result": "不通过",
+            "comment": str(e)
+        }
+        port_result["gestures"].append(gesture_result)
+        return port_result
+
     end_time = time.time()
     elapsed_time = end_time - start_time
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logger.info(f"\n\n Ran {result.testsRun} tests in {elapsed_time:.3f}s\n")
+    logging.info(f"\n\n Ran {result.testsRun} tests in {elapsed_time:.3f}s\n")
 
-    if result.failures:
-        logger.error(f"Failures: {len(result.failures)}")
-        for failure in result.failures:
-            test_method_name, failure_message = failure
-            logger.info(f"Test method: {test_method_name} failed. Error: {failure_message}\n")
-            gesture_result = {
-                "timestamp":timestamp,
-                "description":f'{test_method_name}',
-                "expected":'',
-                "content": '',
-                "result": "不通过",
-                "comment":f'{failure_message}'
-            }
-            port_result["gestures"].append(gesture_result)
+    # 处理测试失败情况
+    for failure in result.failures:
+        test_method_name, failure_message = failure
+        handle_failure_result(port_result, timestamp, test_method_name, failure_message)
 
-    if result.errors:
-        logger.info(f"Errors: {len(result.errors)}")
-        for error in result.errors:
-            test_method_name, error_message = error
-            logger.info(f"Test method: {test_method_name} encountered an error. Error: {error_message}\n")
-            gesture_result = {
-                "timestamp":timestamp,
-                "description":f'{test_method_name}',
-                "expected":'',
-                "content": '',
-                "result": "不通过",
-                "comment":f'{error_message}'
-            }
-            port_result["gestures"].append(gesture_result)
+    # 处理测试错误情况（一般是代码层面错误导致测试无法正确执行）
+    for error in result.errors:
+        test_method_name, error_message = error
+        handle_error_result(port_result, timestamp, test_method_name, error_message)
 
-    if result.skipped:
-        logger.info(f"Skipped: {len(result.skipped)}")
-        for skipped_test in result.skipped:
-            test_method_name, reason = skipped_test
-            logger.info(f"Test method: {test_method_name} was skipped. Reason: {reason}\n")
-            gesture_result = {
-                "timestamp":timestamp,
-                "description":f'{test_method_name}',
-                "expected":'',
-                "content": '',
-                "result": "通过",
-                "comment":f'{reason}'
-            }
-            port_result["gestures"].append(gesture_result)
+    # 处理测试跳过情况
+    for skipped_test in result.skipped:
+        test_method_name, reason = skipped_test
+        handle_skipped_result(port_result, timestamp, test_method_name, reason)
+
+    # 处理测试成功情况
+    # handle_successful_result(port_result, result, timestamp)
 
     return port_result
 
-def check_ports(ports_list):
-    valid_ports = []
-    status = True
-    if ports_list is not None:
-        for port in ports_list:
-            if isinstance(port, str) and port.startswith('COM'):
-                valid_ports.append(port)
-            else:
-                status = False
-    else:
-        status = False
-    return status, valid_ports
 
-# def main(ports,max_cycle_num=1):
-def main(ports=None, node_ids=None, aging_duration=1):
+def handle_failure_result(port_result, timestamp, test_method_name, failure_message):
+    """
+    处理测试用例失败的结果记录。
+
+    参数:
+    port_result (dict): 总的测试结果字典
+    timestamp (str): 测试时间戳
+    test_method_name (str): 失败的测试方法名
+    failure_message (str): 失败的详细信息
+    """
+    gesture_result = {
+        "timestamp": timestamp,
+        "description": test_method_name,
+        "expected": "",  # 这里可根据具体测试用例补充期望的正确结果
+        "content": "",  # 可补充实际执行内容相关信息
+        "result": "不通过",
+        "comment": failure_message
+    }
+    port_result["gestures"].append(gesture_result)
+
+
+def handle_error_result(port_result, timestamp, test_method_name, error_message):
+    """
+    处理测试用例出现错误的结果记录。
+
+    参数:
+    port_result (dict): 总的测试结果字典
+    timestamp (str): 测试时间戳
+    test_method_name (str): 出现错误的测试方法名
+    error_message (str): 错误的详细信息
+    """
+    gesture_result = {
+        "timestamp": timestamp,
+        "description": test_method_name,
+        "expected": "",
+        "content": "",
+        "result": "不通过",
+        "comment": error_message
+    }
+    port_result["gestures"].append(gesture_result)
+
+
+def handle_skipped_result(port_result, timestamp, test_method_name, reason):
+    """
+    处理测试用例被跳过的结果记录。
+
+    参数:
+    port_result (dict): 总的测试结果字典
+    timestamp (str): 测试时间戳
+    test_method_name (str): 被跳过的测试方法名
+    reason (str): 测试用例被跳过的原因
+    """
+    gesture_result = {
+        "timestamp": timestamp,
+        "description": test_method_name,
+        "expected": "",
+        "content": "",
+        "result": "通过",  # 按照原逻辑，跳过的视为通过，可根据实际情况调整
+        "comment": reason
+    }
+    port_result["gestures"].append(gesture_result)
+
+
+def handle_successful_result(port_result, result, timestamp):
+    successful_count = result.testsRun - len(result.failures) - len(result.errors) - len(result.skipped)
+    if successful_count > 0:
+        for success in result.successes:
+            test_case = success[0]  # 获取测试用例实例
+            test_method_name = test_case._testMethodName  # 获取测试方法名
+            gesture_result = {
+                "timestamp": timestamp,
+                "description": test_method_name,
+                "expected": "",  
+                "content": "",  
+                "result": "通过",
+                "comment": ""
+            }
+            port_result["gestures"].append(gesture_result)
+
+def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> Tuple[str, List, str, bool]:
     
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------开始测试MODBUS协议<开始时间：{start_time}>----------------------------------------------\n')
@@ -4132,15 +4143,9 @@ def main(ports=None, node_ids=None, aging_duration=1):
     test_result = '通过'
     need_show_current = False
     
-    status, valid_ports = check_ports(ports)
-    if not (status and len(valid_ports)>=1):
-        logger.error('测试结束，无可用端口')
-        result = '不通过'
-        return overall_result,result
-
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # futures = [executor.submit(run_tests_for_port, port) for port in ports]
-        futures = [executor.submit(run_tests_for_port, port, node_id) for port, node_id in zip(ports, node_ids)]
+        futures = [executor.submit(test_single_port, port, node_id) for port, node_id in zip(ports, node_ids)]
         for future in concurrent.futures.as_completed(futures):
             port_result= future.result()
             overall_result.append(port_result)
@@ -4171,10 +4176,11 @@ def print_overall_result(overall_result):
             for timestamp, description, expected, content, result, comment in data_list:
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]
-    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,aging_duration=1)
+    aging_duration = 0.01
+    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,aging_duration=0)
     logger.info(f'测试结果：{test_result}\n')
     logger.info(f'详细数据：\n')
-    print_overall_result(overall_result)
+    # print_overall_result(overall_result)
