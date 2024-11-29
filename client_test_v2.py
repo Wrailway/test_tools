@@ -519,8 +519,7 @@ class ClientTest(QtCore.QObject):
         self.chb_com_all = self.window.findChild(QtWidgets.QCheckBox, "chb_com_all")
         self.chb_com_all.clicked.connect(lambda checked, cb=self.chb_com_all: self.on_port_cbx_clicked(checked, cb))
         self.port_Layout = self.window.findChild(QtWidgets.QHBoxLayout, "port_Layout")
-        self.update_port_options(startup=True)
-
+        
         self.btn_fresh_ports = self.window.findChild(QtWidgets.QPushButton, "btn_fresh_ports")
         self.btn_fresh_ports.setStyleSheet(self.update_port_button_style_sheet)
         self.btn_fresh_ports.clicked.connect(self.refresh_ports)
@@ -539,6 +538,8 @@ class ClientTest(QtCore.QObject):
         self.btn_stop_test = self.window.findChild(QtWidgets.QPushButton, "btn_stop_test")
         self.btn_stop_test.setStyleSheet(self.stop_test_button_style_sheet)
         self.btn_stop_test.clicked.connect(self.stop_test)
+        
+        self.update_port_options(startup=True)
         
         
     def init_current_ui_widgets(self):
@@ -798,6 +799,7 @@ class ClientTest(QtCore.QObject):
             # 启动时清理布局及相关列表，添加提示标签
             self.remove_all_widgets_from_layout(self.port_Layout)
             self.check_box_list.clear()
+            self.set_checked_box_status(False)
             startup_label = QLabel('请先刷新端口，获取设备信息')
             self.port_Layout.addWidget(startup_label)
             logger.info('update_port_options ,fist startup')
@@ -832,7 +834,7 @@ class ClientTest(QtCore.QObject):
             no_port_label = QLabel(self.port_names[0])
             self.port_Layout.addWidget(no_port_label)
             return
-
+        self.set_checked_box_status(True)
         # 遍历端口名称，创建并添加QCheckBox到合适的垂直布局
         for port in self.port_names:
             check_box = QCheckBox(port)
@@ -867,7 +869,7 @@ class ClientTest(QtCore.QObject):
         for checkbox in self.check_box_list:
             checkbox.setEnabled(enable)
         self.chb_com_all.setEnabled(enable)
-        self.btn_fresh_ports.setEnabled(enable)
+        # self.btn_fresh_ports.setEnabled(enable)
         self.cbx_aging_time.setEnabled(enable)
 
     def start_test(self):
