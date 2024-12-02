@@ -1,5 +1,7 @@
+import concurrent
 import configparser
 import datetime
+from functools import partial
 import importlib
 import json
 import logging
@@ -47,7 +49,6 @@ logger.addHandler(file_handler)
 stream_handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(stream_handler)
 
-
 class ClientTest(QtCore.QObject):
     """
     定义客户端类ClientTest，用户操作界面
@@ -74,21 +75,21 @@ class ClientTest(QtCore.QObject):
         STR_TEST_RESULT
     ]
 
-    # 定义设备连接状态，0设备已连接，1设备未连接
-    DEVICE_CONNECT_STATUS = 0
-    CONNECT_STATUS = {
-        0: '已连接',
-        1: '未连接'
-    }
+    # # 定义设备连接状态，0设备已连接，1设备未连接
+    # DEVICE_CONNECT_STATUS = 0
+    # CONNECT_STATUS = {
+    #     0: '已连接',
+    #     1: '未连接'
+    # }
 
-    # 定义测试结果，0未开始测试，1测试进行中，2测试通过，3测试不通过
-    DEVICE_TEST_RESULT = 0
-    TEST_RESULT = {
-        0: '未开始',
-        1: '进行中',
-        2: '通过',
-        3: '不通过'
-    }
+    # # 定义测试结果，0未开始测试，1测试进行中，2测试通过，3测试不通过
+    # DEVICE_TEST_RESULT = 0
+    # TEST_RESULT = {
+    #     0: '未开始',
+    #     1: '进行中',
+    #     2: '通过',
+    #     3: '不通过'
+    # }
     # window 相关属性
     window_name = '测试客户端'
     win_position_x = 200
@@ -104,6 +105,7 @@ class ClientTest(QtCore.QObject):
     offset_duration = 0
     update_port_enable = True
     max_port_num = 32
+    timeout = 30
     no_used_port = '无可用端口'
     port_names = [no_used_port]
     node_ids = [2]
@@ -351,6 +353,8 @@ class ClientTest(QtCore.QObject):
             self.unit_duration = config.get_value('aging_parameter', 'unit_duration')
             self.offset_duration = self.get_offset_duration()
             
+            self.time_out = int(config.get_value('aging_parameter', 'time_out'))
+            
         except Exception as e:
             logger.error(e)
 
@@ -511,7 +515,7 @@ class ClientTest(QtCore.QObject):
         
         self.lbl_promt = self.window.findChild(QtWidgets.QLabel, "lbl_promt")
         self.lbl_promt.setVisible(False)
-        self.lbl_promt.setStyleSheet("color: blue;")
+        self.lbl_promt.setStyleSheet("color: blue;font-size: 18px")
         self.cbx_aging_time = self.window.findChild(QtWidgets.QComboBox, "cbx_aging_time")
         self.cbx_aging_time.addItems(self.aging_duration_options)
         self.cbx_aging_time.setStyleSheet(self.combo_box_style_sheet)
@@ -544,122 +548,31 @@ class ClientTest(QtCore.QObject):
         
         self.update_port_options(startup=True)
         
-        
     def init_current_ui_widgets(self):
-        # 初始化label_com1到label_com10
-        self.label_com_list.clear()
-        self.editText_current_list.clear()
-        
-        for i in range(1, 17):
-            label_name = f"label_com{i}"
-            label_com = self.motor_ui_window.findChild(QtWidgets.QLabel, label_name)
-            setattr(self, f"label_com{i}", label_com)
-            self.label_com_list.append(label_com)
+        label_names = [f"label_com{i}" for i in range(1, 17)] + \
+                    [f"text_current_{i}" for i in range(11, 17)] + \
+                    [f"text_current_{i}" for i in range(21, 27)] + \
+                    [f"text_current_{i}" for i in range(31, 37)] + \
+                    [f"text_current_{i}" for i in range(41, 47)] + \
+                    [f"text_current_{i}" for i in range(51, 57)] + \
+                    [f"text_current_{i}" for i in range(61, 67)] + \
+                    [f"text_current_{i}" for i in range(71, 77)] + \
+                    [f"text_current_{i}" for i in range(81, 87)] + \
+                    [f"text_current_{i}" for i in range(91, 97)] + \
+                    [f"text_current_{i}" for i in range(101, 107)] + \
+                    [f"text_current_{i}" for i in range(111, 117)] + \
+                    [f"text_current_{i}" for i in range(121, 127)] + \
+                    [f"text_current_{i}" for i in range(131, 137)] + \
+                    [f"text_current_{i}" for i in range(141, 147)] + \
+                    [f"text_current_{i}" for i in range(151, 157)] + \
+                    [f"text_current_{i}" for i in range(161, 167)]
 
-        # 初始化text_current_11到text_current_16
-        for i in range(11, 17):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-
-        # 初始化text_current_21到text_current_26
-        for i in range(21, 27):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        for i in range(31, 37):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-        
-        for i in range(41, 47):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        for i in range(51, 57):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        for i in range(61, 67):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        for i in range(71, 77):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        for i in range(81, 87):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-
-        for i in range(91, 97):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-        # 初始化text_current_101到text_current_106
-        for i in range(101, 107):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-         # 初始化text_current_111到text_current_116
-        for i in range(111, 117):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-            # 初始化text_current_121到text_current_126
-        for i in range(121, 127):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-            # 初始化text_current_131到text_current_136
-        for i in range(131, 137):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-            # 初始化text_current_141到text_current_146
-        for i in range(141, 147):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-            # 初始化text_current_151到text_current_156
-        for i in range(151, 157):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
-            
-            # 初始化text_current_111到text_current_116
-        for i in range(161, 167):
-            text_name = f"text_current_{i}"
-            text_current = self.motor_ui_window.findChild(QtWidgets.QTextEdit, text_name)
-            setattr(self, f"text_current_{i}", text_current)
-            self.editText_current_list.append(text_current)
+        for name in label_names:
+            widget = self.motor_ui_window.findChild(QtWidgets.QWidget, name)
+            if isinstance(widget, QtWidgets.QLabel):
+                self.label_com_list.append(widget)
+            elif isinstance(widget, QtWidgets.QTextEdit):
+                self.editText_current_list.append(widget)
                 
     def update_current_ui_portnames(self,ports=[]):
         if ports[0] == self.no_used_port:
@@ -791,7 +704,7 @@ class ClientTest(QtCore.QObject):
             elif item.layout():
                 self.remove_all_widgets_from_layout(item.layout())
 
-    def update_port_options(self,startup=False):
+    def update_port_options(self, startup=False):
         """
         在给定的水平布局中根据QCheckBox的数量动态添加垂直布局，并将QCheckBox合理分配到各个垂直布局中，
         确保生成的QCheckBox行和列分别对齐且每一列都是8个，同时设置列间距为3像素，行间距为8像素。
@@ -807,33 +720,42 @@ class ClientTest(QtCore.QObject):
             self.set_checked_box_status(False)
             startup_label = QLabel('请先刷新端口，获取设备信息')
             self.port_Layout.addWidget(startup_label)
-            logger.info('update_port_options ,fist startup')
+            logger.info('update_port_options,fist startup')
             return
-        
-        logger.info('update_port_options ,start collect port infos')
+
+        logger.info('update_port_options,start collect port infos')
         # 显示提示信息，清理布局及相关数据结构
         self.lbl_promt.setVisible(True)
         self.remove_all_widgets_from_layout(self.port_Layout)
         self.devices_info_list.clear()
         self.model.clear()
         self.model.setHorizontalHeaderLabels(self.HEADS)
-        
-         # 启动线程获取端口信息
-        threading.Thread(target=self.get_port_infos).start()
-        
-        # 等待端口信息收集完成，期间适时处理事件以保持界面响应
+
+        # 启动线程获取端口信息，添加异常处理
+        try:
+            threading.Thread(target=self.get_port_infos).start()
+        except Exception as e:
+            logger.error(f"Failed to start the thread for getting port infos: {e}")
+
+        # 等待端口信息收集完成，期间适时处理事件以保持界面响应，优化等待机制（这里只是示例思路，可根据实际情况细化）
+        wait_start_time = time.time()
         while True:
             if not self.update_port_enable:
-                logger.info('update_port_options ,wait collect port...')
-                time.sleep(1)
+                elapsed_time = time.time() - wait_start_time
+                if elapsed_time > self.time_out:  # 设置一个超时时间
+                    logger.error("Timeout while waiting for port infos collection.")
+                    break
+                time.sleep(1)  # 缩短等待时间，动态调整可根据实际情况
+                wait_str = f'设备信息读取中，请耐心等待......{self.time_out-int(elapsed_time)}秒'
+                self.lbl_promt.setText(wait_str)
                 self.app.processEvents()
             else:
                 logger.info(f'update_port_options:collect port infos completely')
                 self.remove_all_widgets_from_layout(self.port_Layout)
                 break
-            
+
         self.lbl_promt.setVisible(False)
-        
+
         # 根据是否有可用端口进行不同处理
         if self.port_names[0] == self.no_used_port:
             no_port_label = QLabel(self.port_names[0])
@@ -856,8 +778,10 @@ class ClientTest(QtCore.QObject):
 
                 vertical_layouts[column_index].addWidget(check_box)
                 vertical_layouts[column_index].setAlignment(Qt.AlignTop)
-                # 为每个QCheckBox添加响应函数
-                check_box.clicked.connect(lambda checked, cb=check_box: self.on_port_cbx_clicked(checked, cb))
+                # 为每个QCheckBox添加响应函数，优化为使用命名函数包裹
+                def on_port_cbx_clicked_wrapper(checked, cb):
+                    return self.on_port_cbx_clicked(checked, cb)
+                check_box.clicked.connect(lambda checked, cb=check_box: on_port_cbx_clicked_wrapper(checked, cb))
 
         # 设置列间距为18像素
         self.port_Layout.setContentsMargins(0, 0, 18, 0)
@@ -1232,27 +1156,31 @@ class ClientTest(QtCore.QObject):
         text = f"软件版本: {self.client_version}\n发布时间: {self.release_date_str}\n版权所有© 2015·2024 上海傲意信息科技有限公司"
         QMessageBox.information(self.window,'软件版本', text)
         
-
     def get_port_infos(self):
+        """
+        通过并行任务的方式获取端口相关设备信息，提高获取效率。
+        """
         portInfos = serial.tools.list_ports.comports()
         ports = [portInfo.device for portInfo in portInfos if portInfo]
         portNames = []
         nodeIds = []
         MAX_NODE_ID = 256
         ROH_FW_VERSION = 1001  # 固件版本寄存器地址
-        for port in ports:
-            client = None
+
+        def process_port(port):
+            """
+            处理单个端口信息获取的函数，每个端口会在独立的线程中执行此函数。
+            """
             node_id = '无法获取'
             sw_version = '无法获取'
             connect_status = '未连接'
+            client = ModbusClient(port=port)
             try:
-                client = ModbusClient(port=port)
                 client.connect()
-            
                 for id in range(MAX_NODE_ID):
-                    logger.info(f'check_ports:{id}')
+                    logger.info(f'check port device id:{id}')
                     response = client.serialclient.read_holding_registers(ROH_FW_VERSION, 2, id)
-                    if not response.isError() :
+                    if not response.isError():
                         portNames.append(port)
                         nodeIds.append(id)
                         sw_version = self.convert_version_format(response)
@@ -1267,23 +1195,32 @@ class ClientTest(QtCore.QObject):
                             self.STR_TEST_PROGRESS: '0%',
                             self.STR_TEST_RESULT: '未开始'
                         }
-                        self.devices_info_list.append(devices_info)
-                        break
-                client.dis_connect()
+                        return devices_info
+                client.disconnect()
+                return None
             except Exception as e:
-                logger.error(f"Error during setup: {e}\n")
-            except ModbusIOException as e:
-                logger.error(f"Error during setup: {e}\n")
-              
-        if len(portNames)>0:
-            self.port_names = portNames
-            self.node_ids = nodeIds
+                logger.error(f"Error during setup for port {port}: {e}\n")
+                return None
+            finally:
+                if client:
+                    client.dis_connect()
+
+        # 使用线程池并发执行每个端口的任务
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            results = list(executor.map(process_port, ports))
+
+        # 处理收集到的结果，提取有效设备信息并更新类属性
+        valid_devices_info = [info for info in results if info is not None]
+        if valid_devices_info:
+            self.port_names = [info[self.STR_PORT] for info in valid_devices_info]
+            self.node_ids = [info[self.STR_DEVICE_ID] for info in valid_devices_info]
+            self.devices_info_list = valid_devices_info
         else:
             self.port_names = [self.no_used_port]
             self.node_ids = [2]
-            
+
         self.update_port_enable = True
-        
+            
 
     def convert_version_format(self, response):
         """

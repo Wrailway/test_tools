@@ -113,7 +113,7 @@ class AgingTest:
         self.FINGER_POS_TARGET_MAX_LOSS = 32
         self.max_average_times = 5
         self.current_standard = 100
-        self.aging_speed = 1 # 动作间隔，最少0.4，否则手指会碰撞，值越小越快
+        self.aging_speed = 1# 动作间隔，最少0.4，否则手指会碰撞，值越小越快
         
     def read_from_register(self, address, count):
         """
