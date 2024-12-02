@@ -378,7 +378,7 @@ class ClientTest(QtCore.QObject):
                                  "color: #333; /* 深灰色文本颜色 */" + \
                                  "border-bottom: 1px solid #ccc; /* 底部有一条浅灰色细线分隔 */" + \
                                  "padding: 4px 8px; /* 内边距，上下 4 像素，左右 8 像素 */" + \
-                                 "font-size: 14px; /* 较小的字体尺寸 */" + \
+                                 "font-size: 16px; /* 较小的字体尺寸 */" + \
                                  "font-weight: normal; /* 正常字体粗细 */" + \
                                  "}"
 
