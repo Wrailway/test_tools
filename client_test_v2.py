@@ -399,7 +399,7 @@ class ClientTest(QtCore.QObject):
                                               "padding: 6px 24px; /* 内边距，上下12px，左右12px，给文本足够空间 */" + \
                                               "text-align: center; /* 文本居中对齐，保证美观度 */" + \
                                               "text-decoration: none; /* 无文本装饰，保持简洁 */" + \
-                                              "font-size: 12px; /* 字体大小为16px，清晰可读 */" + \
+                                              "font-size: 16px; /* 字体大小为16px，清晰可读 */" + \
                                               "border-radius: 6px; /* 按钮四个角为半径6px的圆角，更显圆润精致 */" + \
                                               "}" + \
                                               "QPushButton:hover {" + \
@@ -416,7 +416,7 @@ class ClientTest(QtCore.QObject):
                                              "padding: 12px 24px; /* 内边距，上下12px，左右24px，给文本足够空间 */" + \
                                              "text-align: center; /* 文本居中对齐，保证美观度 */" + \
                                              "text-decoration: none; /* 无文本装饰，保持简洁 */" + \
-                                             "font-size: 16px; /* 字体大小为16px，清晰可读 */" + \
+                                             "font-size: 20px; /* 字体大小为16px，清晰可读 */" + \
                                              "border-radius: 6px; /* 按钮四个角为半径6px的圆角，更显圆润精致 */" + \
                                              "}" + \
                                              "QPushButton:hover {" + \
@@ -433,7 +433,7 @@ class ClientTest(QtCore.QObject):
                                             "padding: 12px 24px; /* 内边距，上下12px，左右24px，给文本足够空间 */" + \
                                             "text-align: center; /* 文本居中对齐，保证美观度 */" + \
                                             "text-decoration: none; /* 无文本装饰，保持简洁 */" + \
-                                            "font-size: 16px; /* 字体大小为16px，清晰可读 */" + \
+                                            "font-size: 20px; /* 字体大小为16px，清晰可读 */" + \
                                             "border-radius: 6px; /* 按钮四个角为半径6px的圆角，更显圆润精致 */" + \
                                             "}" + \
                                             "QPushButton:hover {" + \
@@ -450,7 +450,7 @@ class ClientTest(QtCore.QObject):
                                             "padding: 12px 24px; /* 内边距，上下12px，左右24px，给文本足够空间 */" + \
                                             "text-align: center; /* 文本居中对齐，保证美观度 */" + \
                                             "text-decoration: none; /* 无文本装饰，保持简洁 */" + \
-                                            "font-size: 16px; /* 字体大小为16px，清晰可读 */" + \
+                                            "font-size: 20px; /* 字体大小为16px，清晰可读 */" + \
                                             "border-radius: 6px; /* 按钮四个角为半径6px的圆角，更显圆润精致 */" + \
                                             "}" + \
                                             "QPushButton:hover {" + \
@@ -467,6 +467,8 @@ class ClientTest(QtCore.QObject):
                                      "border-radius: 4px; /* 圆角 */" + \
                                      "padding: 5px; /* 内边距 */" + \
                                      "text-align: center; /* 使QComboBox显示框中的文本在水平方向居中 */" + \
+                                     "font-size: 16px; /* 数据字体比表头稍小一点，突出表头重要性 */" + \
+                                     "font-weight: bold; /* 正常字体粗细 */" + \
                                      "}" + \
                                      "QComboBox::down-arrow {" + \
                                      "image: url(arrow_down.png); /* 设置下拉箭头图片，可自行替换图片路径 */" + \
@@ -515,6 +517,7 @@ class ClientTest(QtCore.QObject):
         self.cbx_aging_time.setStyleSheet(self.combo_box_style_sheet)
         self.cbx_aging_time.currentIndexChanged.connect(self.on_aging_cbx_changed)
         self.lbl_remain_time = self.window.findChild(QtWidgets.QLabel, "lbl_remain_time")
+        self.lbl_remain_time.setStyleSheet("font-size: 18px;font-weight: bold")
 
         self.chb_com_all = self.window.findChild(QtWidgets.QCheckBox, "chb_com_all")
         self.chb_com_all.clicked.connect(lambda checked, cb=self.chb_com_all: self.on_port_cbx_clicked(checked, cb))
@@ -732,12 +735,12 @@ class ClientTest(QtCore.QObject):
         delegate = CustomDelegate(self.tv_test_detail)
         for column in range(self.model.columnCount()):
             self.tv_test_detail.setItemDelegateForColumn(column, delegate)
-
+    
     def count_down(self, hour=0.5):
         if not self.timer_running:
             self.start_time = datetime.datetime.now()
             self.base_time = self.start_time
-            self.end_time = self.start_time + datetime.timedelta(hours=float(hour)+float(self.offset_duration))
+            self.end_time = self.start_time + datetime.timedelta(hours=float(hour) + float(self.offset_duration))
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.update_remaining_time)
             self.timer.start(1000)
@@ -745,11 +748,13 @@ class ClientTest(QtCore.QObject):
 
     def update_remaining_time(self):
         current_time = datetime.datetime.now()
-        time_since_base = current_time - self.base_time
-        if time_since_base < datetime.timedelta(hours=float(self.selected_aging_duration)+float(self.offset_duration)):
-            time_difference = self.end_time - current_time
-            hours, remainder = divmod(time_difference.seconds, 3600)
-            minutes, seconds = divmod(remainder, 60)
+        time_difference = self.end_time - current_time
+        if time_difference.total_seconds() > 0:
+            total_seconds = time_difference.total_seconds()
+            hours = int(total_seconds // 3600)
+            remaining_seconds = total_seconds % 3600
+            minutes = int(remaining_seconds // 60)
+            seconds = int(remaining_seconds % 60)
             self.lbl_remain_time.setText(f"{hours:02d}:{minutes:02d}:{seconds:02d}")
         else:
             self.timer.stop()
