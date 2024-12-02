@@ -274,11 +274,11 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
             result = '通过'
             stop_test,pause_test = read_from_json_file()
             if stop_test:
-                logging.info('测试已停止')
+                logger.info('测试已停止')
                 break
                 
             if pause_test:
-                logging.info('测试暂停')
+                logger.info('测试暂停')
                 time.sleep(2)
                 continue
             with concurrent.futures.ThreadPoolExecutor() as executor:

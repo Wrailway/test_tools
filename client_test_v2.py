@@ -228,7 +228,7 @@ class ClientTest(QtCore.QObject):
                     # 发射信号，传递当前光标和剩余的缓冲区文本内容
                     self.update_text_signal.emit(cursor, self.buffer)
             except Exception as e:
-                logging.error(f"Error in write method: {e}")
+                logger.error(f"Error in write method: {e}")
 
         def handle_text_update(self, cursor: QTextCursor, text: str):
             """

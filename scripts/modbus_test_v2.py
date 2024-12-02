@@ -4017,7 +4017,7 @@ def test_single_port(port, node_id):
         result = runner.run(suite)
     except Exception as e:
         # 若在测试用例加载或运行过程中出现任何异常，进行记录并将异常作为整体测试的失败原因
-        logging.error(f"An error occurred while running tests for port {port}: {str(e)}")
+        logger.error(f"An error occurred while running tests for port {port}: {str(e)}")
         gesture_result = {
             "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             "description": "Overall Test Execution",
@@ -4032,7 +4032,7 @@ def test_single_port(port, node_id):
     end_time = time.time()
     elapsed_time = end_time - start_time
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logging.info(f"\n\n Ran {result.testsRun} tests in {elapsed_time:.3f}s\n")
+    logger.info(f"\n\n Ran {result.testsRun} tests in {elapsed_time:.3f}s\n")
 
     # 处理测试失败情况
     for failure in result.failures:

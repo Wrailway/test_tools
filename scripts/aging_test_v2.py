@@ -312,23 +312,23 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
     overall_result = []
     final_result = '通过'
     start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logging.info(f'---------------------------------------------开始老化测试<开始时间：{start_time}>----------------------------------------------\n')
-    logging.info('测试目的：循环做抓握手势，进行压测')
-    logging.info('标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >\n')
+    logger.info(f'---------------------------------------------开始老化测试<开始时间：{start_time}>----------------------------------------------\n')
+    logger.info('测试目的：循环做抓握手势，进行压测')
+    logger.info('标准：各个手头无异常，手指不脱线，并记录各个电机的电流值 < 单位 mA >\n')
     try:
         end_time = time.time() + aging_duration * SECONDS_PER_HOUR
         round_num = 0
         while time.time() < end_time:
             round_num += 1
-            logging.info(f"##########################第 {round_num} 轮测试开始######################\n")
+            logger.info(f"##########################第 {round_num} 轮测试开始######################\n")
             result = '通过'
             stop_test,pause_test = read_from_json_file()
             if stop_test:
-                logging.info('测试已停止')
+                logger.info('测试已停止')
                 break
                 
             if pause_test:
-                logging.info('测试暂停')
+                logger.info('测试暂停')
                 time.sleep(2)
                 continue
 
@@ -345,14 +345,14 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
                             break
 
             overall_result.extend(round_results)
-            logging.info(f"#################第 {round_num} 轮测试结束，测试结果：{result}#############\n")
+            logger.info(f"#################第 {round_num} 轮测试结束，测试结果：{result}#############\n")
     except Exception as e:
         final_result = '不通过'
-        logging.error(f"Error: {e}")
+        logger.error(f"Error: {e}")
     # finally:
     #     logger.info("执行测试结束后的清理操作（如有）")
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logging.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
+    logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
 
     return test_title, overall_result, final_result, False
 
