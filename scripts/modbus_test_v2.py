@@ -631,9 +631,9 @@ class TestModbus(unittest.TestCase):
     def test_write_nodeID_version(self): 
         self.print_test_info(status=self.TEST_STRAT,info='write node id：3')
         default_node_id = self.node_id
-        target_node_id = random.randint(1, 256)
+        target_node_id = random.randint(2, 256)
         while target_node_id == default_node_id:
-            target_node_id = random.randint(1, 256)
+            target_node_id = random.randint(2, 256)
         
         logger.info(f'[port = {self.port}]尝试更改设备ID 为 {target_node_id}\n')
         response1 = self.client.write_to_register(address=ROH_NODE_ID,values=target_node_id,node_id=default_node_id)
