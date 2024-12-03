@@ -418,6 +418,20 @@ class ModbusClient:
         except ConnectionException as e:
             logger.error(f"[port = {self.port}]Error during connection: {e}")
             raise
+        
+    def disConnect_device(self):
+        """
+        断开与Modbus设备的连接。
+
+        如果存在client实例则关闭连接并将client设置为None，同时记录日志，如果出现异常也会记录。
+        """
+        if self.client:
+            try:
+                self.client.close()
+                self.client = None
+                logger.info(f"[port = {self.port}]Connection to Modbus device closed.\n")
+            except Exception as e:
+                logger.error(f"[port = {self.port}]Error during dis connect device: {e}\n")
 
     def read_from_register(self, address, count=1,node_id=2):
         max_retries = 1
@@ -554,8 +568,8 @@ class TestModbus(unittest.TestCase):
 
     def tearDown(self):
         logger.info(f'[port = {self.port}]tearDown\n')
+        # self.client.disConnect_device()
         self.client = None
-        self.modbusClient = None
         self.fingerStatusGetter = None
     
     def isNotNoneOrError(self, response):
@@ -585,12 +599,10 @@ class TestModbus(unittest.TestCase):
         response = self.client.read_from_register(address=ROH_FW_REVISION)
         self.check_and_print_test_info(response=response)
             
-            
     def test_read_hw_version(self): 
         self.print_test_info(status=self.TEST_STRAT,info='read hardware version')
         response = self.client.read_from_register(address=ROH_HW_VERSION)
         self.check_and_print_test_info(response=response)
- 
     
     def test_read_boot_version(self):
         self.print_test_info(status=self.TEST_STRAT,info='read boot loader version')

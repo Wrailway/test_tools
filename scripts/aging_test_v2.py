@@ -279,7 +279,7 @@ class AgingTest:
                 self.client = None
                 logger.info(f"[port = {self.port}]Connection to Modbus device closed.\n")
             except Exception as e:
-                logger.error(f"[port = {self.port}]Error during teardown: {e}\n")
+                logger.error(f"[port = {self.port}]Error during dis connect device: {e}\n")
 
 def read_from_json_file():
         """

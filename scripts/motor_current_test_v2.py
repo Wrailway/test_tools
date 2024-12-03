@@ -158,7 +158,7 @@ class MotorCurrentTest:
                 self.client = None
                 logger.info(f"[port = {self.port}]Connection to Modbus device closed.")
             except Exception as e:
-                logger.error(f"[port = {self.port}]Error during teardown: {e}")
+                logger.error(f"[port = {self.port}]Error during dis connect device: {e}")
 
     def do_gesture(self, gesture):
         """
