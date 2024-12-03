@@ -744,6 +744,7 @@ class ClientTest(QtCore.QObject):
                 elapsed_time = time.time() - wait_start_time
                 if elapsed_time > self.time_out:  # 设置一个超时时间
                     logger.error("Timeout while waiting for port infos collection.")
+                    self.update_port_enable = True
                     break
                 time.sleep(1)  # 缩短等待时间，动态调整可根据实际情况
                 wait_str = f'设备信息读取中，请耐心等待......{self.time_out-int(elapsed_time)}秒'
