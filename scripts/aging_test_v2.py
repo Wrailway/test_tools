@@ -158,25 +158,33 @@ class AgingTest:
         """
         time.sleep(self.aging_speed) # 防止大拇指和食指打架，值需要大于0.4
         return self.write_to_regesister(address=self.ROH_FINGER_POS_TARGET0, value=gesture)
-
-    def count_motor_curtent(self, address):
+    
+    def count_motor_curtent(self):
         """
         计算电机电流的平均值。
+
+        多次（最多MAX_NUM次）读取指定地址（ROH_FINGER_CURRENT0）的电流数据，然后计算这些数据的平均值并返回。
+
         :param address: 要读取电流数据的寄存器地址。
         :return: 一个包含6个电机电流平均值的列表。
         """
         sum_currents = [0] * 6
         ave_currents = [0] * 6
+        max_error_times = 3  # 设定最多允许出现错误的次数
+        error_count = 0
         for i in range(self.max_average_times):
-            currents = self.read_from_register(address=address, count=6)
+            currents = self.read_from_register(address=self.ROH_FINGER_CURRENT0, count=6)
             if currents is None or currents.isError():
-                logger.error(f"[port = {self.port}]currents: read_holding_registers has an error\n")
+                error_count += 1
+                logger.error("currents: read_holding_registers has an error \n")
+                if error_count >= max_error_times:
+                    raise ValueError("多次读取电流数据出现错误，无法计算平均值")
             else:
-                time.sleep(0.1) #每隔100ms读取一次电流值，然后取平均值
-            currents_list = currents.registers if currents else []
-            sum_currents = [sum_currents[j] + currents_list[j] for j in range(len(currents_list))]
-        currents = [sum_currents[k] / self.max_average_times for k in range(len(currents_list))]
-        ave_currents = [round(num, 1) for num in currents]
+                currents_list = currents.registers if currents else []
+                sum_currents = [sum_currents[j] + currents_list[j] for j in range(len(sum_currents))]
+                time.sleep(0.2)
+        ave_currents = [sum_currents[k] / self.max_average_times for k in range(len(sum_currents))]
+
         return ave_currents
 
     def checkCurrent(self, curs):
@@ -208,7 +216,7 @@ class AgingTest:
         """
         status = False
         if self.do_gesture(self.grasp_gesture[0]) and self.do_gesture(self.grasp_gesture[1]):
-            self.motor_currents = self.count_motor_curtent(address=self.ROH_FINGER_CURRENT0)
+            self.motor_currents = self.count_motor_curtent()
             logger.info(f'[port = {self.port}]执行抓握手势，电机电流为 -->{self.motor_currents}\n')
         if self.do_gesture(self.initial_gesture[0]) and self.do_gesture(self.initial_gesture[1])and not self.judge_if_hand_broken(self.ROH_FINGER_POS_TARGET0,self.initial_gesture[1]):
             status = True

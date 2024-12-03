@@ -182,21 +182,23 @@ class MotorCurrentTest:
         """
         sum_currents = [0] * 6
         ave_currents = [0] * 6
-        MAX_NUM = self.max_average_times
-        while MAX_NUM > 0:
+        max_error_times = 3  # 设定最多允许出现错误的次数
+        error_count = 0
+        for i in range(self.max_average_times):
             currents = self.read_from_register(address=self.ROH_FINGER_CURRENT0, count=6)
             if currents is None or currents.isError():
+                error_count += 1
                 logger.error("currents: read_holding_registers has an error \n")
+                if error_count >= max_error_times:
+                    raise ValueError("多次读取电流数据出现错误，无法计算平均值")
             else:
-                time.sleep(0.5)
-            currents_list = currents.registers if currents else []
-            sum_currents = [sum_currents[j] + currents_list[j] for j in range(len(currents_list))]
-            MAX_NUM -= 1
-            time.sleep(0.2)
-        ave_currents = [sum_currents[k] / self.max_average_times for k in range(len(currents_list))]
-       
+                currents_list = currents.registers if currents else []
+                sum_currents = [sum_currents[j] + currents_list[j] for j in range(len(sum_currents))]
+                time.sleep(0.2)
+        ave_currents = [sum_currents[k] / self.max_average_times for k in range(len(sum_currents))]
+
         return ave_currents
-    
+        
     def collect_start_and_end_currents(self,ges='',current=[]):
         if ges == '自然展开':
             self.start_motor_currents = current

@@ -101,7 +101,7 @@ class ClientTest(QtCore.QObject):
     # 老化时间选项
     aging_duration_options = ['0.5', '1', '1.5', '3', '8', '12', '24']
     selected_aging_duration = '0.5'
-    unit_duration = 3.87 # aging 3.87,current 34,stress 85,modbus 424.12
+    unit_duration = 5 # aging 5,current 24,stress 85,modbus 424
     offset_duration = 0
     update_port_enable = True
     max_port_num = 32

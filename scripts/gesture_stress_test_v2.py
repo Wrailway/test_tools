@@ -361,5 +361,5 @@ def test_single_port(port, node_id, connected_status):
 if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]
-    aging_duration = 0.01
+    aging_duration = 0.001
     main(ports = ports, node_ids = node_ids, aging_duration = aging_duration)
