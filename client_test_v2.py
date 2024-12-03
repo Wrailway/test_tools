@@ -1178,7 +1178,7 @@ class ClientTest(QtCore.QObject):
             client = ModbusClient(port=port)
             try:
                 client.connect()
-                for id in range(MAX_NODE_ID):
+                for id in range(2,MAX_NODE_ID):
                     logger.info(f'check port device id:{id}')
                     response = client.serialclient.read_holding_registers(ROH_FW_VERSION, 2, id)
                     if not response.isError():
