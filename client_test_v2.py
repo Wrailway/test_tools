@@ -918,8 +918,9 @@ class ClientTest(QtCore.QObject):
             self.update_device_info(port=port, key=self.STR_TEST_PROGRESS, new_value=f"{percentage:.2f}%")
 
     def update_device_info_result(self, result):
-        for port, result in result.items():
-            self.update_device_info(port=port, key=self.STR_TEST_RESULT, new_value=result)
+        if result is not None and len(result)> 0:
+            for port, result in result.items():
+                self.update_device_info(port=port, key=self.STR_TEST_RESULT, new_value=result)
 
     def update_device_info(self, port, key, new_value):
         for i, device_info in enumerate(self.devices_info_list):
@@ -1005,7 +1006,7 @@ class ClientTest(QtCore.QObject):
                 
     def get_test_result(self):
         port_result_dict = {}
-        if  not self.running:
+        if  not self.running and len(self.overall_result)>0:
             try:
                 for item in self.overall_result:
                     port = item['port']
@@ -1021,9 +1022,11 @@ class ClientTest(QtCore.QObject):
                 logger.error(f"数据结构中缺少关键键值对，异常信息: {e}")
                 return {}  # 如果出现异常，返回空字典
         else:
-            for port in self.port_names:
-                port_result_dict[port] = '进行中'
-            return port_result_dict
+            return {}
+        # else:
+        #     for port in self.port_names:
+        #         port_result_dict[port] = '进行中'
+        #     return port_result_dict
                 
     def extract_test_data (self):
         port_data_dict = {}
@@ -1224,7 +1227,7 @@ class ClientTest(QtCore.QObject):
                             self.STR_DEVICE_ID: node_id,
                             self.STR_CONNECT_STATUS: connect_status,
                             self.STR_TEST_PROGRESS: '0%',
-                            self.STR_TEST_RESULT: '未开始'
+                            self.STR_TEST_RESULT: '--'
                         }
                         return devices_info
                 client.disconnect()
