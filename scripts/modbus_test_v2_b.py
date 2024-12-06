@@ -297,7 +297,7 @@ FINGER_ANGLE_TARGET5 = 0 # 大拇旋转目标角度
 FINGER_ANGLE_TARGET_MAX_LOSS = 5 # 角度最大精度损失
 
 
-WAIT_TIME = 0.2 # 延迟打印，方便查看
+WAIT_TIME = 1 # 延迟打印，方便查看
     
 class FingerStatusGetter:
     STATUS_OPENING = 0x0
@@ -4117,9 +4117,9 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
                     test_result = '不通过'
 
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logger.info(f'---------------------------------------------MODBUS协议测试结束<结束时间：{end_time}>----------------------------------------------\n')
+    logger.info(f'---------------------------------------------MODBUS协议测试结束，测试结果：{test_result}<结束时间：{end_time}>----------------------------------------------\n')
     # print_overall_result(overall_result)
-    return test_title, overall_result, test_result, need_show_current
+    return test_title, overall_result, need_show_current
 
 
 def print_overall_result(overall_result):

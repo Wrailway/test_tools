@@ -306,8 +306,8 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
     #     # 可以添加资源清理相关操作，比如关闭文件句柄等（如果有相关操作）
     #     logger.info("执行测试结束后的清理操作")
     end_time = datetime.datetime.now().strftime('%Y-m-%d %H:%M:%S')
-    logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
-    return test_title, overall_result, final_result, need_show_current
+    logger.info(f'---------------------------------------------老化测试结束，测试结果：{final_result}<结束时间：{end_time}>----------------------------------------------\n')
+    return test_title, overall_result, need_show_current
 
 
 def build_gesture_result(timestamp, gesture_name, result):

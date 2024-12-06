@@ -184,10 +184,9 @@ class AgingTest:
                 sum_currents = [sum_currents[j] + currents_list[j] for j in range(len(sum_currents))]
                 time.sleep(0.2)
         ave_currents = [sum_currents[k] / self.max_average_times for k in range(len(sum_currents))]
+        self.motor_currents = ave_currents
 
-        return ave_currents
-
-    def checkCurrent(self, curs):
+    def check_current(self, curs):
         """
         检查电机电流是否超过标准<100mA>
         :param curs: 一个包含电机电流值的列表。
@@ -209,26 +208,6 @@ class AgingTest:
                 logger.error(f'[port = {self.port}]异常: {e}')
                 return False
 
-    def get_motor_currents(self):
-        """
-        获取电机电流。
-        :return: 一个布尔值，表示获取电机电流的操作是否成功。
-        """
-        status = False
-        if self.do_gesture(self.grasp_gesture[0]) and self.do_gesture(self.grasp_gesture[1]):
-            self.motor_currents = self.count_motor_curtent()
-            logger.info(f'[port = {self.port}]执行抓握手势，电机电流为 -->{self.motor_currents}\n')
-        if self.do_gesture(self.initial_gesture[0]) and self.do_gesture(self.initial_gesture[1])and not self.judge_if_hand_broken(self.ROH_FINGER_POS_TARGET0,self.initial_gesture[1]):
-            status = True
-        return status
-
-    def get_current(self):
-        """
-        返回当前存储的电机电流值（self.motor_currents）。
-
-        :return: 一个包含电机电流值的列表。
-        """
-        return self.motor_currents
 
     def judge_if_hand_broken(self, address, gesture):
         """
@@ -351,8 +330,8 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
                             result = '不通过'
                             final_result = '不通过'
                             break
-
             overall_result.extend(round_results)
+            
             logger.info(f"#################第 {round_num} 轮测试结束，测试结果：{result}#############\n")
     except Exception as e:
         final_result = '不通过'
@@ -360,9 +339,9 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
     # finally:
     #     logger.info("执行测试结束后的清理操作（如有）")
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    logger.info(f'---------------------------------------------老化测试结束<结束时间：{end_time}>----------------------------------------------\n')
-
-    return test_title, overall_result, final_result, False
+    logger.info(f'---------------------------------------------老化测试结束，测试结果：{final_result}<结束时间：{end_time}>----------------------------------------------\n')
+    # print_overall_result(overall_result)
+    return test_title, overall_result, False
 
 def test_single_port(port, node_id):
     """
@@ -381,13 +360,27 @@ def test_single_port(port, node_id):
     
     if connected_status:
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        grasp_gesture = aging_test.grasp_gesture
+        initial_gesture = aging_test.initial_gesture
         try:
-            aging_test.set_max_current()
-            if aging_test.get_motor_currents():
-                current = aging_test.get_current()
-                gesture_result = build_gesture_result(timestamp =timestamp,content=current,result='通过',comment='无')
+            if aging_test.set_max_current(): # 设置最大的电量限制为200ma
+                if aging_test.do_gesture(grasp_gesture[0]) and aging_test.do_gesture(grasp_gesture[1]):
+                    aging_test.count_motor_curtent()
+                    logger.info(f'[port = {port}]执行抓握手势，电机电流为 -->{aging_test.motor_currents}\n')
+                if aging_test.do_gesture(initial_gesture[0]) and aging_test.do_gesture(initial_gesture[1]):
+                    if not aging_test.judge_if_hand_broken(aging_test.ROH_FINGER_POS_TARGET0,initial_gesture[1]):
+                        motor_currents = aging_test.motor_currents
+                        if aging_test.check_current(motor_currents):
+                            gesture_result = build_gesture_result(timestamp =timestamp,content=motor_currents,result='通过',comment='无')
+                        else:
+                            gesture_result = build_gesture_result(timestamp =timestamp,content=motor_currents,result='不通过',comment='电流超标')
+                    else:
+                        gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment='手指出现异常')
+                else:
+                    gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment='手指出现异常')
             else:
-                gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment='手指出现异常')
+                gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment='设置手指最大电流失败')
+                    
             port_result['gestures'].append(gesture_result)
         except Exception as e:
             error_gesture_result = build_gesture_result(timestamp =timestamp,content='',result='不通过',comment=f'出现错误：{e}')
@@ -405,7 +398,21 @@ def build_gesture_result(timestamp,content,result,comment):
             "result": result,
             "comment": comment
         }
+def print_overall_result(overall_result):
+        port_data_dict = {}
 
+        # 整理数据
+        for item in overall_result:
+            if item['port'] not in port_data_dict:
+                port_data_dict[item['port']] = []
+            for gesture in item['gestures']:
+                port_data_dict[item['port']].append((gesture['timestamp'],gesture['description'],gesture['expected'],gesture['content'], gesture['result'], gesture['comment']))
+
+        # 打印数据
+        for port, data_list in port_data_dict.items():
+            logger.info(f"Port: {port}")
+            for timestamp, description, expected, content, result, comment in data_list:
+                logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 if __name__ == "__main__":
     ports = ['COM4']
     node_ids = [2]

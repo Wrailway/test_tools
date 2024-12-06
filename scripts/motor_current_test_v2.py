@@ -271,7 +271,7 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 0) -> Tu
     #     logger.info("执行测试结束后的清理操作（如有）")
     end_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     logger.info(f'---------------------------------------------电机电流测试结束<结束时间：{end_time}>----------------------------------------------\n')
-    return test_title, overall_result, final_result, need_show_current
+    return test_title, overall_result, need_show_current
 
 def build_gesture_result(timestamp, result, motors_current):
     """

@@ -101,7 +101,7 @@ class ClientTest(QtCore.QObject):
     # 老化时间选项
     aging_duration_options = ['0.5', '1', '1.5', '3', '8', '12', '24']
     selected_aging_duration = '0.5'
-    unit_duration = 5 # aging 5,current 24,stress 85,modbus 424
+    unit_duration = 5.11 # #aging 5.11,current 24.28,stress 85.11,modbus 805.09
     offset_duration = 0
     update_port_enable = True
     max_port_num = 32
@@ -364,8 +364,8 @@ class ClientTest(QtCore.QObject):
         # 将小数部分从秒转换为小时，因为1小时 = 3600秒，所以除以3600
         offset_duration_in_hours = (1-decimal_part) * float(self.unit_duration) / 3600
         # 使用round函数保留两位小数
-        logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 2)}')
-        return round(offset_duration_in_hours, 2)
+        logger.info(f'offset_duration_in_hours= {round(offset_duration_in_hours, 5)}')
+        return round(offset_duration_in_hours, 5)
 
     def create_style(self):
         """用于定义控件样式
@@ -823,14 +823,7 @@ class ClientTest(QtCore.QObject):
                 result = QMessageBox.question(self.window, '确认', '测试即将开始，请耐心等待。是否继续执行？',
                                               QMessageBox.Yes | QMessageBox.No)
                 if result == QMessageBox.Yes:
-                    self.update_device_Info_worker = self.UpdateDeviceInfoWorker()
-                    self.update_device_Info_worker.selected_aging_duration = self.selected_aging_duration
-                    self.update_device_Info_worker.off_duration = self.offset_duration
-                    self.update_device_Info_worker.update_progress_signal.connect(self.update_device_info_progress)
-                    self.update_device_Info_worker.update_result_signal.connect(self.update_device_info_result)
-                    self.update_device_Info_thread = threading.Thread(target=self.update_device_Info_worker.run_test)
-                    self.update_device_Info_thread.start()
-                    self.count_down(hour=self.selected_aging_duration)
+                 
                     # 将模块所在的父目录（即scripts所在目录）添加到sys.path中，确保能找到模块
                     module_dir = os.path.dirname(self.script_name)
                     sys.path.append(module_dir)
@@ -842,6 +835,15 @@ class ClientTest(QtCore.QObject):
                         self.run_script_thread.start()
                         self.running = True
                         self.set_checked_box_status(False)
+                        self.update_device_Info_worker = self.UpdateDeviceInfoWorker()
+                        self.update_device_Info_worker.selected_aging_duration = self.selected_aging_duration
+                        self.update_device_Info_worker.off_duration = self.offset_duration
+                        self.update_device_Info_worker.test_result = self.get_test_result()
+                        self.update_device_Info_worker.update_progress_signal.connect(self.update_device_info_progress)
+                        self.update_device_Info_worker.update_result_signal.connect(self.update_device_info_result)
+                        self.update_device_Info_thread = threading.Thread(target=self.update_device_Info_worker.run_test)
+                        self.update_device_Info_thread.start()
+                        self.count_down(hour=self.selected_aging_duration)
                     except ImportError as e:
                         result = QMessageBox.critical(self.window, '错误',
                                                       f"导入模块失败：{self.script_name}，错误信息：{e}")
@@ -859,19 +861,22 @@ class ClientTest(QtCore.QObject):
     def update_test_result(self, module):
         def run_script():
             try:
-                self.report_title,self.overall_result, self.result,self.need_show_current = module.main(ports=self.select_port_names,node_ids=self.node_ids,
+                self.report_title,self.overall_result,self.need_show_current = module.main(ports=self.select_port_names,node_ids=self.node_ids,
                                                      aging_duration=float(self.selected_aging_duration))
-                logger.info(f'本次测试结论为：{self.result} \n详细测试数据为：\n')
+                logger.info(f'本次测试已结束，详细测试数据为：\n')
+                
+                self.update_device_Info_worker.update_test_result()
                 self.print_overall_result(self.overall_result)
                 if self.need_show_current:
-                    result = self.get_currents_from_test_result(self.overall_result)
-                    self.update_current_ui_worker = self.UpdateCurrentUIWorker(portName=self.port_names,result = result)
+                    test_data = self.get_currents_from_test_result(self.overall_result)
+                    self.update_current_ui_worker = self.UpdateCurrentUIWorker(portName=self.port_names,test_data = test_data)
                     if self.current_ui_enable.lower() == 'y':
                         self.update_current_ui_worker.update_com_name_signal.connect(self.update_current_ui_portnames)
                         self.update_current_ui_worker.update_current_signal.connect(self.update_current_ui_motorcurrents)
                         self.update_current_ui_worker.run_test()
                 self.running = False
                 self.set_checked_box_status(True)
+                self.update_device_Info_worker.test_result = self.get_test_result()
             except Exception as e:
                 logger.error(f'Error in script execution: {e}')
 
@@ -913,7 +918,7 @@ class ClientTest(QtCore.QObject):
             self.update_device_info(port=port, key=self.STR_TEST_PROGRESS, new_value=f"{percentage:.2f}%")
 
     def update_device_info_result(self, result):
-        for port in self.select_port_names:
+        for port, result in result.items():
             self.update_device_info(port=port, key=self.STR_TEST_RESULT, new_value=result)
 
     def update_device_info(self, port, key, new_value):
@@ -937,7 +942,7 @@ class ClientTest(QtCore.QObject):
             # 假设存在与测试线程相关的操作，以下是完善后的处理方式
             if hasattr(self, 'update_device_Info_thread') and self.update_device_Info_thread.is_alive():
                 self.update_device_Info_worker.stop_flag=True
-                self.update_device_Info_worker.test_finished_signal.connect(self.on_test_finished)  # 连接信号到槽函数
+                self.update_device_Info_worker.test_finished_signal.connect(self.on_test_finished)
                 self.run_script_thread.join()
             else:
                 self.on_test_finished()
@@ -952,10 +957,14 @@ class ClientTest(QtCore.QObject):
             if not pause:
                 pause = True
                 self.btn_pause_test.setText('恢复测试')
+                self.update_device_Info_worker.pause_flag = True
+                # self.update_device_Info_worker.test_result = '暂停测试'
                 logger.info('pause test')
             else:
                 pause = False
                 self.btn_pause_test.setText('暂停测试')
+                self.update_device_Info_worker.pause_flag = False
+                # self.update_device_Info_worker.test_result = '进行中'
                 logger.info('go on  test')
                 
             self.write_to_json_file(stop_test=False, pause_test=pause)
@@ -994,8 +1003,29 @@ class ClientTest(QtCore.QObject):
                 self.script_name = os.path.join(scripts_dir, file_name)
                 logger.info(f'加载脚本{self.script_name}，请点击开始测试按钮，执行脚本\n')
                 
-                
     def get_test_result(self):
+        port_result_dict = {}
+        if  not self.running:
+            try:
+                for item in self.overall_result:
+                    port = item['port']
+                    if port not in port_result_dict:
+                        port_result_dict[port] = '通过' 
+                    for gesture in item['gestures']:
+                        result = gesture['result']
+                        if result == '不通过':
+                            port_result_dict[port] = '不通过'  # 只要有一个不通过，端口结果设为不通过
+                            break  # 一旦发现不通过，无需再检查该端口下其他手势结果，直接跳出内层循环
+                return port_result_dict
+            except KeyError as e:
+                logger.error(f"数据结构中缺少关键键值对，异常信息: {e}")
+                return {}  # 如果出现异常，返回空字典
+        else:
+            for port in self.port_names:
+                port_result_dict[port] = '进行中'
+            return port_result_dict
+                
+    def extract_test_data (self):
         port_data_dict = {}
 
         # 整理数据
@@ -1075,7 +1105,7 @@ class ClientTest(QtCore.QObject):
             ws.row_dimensions[row[0].row].height = default_row_height
 
         # 测试数据填充
-        self.test_data = self.get_test_result()
+        self.test_data = self.extract_test_data ()
         row_index = 7  # 从第7行开始填充数据行
         
         for port, data_list in self.test_data.items():
@@ -1318,35 +1348,39 @@ class ClientTest(QtCore.QObject):
         update_com_name_signal = pyqtSignal(list)
         update_current_signal = pyqtSignal(dict)
         
-        def __init__(self, portName, result, parent=None):
+        def __init__(self, portName, test_data, parent=None):
             super().__init__(parent)
             self.portName = portName
-            self.result = result
+            self.test_data = test_data
             
         def run_test(self):
             self.update_com_name_signal.emit(self.portName)
-            self.update_current_signal.emit(self.result)
+            self.update_current_signal.emit(self.test_data)
         
     class UpdateDeviceInfoWorker(QObject):
         update_progress_signal = pyqtSignal(float)
-        update_result_signal = pyqtSignal(str)
+        update_result_signal = pyqtSignal(dict)
         test_finished_signal = pyqtSignal()  # 添加这个信号
 
         def __init__(self, parent=None):
             super().__init__(parent)
             self.stop_flag = False
+            self.pause_flag = False
             self.selected_aging_duration = None
             self.off_duration = 0
-            # self.STR_TEST_PROGRESS = "测试进展"
-            # self.STR_TEST_RESULT = "测试结果"
-
+            self.test_result = {}
+            
         def run_test(self):
             start_time = datetime.datetime.now()
             end_time = start_time + datetime.timedelta(hours=float(self.selected_aging_duration)+float(self.off_duration))
-            self.update_result_signal.emit('进行中')
+            self.update_result_signal.emit(self.test_result)
             while datetime.datetime.now() < end_time:
                 if self.stop_flag:
                     break
+                if self.pause_flag:
+                    self.update_result_signal.emit(self.test_result)
+                    continue
+                self.update_result_signal.emit(self.test_result)
                 elapsed_time = datetime.datetime.now() - start_time
                 percentage = (elapsed_time.total_seconds() / (((float(self.selected_aging_duration)+float(self.off_duration)) * 3600))) * 100
                 self.update_progress_signal.emit(percentage)
@@ -1354,12 +1388,12 @@ class ClientTest(QtCore.QObject):
                 # import time
                 time.sleep(1)
             # 最后将测试进度更新为100%
-            if not self.stop_flag:
-                self.update_progress_signal.emit(100)
-                self.update_result_signal.emit('通过')
-            else:
-                self.update_result_signal.emit('停止测试')
+            self.update_result_signal.emit(self.test_result)
+            self.update_progress_signal.emit(100)
             self.test_finished_signal.emit()  
+            
+        def update_test_result(self):
+            self.update_result_signal.emit(self.test_result)
                 
 class CustomDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter, option, index):
