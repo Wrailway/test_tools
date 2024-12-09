@@ -6,7 +6,7 @@ import sys
 import time
 import concurrent.futures
 from typing import List, Tuple
-from pymodbus.exceptions import ConnectionException, ModbusIOException
+from pymodbus.exceptions import ConnectionException
 from pymodbus import FramerType
 from pymodbus.client import ModbusSerialClient
 

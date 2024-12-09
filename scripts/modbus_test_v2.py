@@ -2,18 +2,16 @@ import datetime
 import logging
 import os
 import random
-import struct
 import sys
 import concurrent.futures
 import time
-import types
 from typing import List, Tuple
 import unittest
 import threading
 
 from pymodbus.exceptions import ConnectionException, ModbusIOException
-from pymodbus import FramerType, ModbusException
-from pymodbus.client import ModbusSerialClient, serial
+from pymodbus import FramerType
+from pymodbus.client import ModbusSerialClient
 
 # 设置日志级别为INFO，获取日志记录器实例
 logger = logging.getLogger(__name__)
