@@ -2426,13 +2426,13 @@ class TestModbus(unittest.TestCase):
         response = self.client.read_from_register(address=ROH_FINGER_CURRENT5)
         self.check_and_print_test_info(response)  
             
-
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，暂时跳过')
     def test_read_finger_force_limit0(self):
         self.print_test_info(status=self.TEST_STRAT,info='read finger force limit0')
         response = self.client.read_from_register(address=ROH_FINGER_FORCE_LIMIT0)
         self.check_and_print_test_info(response)
             
-    #力范围 0-15000  
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，暂时跳过') 
     def test_write_finger_force_limit0_0(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit0: 0')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = 0)):
@@ -2445,6 +2445,7 @@ class TestModbus(unittest.TestCase):
          # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = FINGER_FORCE_LIMIT0)
         
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit0_7000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit0: 7000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = 7000)):
@@ -2456,7 +2457,8 @@ class TestModbus(unittest.TestCase):
             
          # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = FINGER_FORCE_LIMIT0)
-            
+        
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，暂时跳过')  
     def test_write_finger_force_limit0_15000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit0: 15000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = 15000)):
@@ -2469,7 +2471,7 @@ class TestModbus(unittest.TestCase):
          # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = FINGER_FORCE_LIMIT0)
         
-    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，对值范围没做限制')
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT0 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit0_15001(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit0: 15001')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = 15001)):
@@ -2481,13 +2483,14 @@ class TestModbus(unittest.TestCase):
             
         # # 恢复默认值,后续要注释掉，只给调试使用
         # self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT0,values = FINGER_FORCE_LIMIT0)
-
+        
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，暂时跳过')
     def test_read_finger_force_limit1(self):
         self.print_test_info(status=self.TEST_STRAT,info='read finger force limit1')
         response = self.client.read_from_register(address=ROH_FINGER_FORCE_LIMIT1)
         self.check_and_print_test_info(response)
             
-    #力范围 0-15000  
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，暂时跳过') 
     def test_write_finger_force_limit1_0(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit1: 0')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = 0)):
@@ -2499,7 +2502,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = FINGER_FORCE_LIMIT1)
-        
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit1_7000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit1: 7000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = 7000)):
@@ -2511,7 +2515,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = FINGER_FORCE_LIMIT1)
-            
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit1_15000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit1: 15000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = 15000)):
@@ -2524,7 +2529,7 @@ class TestModbus(unittest.TestCase):
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,values = FINGER_FORCE_LIMIT1)
         
-    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，对值范围没做限制')
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT1 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit1_15001(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit1: 15001')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,value = 15001)):
@@ -2537,12 +2542,13 @@ class TestModbus(unittest.TestCase):
         # # 恢复默认值，后续要注释掉，当前调试使用
         # self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT1,value = FINGER_FORCE_LIMIT1)
 
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，暂时跳过')
     def test_read_finger_force_limit2(self):
         self.print_test_info(status=self.TEST_STRAT,info='read finger force limit2')
         response = self.client.read_from_register(address=ROH_FINGER_FORCE_LIMIT2)
         self.check_and_print_test_info(response)
             
-    #力范围 0-15000  
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，暂时跳过') 
     def test_write_finger_force_limit2_0(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit2: 0')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = 0)):
@@ -2554,7 +2560,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = FINGER_FORCE_LIMIT2)
-        
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit2_7000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit2: 7000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = 7000)):
@@ -2566,7 +2573,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = FINGER_FORCE_LIMIT2)
-            
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit2_15000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit2: 15000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = 15000)):
@@ -2579,7 +2587,7 @@ class TestModbus(unittest.TestCase):
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = FINGER_FORCE_LIMIT2)
         
-    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，对值范围没做限制')
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT2 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit2_15001(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit2: 15001')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = 15001)):
@@ -2591,13 +2599,14 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值，后续要注释掉，当前为调试使用
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT2,values = FINGER_FORCE_LIMIT2)
-            
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，暂时跳过')
     def test_read_finger_force_limit3(self):
         self.print_test_info(status=self.TEST_STRAT,info='read finger force limit3')
         response = self.client.read_from_register(address=ROH_FINGER_FORCE_LIMIT3)
         self.check_and_print_test_info(response)
             
-    #力范围 0-15000  
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit3_0(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit3: 0')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = 0)):
@@ -2609,7 +2618,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = FINGER_FORCE_LIMIT3)
-        
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit3_7000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit3: 7000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = 7000)):
@@ -2621,7 +2631,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = FINGER_FORCE_LIMIT3)
-            
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit3_15000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit3: 15000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = 15000)):
@@ -2634,7 +2645,7 @@ class TestModbus(unittest.TestCase):
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = FINGER_FORCE_LIMIT3)
         
-    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，对值范围没做限制')     
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT3 力传感器功能暂时没添加，暂时跳过')     
     def test_write_finger_force_limit3_15001(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit3: 15001')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = 15001)):
@@ -2647,12 +2658,13 @@ class TestModbus(unittest.TestCase):
         # 恢复默认值，后续要注释掉，当前为调试使用
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT3,values = FINGER_FORCE_LIMIT3)
 
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，暂时跳过')
     def test_read_finger_force_limit4(self):
         self.print_test_info(status=self.TEST_STRAT,info='read finger force limit4')
         response = self.client.read_from_register(address=ROH_FINGER_FORCE_LIMIT4)
         self.check_and_print_test_info(response)
      
-    #力范围 0-15000  
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，暂时跳过') 
     def test_write_finger_force_limit4_0(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit4: 0')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = 0)):
@@ -2664,7 +2676,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = FINGER_FORCE_LIMIT4)
-        
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit4_7000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit4: 7000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = 7000)):
@@ -2676,7 +2689,8 @@ class TestModbus(unittest.TestCase):
             
         # 恢复默认值
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = FINGER_FORCE_LIMIT4)
-            
+    
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，暂时跳过')
     def test_write_finger_force_limit4_15000(self):
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit4: 15000')
         if(self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = 15000)):
@@ -2690,7 +2704,7 @@ class TestModbus(unittest.TestCase):
         self.client.write_to_register(address = ROH_FINGER_FORCE_LIMIT4,values = FINGER_FORCE_LIMIT4)
             
         
-    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，对值范围没做限制')   
+    @unittest.skip('ROH_FINGER_FORCE_LIMIT4 力传感器功能暂时没添加，暂时跳过')   
     def test_write_finger_force_limit4_15001(self):
     
         self.print_test_info(status=self.TEST_STRAT,info='write finger force limit4: 15001')
@@ -3934,7 +3948,6 @@ class TestModbus(unittest.TestCase):
             logger.error(e)
             self.print_test_info(status=self.TEST_PASS)
      
-#     return port_result
 def test_single_port(port, node_id):
     """
     针对指定端口和节点ID运行测试用例，并整理测试结果返回。
@@ -4139,10 +4152,10 @@ def print_overall_result(overall_result):
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 
 if __name__ == "__main__":
-    ports = ['COM4']
+    ports = ['COM3']
     node_ids = [2]
     aging_duration = 0.01
-    test_title, overall_result, test_result, need_show_current = main(ports=ports,node_ids=node_ids,aging_duration=0)
-    logger.info(f'测试结果：{test_result}\n')
+    test_title, overall_result, need_show_current = main(ports=ports,node_ids=node_ids,aging_duration=0)
+    # logger.info(f'测试结果：{test_result}\n')
     logger.info(f'详细数据：\n')
     # print_overall_result(overall_result)
