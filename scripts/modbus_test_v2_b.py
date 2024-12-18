@@ -20,9 +20,16 @@ logger.setLevel(logging.INFO)
 log_folder = "./log"
 if not os.path.exists(log_folder):
     os.makedirs(log_folder)
+    
+# 获取当前时间的时间戳（精确到秒）
+timestamp = str(int(time.time()))
+# 获取当前日期，格式为年-月-日
+current_date = time.strftime("%Y-%m-%d", time.localtime())
+# 构建完整的文件名，包含路径、日期和时间戳
+log_file_name = f'./log/TestModbus_log_{current_date}_{timestamp}.txt'
 
 # 创建一个文件处理器，用于将日志写入文件
-file_handler = logging.FileHandler('./log/TestModbus_log.txt')
+file_handler = logging.FileHandler(log_file_name)
 file_handler.setLevel(logging.INFO)
 
 # 创建一个日志格式

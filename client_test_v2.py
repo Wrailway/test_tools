@@ -35,8 +35,15 @@ log_folder = "./log"
 if not os.path.exists(log_folder):
     os.makedirs(log_folder)
 
+# 获取当前时间的时间戳（精确到秒）
+timestamp = str(int(time.time()))
+# 获取当前日期，格式为年-月-日
+current_date = time.strftime("%Y-%m-%d", time.localtime())
+# 构建完整的文件名，包含路径、日期和时间戳
+log_file_name = f'./log/ClientTest_log_{current_date}_{timestamp}.txt'
+
 # 创建一个文件处理器，用于将日志写入文件
-file_handler = logging.FileHandler('./log/ClientTest_log.txt',encoding='utf-8')
+file_handler = logging.FileHandler(log_file_name,encoding='utf-8')
 file_handler.setLevel(logging.INFO)
 
 # 创建一个日志格式
@@ -54,7 +61,7 @@ class ClientTest(QtCore.QObject):
     定义客户端类ClientTest，用户操作界面
     """
     client_version = 'V1.0'
-    release_date_str = '2024-12-09'
+    release_date_str = '2024-12-18'
     # 以下定义Treeview表格的列名
     STR_PORT = '端口号'
     STR_DEVICE_NAME = '设备名称'
@@ -1022,7 +1029,11 @@ class ClientTest(QtCore.QObject):
                 logger.error(f"数据结构中缺少关键键值对，异常信息: {e}")
                 return {}  # 如果出现异常，返回空字典
         else:
-            return {}
+            # return {}
+            for port in self.port_names:
+                port_result_dict[port] = '--'
+            return port_result_dict
+
         # else:
         #     for port in self.port_names:
         #         port_result_dict[port] = '进行中'
@@ -1294,7 +1305,7 @@ class ClientTest(QtCore.QObject):
                         # bottomRightIndex = self.model.index(i, j)
                         # self.model.dataChanged(topLeftIndex, bottomRightIndex)
         self.tv_test_detail.update()
-
+    
     def update_device_list(self, port, isChecked):
         if len(self.devices_info_list)==0:
             return
@@ -1319,8 +1330,9 @@ class ClientTest(QtCore.QObject):
                     break
 
             if not is_duplicate:
+                # self.update_device_info(port=port,key=self.STR_TEST_PROGRESS,new_value=0.0)
+                # self.update_device_info(port=port,key=self.STR_TEST_RESULT,new_value='--')
                 self.model.appendRow(new_item_data)
-
         else:  # 删除数据
             row_to_delete = None
             for row in range(self.model.rowCount()):
@@ -1336,6 +1348,8 @@ class ClientTest(QtCore.QObject):
 
             if row_to_delete is not None:
                 # 从model中删除指定行
+                # self.update_device_info(port=port,key=self.STR_TEST_PROGRESS,new_value=0.0)
+                # self.update_device_info(port=port,key=self.STR_TEST_RESULT,new_value='--')
                 self.model.removeRow(row_to_delete)
 
     def get_device_Info(self, port):
