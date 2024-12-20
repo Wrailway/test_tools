@@ -113,6 +113,7 @@ class ClientTest(QtCore.QObject):
     update_port_enable = True
     max_port_num = 32
     timeout = 30
+    max_node_id = 10
     no_used_port = '无可用端口'
     port_names = [no_used_port]
     node_ids = [2]
@@ -361,6 +362,7 @@ class ClientTest(QtCore.QObject):
             self.offset_duration = self.get_offset_duration()
             
             self.time_out = int(config.get_value('aging_parameter', 'time_out'))
+            self.max_node_id = int(config.get_value('aging_parameter', 'max_node_id'))
             
         except Exception as e:
             logger.error(e)
@@ -1209,7 +1211,7 @@ class ClientTest(QtCore.QObject):
         ports = [portInfo.device for portInfo in portInfos if portInfo]
         portNames = []
         nodeIds = []
-        MAX_NODE_ID = 256
+        # MAX_NODE_ID = self
         ROH_FW_VERSION = 1001  # 固件版本寄存器地址
 
         def process_port(port):
@@ -1222,7 +1224,7 @@ class ClientTest(QtCore.QObject):
             client = ModbusClient(port=port)
             try:
                 client.connect()
-                for id in range(2,MAX_NODE_ID):
+                for id in range(2,self.max_node_id):
                     logger.info(f'check port device id:{id}')
                     response = client.serialclient.read_holding_registers(ROH_FW_VERSION, 2, id)
                     if not response.isError():
