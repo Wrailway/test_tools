@@ -61,7 +61,7 @@ class ClientTest(QtCore.QObject):
     定义客户端类ClientTest，用户操作界面
     """
     client_version = 'V1.0'
-    release_date_str = '2024-12-18'
+    release_date_str = '2024-12-20'
     # 以下定义Treeview表格的列名
     STR_PORT = '端口号'
     STR_DEVICE_NAME = '设备名称'
