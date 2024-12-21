@@ -40,61 +40,61 @@ logger.addHandler(file_handler)
 stream_handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(stream_handler)
 
-
+fail_port_list = set()
 class AgingTest:
     
-    # ROH 灵巧手错误代码
-    EC01_ILLEGAL_FUNCTION = 0X1  # 无效的功能码
-    EC02_ILLEGAL_DATA_ADDRESS = 0X2  # 无效的数据地址
-    EC03_ILLEGAL_DATA_VALUE = 0X3  # 无效的数据（协议层，非应用层）
-    EC04_SERVER_DEVICE_FAILURE = 0X4  # 设备故障
-    UNKNOWN_FAILURE = 0X5  # 未知错误
+    # # ROH 灵巧手错误代码
+    # EC01_ILLEGAL_FUNCTION = 0X1  # 无效的功能码
+    # EC02_ILLEGAL_DATA_ADDRESS = 0X2  # 无效的数据地址
+    # EC03_ILLEGAL_DATA_VALUE = 0X3  # 无效的数据（协议层，非应用层）
+    # EC04_SERVER_DEVICE_FAILURE = 0X4  # 设备故障
+    # UNKNOWN_FAILURE = 0X5  # 未知错误
 
-    roh_exception_list = {
-        EC01_ILLEGAL_FUNCTION: '无效的功能码',
-        EC02_ILLEGAL_DATA_ADDRESS: '无效的数据地址',
-        EC03_ILLEGAL_DATA_VALUE: '无效的数据（协议层，非应用层）',
-        EC04_SERVER_DEVICE_FAILURE: '设备故障',
-        UNKNOWN_FAILURE: '未知错误'
-    }
-    # 寄存器 ROH_SUB_EXCEPTION 保存了具体的错误代码
-    ERR_STATUS_INIT = 0X1  # 等待初始化或者正在初始化，不接受此读写操作
-    ERR_STATUS_CALI = 0X2  # 等待校正，不接受此读写操作
-    ERR_INVALID_DATA = 0X3  # 无效的寄存器值
-    ERR_STATUS_STUCK = 0X4  # 电机堵转
-    ERR_OP_FAILED = 0X5  # 操作失败
-    ERR_SAVE_FAILED = 0X6  # 保存失败
-    ROH_SUB_EXCEPTION         = (1006) # R
+    # roh_exception_list = {
+    #     EC01_ILLEGAL_FUNCTION: '无效的功能码',
+    #     EC02_ILLEGAL_DATA_ADDRESS: '无效的数据地址',
+    #     EC03_ILLEGAL_DATA_VALUE: '无效的数据（协议层，非应用层）',
+    #     EC04_SERVER_DEVICE_FAILURE: '设备故障',
+    #     UNKNOWN_FAILURE: '未知错误'
+    # }
+    # # 寄存器 ROH_SUB_EXCEPTION 保存了具体的错误代码
+    # ERR_STATUS_INIT = 0X1  # 等待初始化或者正在初始化，不接受此读写操作
+    # ERR_STATUS_CALI = 0X2  # 等待校正，不接受此读写操作
+    # ERR_INVALID_DATA = 0X3  # 无效的寄存器值
+    # ERR_STATUS_STUCK = 0X4  # 电机堵转
+    # ERR_OP_FAILED = 0X5  # 操作失败
+    # ERR_SAVE_FAILED = 0X6  # 保存失败
+    # ROH_SUB_EXCEPTION         = (1006) # R
 
-    roh_sub_exception_list = {
-        ERR_STATUS_INIT: '等待初始化或者正在初始化，不接受此读写操作',
-        ERR_STATUS_CALI: '等待校正，不接受此读写操作',
-        ERR_INVALID_DATA: '无效的寄存器值',
-        ERR_STATUS_STUCK: '电机堵转',
-        ERR_OP_FAILED: '操作失败',
-        ERR_SAVE_FAILED: '保存失败'
-    }
+    # roh_sub_exception_list = {
+    #     ERR_STATUS_INIT: '等待初始化或者正在初始化，不接受此读写操作',
+    #     ERR_STATUS_CALI: '等待校正，不接受此读写操作',
+    #     ERR_INVALID_DATA: '无效的寄存器值',
+    #     ERR_STATUS_STUCK: '电机堵转',
+    #     ERR_OP_FAILED: '操作失败',
+    #     ERR_SAVE_FAILED: '保存失败'
+    # }
     
 
-    def get_exception(self, response):
-        """
-        根据传入的响应确定错误类型。
+    # def get_exception(self, response):
+    #     """
+    #     根据传入的响应确定错误类型。
 
-        参数：
-        response：包含错误信息的响应对象。
+    #     参数：
+    #     response：包含错误信息的响应对象。
 
-        返回：
-        错误类型的描述字符串。
-        """
-        strException = ''
-        if response.exception_code > self.EC04_SERVER_DEVICE_FAILURE:
-            strException = self.roh_exception_list.get(self.UNKNOWN_FAILURE)
-        elif response.exception_code == self.EC04_SERVER_DEVICE_FAILURE:
-            response2 = self.client.read_holding_registers(address=self.ROH_SUB_EXCEPTION,slave=2)
-            strException = '设备故障，具体原因为'+self.roh_sub_exception_list.get(response2.registers[0])
-        else:
-            strException = self.roh_exception_list.get(response.exception_code)
-        return strException
+    #     返回：
+    #     错误类型的描述字符串。
+    #     """
+    #     strException = ''
+    #     if response.exception_code > self.EC04_SERVER_DEVICE_FAILURE:
+    #         strException = self.roh_exception_list.get(self.UNKNOWN_FAILURE)
+    #     elif response.exception_code == self.EC04_SERVER_DEVICE_FAILURE:
+    #         response2 = self.client.read_holding_registers(address=self.ROH_SUB_EXCEPTION,slave=2)
+    #         strException = '设备故障，具体原因为'+self.roh_sub_exception_list.get(response2.registers[0])
+    #     else:
+    #         strException = self.roh_exception_list.get(response.exception_code)
+    #     return strException
     
     def __init__(self):
         """
@@ -132,8 +132,10 @@ class AgingTest:
         try:
             response = self.client.read_holding_registers(address=address, count=count, slave=self.node_id)
             if response.isError():
-                error_type = self.get_exception(response)
-                logger.error(f'[port = {self.port}]读寄存器失败: {error_type}\n')
+                # error_type = self.get_exception(response)
+                # logger.error(f'[port = {self.port}]读寄存器失败: {error_type}\n')
+                logger.error(f'[port = {self.port}]读寄存器失败\n')
+                fail_port_list.update([self.port])
         except Exception as e:
             logger.error(f'[port = {self.port}]异常: {e}')
         return response
@@ -150,8 +152,10 @@ class AgingTest:
             if not response.isError():
                     return True
             else:
-                error_type = self.get_exception(response)
-                logger.error(f'[port = {self.port}]写寄存器失败: {error_type}\n')
+                # error_type = self.get_exception(response)
+                # logger.error(f'[port = {self.port}]写寄存器失败: {error_type}\n')
+                logger.error(f'[port = {self.port}]写寄存器失败\n')
+                fail_port_list.update([self.port])
                 return False
         except Exception as e:
                 logger.error(f'[port = {self.port}]异常: {e}')
@@ -202,18 +206,20 @@ class AgingTest:
         return all(c <= self.current_standard for c in curs)
     
     def set_max_current(self):
-        try:
-            value = [200,200,200,200,200,200]
-            response = self.client.write_registers(self.ROH_FINGER_CURRENT_LIMIT0, value, self.node_id)
-            if not response.isError():
-                return True
-            else:
-                error_type = self.get_exception(response)
-                logger.error(f'[port = {self.port}]写寄存器失败: {error_type}\n')
-                return False
-        except Exception as e:
-                logger.error(f'[port = {self.port}]异常: {e}')
-                return False
+        value = [200,200,200,200,200,200]
+        return self.write_to_regesister(address=self.ROH_FINGER_CURRENT_LIMIT0,value=value)
+        # try:
+        #     value = [200,200,200,200,200,200]
+        #     response = self.client.write_registers(self.ROH_FINGER_CURRENT_LIMIT0, value, self.node_id)
+        #     if not response.isError():
+        #         return True
+        #     else:
+        #         error_type = self.get_exception(response)
+        #         logger.error(f'[port = {self.port}]写寄存器失败: {error_type}\n')
+        #         return False
+        # except Exception as e:
+        #         logger.error(f'[port = {self.port}]异常: {e}')
+        #         return False
 
 
     def judge_if_hand_broken(self, address, gesture):
@@ -296,6 +302,36 @@ description = '重复抓握手势,记录各个电机的电流值'  # 用例描�
 # 定义一个常量用于表示老化测试的时长单位转换（从小时转换为秒）
 SECONDS_PER_HOUR = 3600
 
+def check_port(valid_port: set = {}, total_port: list = {}, node_ids: list = []):
+    """
+    从total_port列表中去除valid_port集合中的元素，并同步去除对应的node_ids列表中的元素，
+    基于total_port中的端口和node_ids中的元素按位置一一对应关系。
+
+    参数:
+    valid_port (set): 要去除的端口集合，默认为空集合。
+    total_port (list): 总的端口列表，默认为空列表。
+    node_ids (list): 与total_port中的端口对应的节点标识列表，默认为空列表。
+
+    返回:
+    list: 去除指定端口后的端口列表。
+    list: 去除对应端口后对应的节点标识列表。
+    """
+    # 检查参数类型是否符合要求
+    if not isinstance(valid_port, set):
+        raise TypeError("valid_port参数应该是set类型")
+    if not isinstance(total_port, list):
+        raise TypeError("total_port参数应该是list类型")
+    if not isinstance(node_ids, list):
+        raise TypeError("node_ids参数应该是list类型")
+
+    # 使用列表推导式从total_port中筛选出不在valid_port中的元素，同时记录符合条件的索引位置
+    valid_indices = [index for index, port in enumerate(total_port) if port not in valid_port]
+    # 根据记录的有效索引位置，从node_ids列表中筛选出对应的元素，构建新的node_ids列表
+    result_node_ids = [node_ids[i] for i in valid_indices]
+    # 使用筛选出的有效索引位置，从total_port列表中构建新的端口列表
+    result_ports = [total_port[i] for i in valid_indices]
+    return result_ports, result_node_ids
+
 def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> Tuple[str, List, str, bool]:
     """
     测试的主函数。
@@ -313,6 +349,10 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
         end_time = time.time() + aging_duration * SECONDS_PER_HOUR
         round_num = 0
         while time.time() < end_time:
+            ports,node_ids = check_port(valid_port=fail_port_list,total_port=ports,node_ids=node_ids)
+            if len(ports)==0:
+                logger.info('无可测试设备')
+                break
             round_num += 1
             logger.info(f"##########################第 {round_num} 轮测试开始######################\n")
             result = '通过'
@@ -421,7 +461,7 @@ def print_overall_result(overall_result):
             for timestamp, description, expected, content, result, comment in data_list:
                 logger.info(f" timestamp:{timestamp} ,description:{description},expected:{expected},content: {content}, Result: {result},comment:{comment}")
 if __name__ == "__main__":
-    ports = ['COM4']
-    node_ids = [2]
+    ports = ['COM3','COM4']
+    node_ids = [2,2]
     aging_duration = 0.01
     main(ports = ports, node_ids = node_ids, aging_duration = aging_duration)
