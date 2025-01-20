@@ -241,12 +241,12 @@ FINGER_P3             = 25000 # 无名指弯曲 P 值
 FINGER_P4             = 25000 # 小指弯曲 P 值
 FINGER_P5             = 25000 # 大拇指旋转 P 值
 
-FINGER_I0             = 500 # 大拇指弯曲 I 值
-FINGER_I1             = 500 # 食指弯曲 I 值
-FINGER_I2             = 500 # 中指弯曲 I 值
-FINGER_I3             = 500 # 无名指弯曲 I 值
-FINGER_I4             = 500 # 小指弯曲 I 值
-FINGER_I5             = 500 # 大拇指旋转 I 值
+FINGER_I0             = 200 # 大拇指弯曲 I 值
+FINGER_I1             = 200 # 食指弯曲 I 值
+FINGER_I2             = 200 # 中指弯曲 I 值
+FINGER_I3             = 200 # 无名指弯曲 I 值
+FINGER_I4             = 200 # 小指弯曲 I 值
+FINGER_I5             = 200 # 大拇指旋转 I 值
 
 
 FINGER_D0             = 25000 # 大拇指弯曲 D 值
