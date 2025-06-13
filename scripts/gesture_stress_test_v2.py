@@ -289,7 +289,7 @@ def main(ports: list = [], node_ids: list = [], aging_duration: float = 1.5) -> 
                 logger.info('测试暂停')
                 time.sleep(2)
                 continue
-            with concurrent.futures.ThreadPoolExecutor() as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=64) as executor:
                 futures = [executor.submit(test_single_port, port, node_id, connected_status) for port, node_id in zip(ports, node_ids)]
                 for future in concurrent.futures.as_completed(futures):
                     port_result, _ = future.result()
