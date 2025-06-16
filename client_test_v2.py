@@ -1478,7 +1478,7 @@ class ModbusClient:
         
     def connect(self):
         try:
-            self.serialclient = ModbusSerialClient(self.port, self.framer, self.baudrate)
+            self.serialclient = ModbusSerialClient(self.port, self.framer, self.baudrate,timeout=0.1)
             if not self.serialclient.connect():
                 raise ConnectionException(f"[port = {self.port}]Could not connect to Modbus device.")
             logger.info(f"[port = {self.port}]Successfully connected to Modbus device.")
